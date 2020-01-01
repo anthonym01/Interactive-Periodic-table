@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Meta Eliments-->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="description" content="Cordova app">
+    <meta name="keywords" content="none">
+    <meta name="author" content="Samuel A. Matheson">
+    <meta charset="utf-8">
+    
+    <!--Style sheets-->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" id="anim" href="">
+    
+    <title>Periodic Table</title>
+</head>
+<body>
+    <!-- Independent view containing information about eliments (will overlay other views) -->
+    <mainview id="Detail_view">
+        <div id="header">placeholder</div>
+        <div class="sub_pane" id="detail_pane"><!-- Detail pane (minor rework later)-->
+            <div id="represent_shader"></div>
+            <div id="background_representation" class="background_representation_passive" name="passive">
+                <div id="background_representation_description">placeholder</div>
+            </div>
+            <div class="eliment_container" id="detil_elem_color_container">
+                <div class="acr" id="detail_acr_main">Dg</div>
+                <div class="mass_number" id="detail_mass_num_main">420</div>
+                <div class="standard_atomic" id="detail_atomic_num_main">69</div>
+            </div>
+            <table class="detail_table" id="General_properties_table"><!-- General Properties -->
+                <tr>
+                    <th colspan="2">General properties</th>
+                </tr>
+                <tr>
+                    <td>Atomic #:</td>
+                    <td id="atomic_num">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>atomic Weight:</td>
+                    <td id="Standard_atomic_weight">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Group:</td>
+                    <td id="group">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Period:</td>
+                    <td id="period">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>block:</td>
+                    <td id="block">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td id="category">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Electron config:</td>
+                    <td id="Electron_configuration">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Electron shells:</td>
+                    <td id="Electrons_per_shell">Placeholder</td>
+                </tr>
+            </table>
+            <table class="detail_table" id="Physical_properties_table"><!-- Physical Properties -->
+                <tr>
+                    <th colspan="2">Physical properties</th>
+                </tr>
+                <tr>
+                    <td>Phase S.T.P.:</td>
+                    <td id="Phase_STP">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Melting Point <span id="meltpt_molicule"></span>:</td>
+                    <td>
+                        <table id="melt_table" class="sub_table">
+                            <tr>
+                                <td id="Melting_Point_Kelvin">Placeholder K</td>
+                            </tr>
+                            <tr>
+                                <td id="Melting_Point_Celcious">Placeholder C</td>
+                            </tr>
+                            <tr>
+                                <td id="Melting_Point_Ferinheight">Placeholder F</td>
+                            </tr>
+                        </table>
+                        <span id="melt_pt_noex"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Boiling Point <span id="boilpt_molicule"></span>:</td>
+                    <td>
+                        <table id="boil_table" class="sub_table">
+                            <tr>
+                                <td id="Boiling_Point_Kelvin">Placeholder K</td>
+                            </tr>
+                            <tr>
+                                <td id="Boiling_Point_Celcious">Placeholder C</td>
+                            </tr>
+                            <tr>
+                                <td id="Boiling_Point_Ferinheight">Placeholder F</td>
+                            </tr>
+                        </table>
+                        <span id="boil_pt_noex"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sublimation Point <span id="Sublimation_point_molicule"></span>:</td>
+                    <td>
+                        <table id="sublime_table" class="sub_table">
+                            <tr>
+                                <td id="Sublimation_point_Kelvin">Placeholder K</td>
+                            </tr>
+                            <tr>
+                                <td id="Sublimation_point_Celcious">Placeholder C</td>
+                            </tr>
+                            <tr>
+                                <td id="Sublimation_point_Ferinheight">Placeholder F</td>
+                            </tr>
+                        </table>
+                        <span id="sub_pt_noex"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Density:</td>
+                    <td id="Density">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Triple Point:</td>
+                    <td id="Triple_point">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Critical Point:</td>
+                    <td id="Critical_point">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Heat of fusion:</td>
+                    <td id="Heat_of_fusion">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Heat of vaporization:</td>
+                    <td id="Heat_of_vaporization">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Molar Heat Capacity:</td>
+                    <td id="Molar_heat_capacity">Placeholder</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table class="sub_table">
+                            <tr>
+                                <td colspan="7">Vapor Pressure:</td>
+                            </tr>
+                            <tr>
+                                <td>Pa</td>
+                                <td>1</td>
+                                <td>10</td>
+                                <td>100</td>
+                                <td>1k</td>
+                                <td>10k</td>
+                                <td>100k</td>
+                            </tr>
+                            <tr>
+                                <td>°K</td>
+                                <td id="t_1"></td>
+                                <td id="t_10"></td>
+                                <td id="t_100"></td>
+                                <td id="t_1k"></td>
+                                <td id="t_10k"></td>
+                                <td id="t_100k"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Appearance:</td>
+                    <td id="Appearance">Placeholder</td>
+                </tr>
+            </table>
+            <table class="detail_table" id="atomic_properties_table"><!-- Atomic Properties -->
+                <tr>
+                    <th colspan="2">Atomic properties</th>
+                </tr>
+                <tr>
+                    <td>Oxydation:</td>
+                    <td id="Oxydation">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity:</td>
+                    <td id="Electronegativity">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energies:</td>
+                    <td id="Ionization_energies">Placeholder</td>
+                </tr>
+                <tr id="Atomic_radius_row">
+                    <td>Atomic radius:</td>
+                    <td id="Atomic_radius"></td>
+                </tr>
+                <tr>
+                    <td>Covalent Radius:</td>
+                    <td id="Covalent_radius">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Van der Waals:</td>
+                    <td id="Van_der_Waals_radius">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Natural Occurrence:</td>
+                    <td id="Natural_occurrence">Placeholder</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table class="sub_table">
+                            <tr>
+                                <td colspan="2">Spectrum:</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div id="spectrum_bar">
+                                        <div class="spectrum_neddle"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+            <table class="detail_table" id="Other_properties_table"><!-- Other Properties -->
+                <tr>
+                    <th colspan="2">Other properties</th>
+                </tr>
+                <tr>
+                    <td>Crystal Structure:</td>
+                    <td id="Crystal_structure">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Speed of sound:</td>
+                    <td id="Speed_of_sound">Placeholder</td>
+                </tr>
+                <tr id="Thermal_expansion_row">
+                    <td>Thermal expansion:</td>
+                    <td id="Thermal_expansion"></td>
+                </tr>
+                <tr>
+                    <td>Thermal Conductivity:</td>
+                    <td id="Thermal_Conductivity">Placeholder</td>
+                </tr>
+                <tr id="Electrical_resistivity_row">
+                    <td>Electrical resistivity:</td>
+                    <td id="Electrical_resistivity">Placeholder</td>
+                </tr>
+                <tr id="Magnetic_ordering_row">
+                    <td>Magnetic ordering:</td>
+                    <td id="Magnetic_ordering">Placeholder</td>
+                </tr>
+                <tr>
+                    <td>Magnetic Susceptibility:</td>
+                    <td id="Magnetic_susceptibility">Placeholder</td>
+                </tr>
+                <tr id="Youngs_modulus_row">
+                    <td>Youngs modulus</td>
+                    <td id="Youngs_modulus">Placeholder</td>
+                </tr>
+                
+                <tr id="Shear_modulus_row">
+                    <td>Shear modulus:</td>
+                    <td id="Shear_modulus">Placeholder</td>
+                </tr>
+                
+                <tr id="Bulk_modulus_row">
+                    <td>Bulk modulus:</td>
+                    <td id="Bulk_modulus">Placeholder</td>
+                </tr>
+                <tr id="Poisson_ratio_row">
+                    <td>Poisson ratio:</td>
+                    <td id="Poisson_ratio">Placeholder</td>
+                </tr>
+                <tr id="Mohs_hardness_row">
+                    <td>Mohs hardness:</td>
+                    <td id="Mohs_hardness">Placeholder</td>
+                </tr>
+                <tr id="Vickers_hardness_row">
+                    <td>Vickers hardness:</td>
+                    <td id="Vickers_hardness">Placeholder</td>
+                </tr>
+                <tr id="Brinell_hardness_row">
+                    <td>Brinell hardness:</td>
+                    <td id="Brinell_hardness">Placeholder</td>
+                </tr>
+                <tr title="Eliment ID number">
+                    <td>C.A.S. Number:</td>
+                    <td id="CAS_Number">Placeholder</td>
+                </tr>
+                <!--Interesting fact here-->
+            </table>
+        </div>
+        <div class="sub_pane" id="isotope_pane"><!-- Isotope pane -->
+        </div>
+        <div class="sub_nav" id="sub_nav"><!-- Subnavigation -->
+            <button id="detail_btn">Details</button>
+            <button id="isotope_btn">Isotope</button>
+            buttons temporary, swipe to be configured
+        </div>
+    </mainview>
+
+    <!--  list view  -->
+    <mainview id="list_view"><!-- Rendered via script -->
+
+    </mainview>
+
+    <!--  Table view  -->
+    <mainview id="table_view">
+        placeholder table view
+    </mainview>
+
+    <!--  Setting view  -->
+    <mainview id="setting_view">
+        
+        <div class="setting_toggle" id="Animations_btn" title="toggle Animations">
+            <div class="text">Animations</div>
+            <div class="switch_container_active" id="Animations_switch_container">
+                <div class="switchbdy" id="Animations_switchbdy"><div class="switch_knob"></div></div>
+            </div>
+        </div>
+
+        <div class="setting_toggle" id="about_btn" title="Copies contact info to clipboard">About</div>
+    </mainview>
+
+    <!--  Footer nav  -->
+    <div class="footnav">
+        <div class="navbtn" id="list_btn"><div id="list_icon" class="navcon"></div></div>
+        <div class="navbtn" id="table_btn"><div id="table_icon" class="navcon"></div></div>
+        <div class="navbtn" id="setting_btn"><div id="setting_icon" class="navcon"></div></div>
+    </div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
