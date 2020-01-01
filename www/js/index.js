@@ -6486,6 +6486,24 @@ let atom_info = {// information dispensing utility
             document.getElementById("isotope_pane").appendChild(isotopic_container);
         }
     },
+    next:function(){
+        console.warn('Next atom clled')
+        if(config.properties.current_atom==117){
+            console.warn('There is no (known) atom past 117');
+        }else{
+            console.log('Going to next atom');
+            this.populate(config.properties.current_atom+1);
+        }
+    },
+    previous:function(){
+        console.warn('Previous atom clled')
+        if(config.properties.current_atom==0){
+            console.warn('There is no (known) atom past below 0');
+        }else{
+            console.log('Going to previous atom');
+            this.populate(config.properties.current_atom-1);
+        }
+    },
     show:function(){
         console.log('Show atomic info show');
         document.getElementById('Detail_view').style.opacity="1.0";//changing property while no display nullifies transition
