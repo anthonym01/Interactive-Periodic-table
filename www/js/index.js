@@ -155,15 +155,19 @@ let atom_info = {// information dispensing utility
         
         function touchstartup(){
             console.warn('Atomic info uses touch actions');
-            document.getElementById('detail_btn').addEventListener('touchstart',atom_info.navDETAIL);
-            document.getElementById('isotope_btn').addEventListener('touchstart',atom_info.navISOTOPE);
+            document.getElementById('detail_btn').addEventListener('touchstart',atom_info.navDETAIL)
+            document.getElementById('isotope_btn').addEventListener('touchstart',atom_info.navISOTOPE)
             document.getElementById('background_representation').addEventListener('touchstart',atom_info.BKG_img_action)
+            document.getElementById('next_btn').addEventListener('touchstart',atom_info.next)
+            document.getElementById('previous_btn').addEventListener('touchstart',atom_info.previous)
         }
         function clickstartup(){
             console.warn('Atomic info uses click actions');
             document.getElementById('detail_btn').addEventListener('click',atom_info.navDETAIL);
             document.getElementById('isotope_btn').addEventListener('click',atom_info.navISOTOPE);
             document.getElementById('background_representation').addEventListener('click',atom_info.BKG_img_action)
+            document.getElementById('next_btn').addEventListener('click',atom_info.next)
+            document.getElementById('previous_btn').addEventListener('click',atom_info.previous)
         }
         this.render_list();//very important blyat
     },
@@ -6492,7 +6496,7 @@ let atom_info = {// information dispensing utility
             console.warn('There is no (known) atom past 117');
         }else{
             console.log('Going to next atom');
-            this.populate(config.properties.current_atom+1);
+            atom_info.populate(config.properties.current_atom+1);
         }
     },
     previous:function(){
@@ -6501,7 +6505,7 @@ let atom_info = {// information dispensing utility
             console.warn('There is no (known) atom past below 0');
         }else{
             console.log('Going to previous atom');
-            this.populate(config.properties.current_atom-1);
+            atom_info.populate(config.properties.current_atom-1);
         }
     },
     show:function(){
