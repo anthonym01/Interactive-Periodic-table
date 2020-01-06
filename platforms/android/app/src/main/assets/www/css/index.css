@@ -4,7 +4,7 @@
 @font-face{src:url(../fonts/Minecrafter.Alt.ttf); font-family: minecraft_cracked;}/* Minecraft cracked font */
 @font-face {src: url(../fonts/LexendDeca-Regular.ttf); font-family: Lexend_Deca;}
 /*   <--  Portrait layout -->   */
-.colorponker{background-color: hsl(199, 100%, 50%) ;}
+.colorponker{background-color: hsl(214, 100%, 50%) ;}
 @media screen{
     body {
         -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
