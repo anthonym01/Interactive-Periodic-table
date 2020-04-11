@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.ANTHONYM.pt;
+package com.ANTHONYM.periodictable;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
