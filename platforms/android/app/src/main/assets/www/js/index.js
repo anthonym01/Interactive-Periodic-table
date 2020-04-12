@@ -106,45 +106,6 @@ var config = {//Configuration handler
     }
 }
 
-let utility = {//Some usefull things
-    /*  Close the app   */
-    close: function () {
-        config.save();
-        if (navigator.app) {
-            navigator.app.exitApp();
-        } else if (navigator.device) {
-            navigator.device.exitApp();
-        } else {
-            window.close();
-        }
-    },
-    /*  Produce toast messages    */
-    toast: function (text, durration_in_ms, position_top_right_left_bottom, offset_in_px) {
-        if (position_top_right_left_bottom == undefined) { position_top_right_left_bottom = 'bottom' }//default the position
-        if (durration_in_ms == undefined) { durration_in_ms = 4000 }//default the duration
-        if (offset_in_px == undefined) { offset_in_px = -160 }//default the offset
-        window.plugins.toast.showWithOptions({ message: text, duration: durration_in_ms, position: position_top_right_left_bottom, addPixelsY: offset_in_px });
-    },
-    /*  Push text to the keyboard   */
-    clipboard: function (textpush) {
-        copyText.toString(); //Makes it a string so the clipboard will accept it
-        var temptxtbox = document.createElement("input"); //creates an 'input' element and assigns it to 'temptxtbox'
-        document.body.appendChild(temptxtbox); //Puts the input element into the document
-        temptxtbox.setAttribute("id", "temp_copy"); //Assigns an id to the input element
-        document.getElementById("temp_copy").value = copyText; //Puts the txt u want to copy into the input element
-        temptxtbox.select(); //Makes the curser select the text that's in the input element
-        document.execCommand("copy"); //Commands the document to copy the selected text
-        document.body.removeChild(temptxtbox); //Removes the input element from the document
-    },
-    /*  Produce Random numbers  */
-    rand: {
-        HEX: function () { return '#' + Math.floor(Math.random() * 16777215).toString(16) /* hex color code */ },
-        RGB: function () { return { RED: this.number(255, 0), GREEN: this.number(255, 0), BLUE: this.number(255, 0) } /* object with RGB color code */ },
-        HSL: function () { return { HUE: this.number(360, 0), SATURATION: this.number(100, 0) + '%', LIGHTENESS: this.number(100, 1) + '%' }/* HSL color code */ },
-        number(max, min) { return Math.floor(Math.random() * (max - min + 1)) + min /* Random number*/ }
-    },
-}
-
 let atom_info = {// information dispensing utility
     initialize: function () {
         console.warn('Atomic info initalized');
@@ -6371,7 +6332,9 @@ let atom_info = {// information dispensing utility
     /* Detail pannel actions */
     populate: function (index) {// Populate atomic details pannel based on data in array
         console.log('Papulate with atom: ', index + 1);
-        atom_info.show();
+        document.getElementById('detail_btn').style.borderColor='hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+        document.getElementById('isotope_btn').style.borderColor='hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+        
         if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
             config.properties.current_atom = index;//set current render (will be usefull later)
             //prep the page
@@ -6521,6 +6484,7 @@ let atom_info = {// information dispensing utility
                 i++;
             }
         } else { console.warn('Already populated', index + 1) }
+
         function render_spectrum(represent) {
             var needle = document.createElement('div');
             needle.setAttribute("class", "spectrum_neddle");
@@ -6589,6 +6553,7 @@ let atom_info = {// information dispensing utility
             table.appendChild(rad_row);
             document.getElementById("isotope_pane").appendChild(isotopic_container);
         }
+        atom_info.show();
     },
     next: function () {
         console.warn('Next atom clled')
@@ -6644,11 +6609,15 @@ let atom_info = {// information dispensing utility
         console.log('Detail nav');
         document.getElementById('detail_pane').style.transform = "translate(0,0)"
         document.getElementById('isotope_pane').style.transform = "translate(100%,0)"
+        document.getElementById('detail_btn').classList="Detail_btn_active"
+        document.getElementById('isotope_btn').classList="Detail_btn"
     },
     navISOTOPE: function () {//"scroll" to isotope sub pannel
         console.log('Isotope nav');
         document.getElementById('detail_pane').style.transform = "translate(-100%,0)"
         document.getElementById('isotope_pane').style.transform = "translate(0,0)"
+        document.getElementById('detail_btn').classList="Detail_btn"
+        document.getElementById('isotope_btn').classList="Detail_btn_active"
     },
     BKG_img_action: function () {
         if (document.getElementById('background_representation').className == "background_representation_passive") {
@@ -6789,5 +6758,44 @@ let UI = {//for general UI thingys
                 document.getElementById('anim').href = "css/noanime.css";//nomation sheet removes animations
             }
         },
+    },
+}
+
+let utility = {//Some usefull things
+    /*  Close the app   */
+    close: function () {
+        config.save();
+        if (navigator.app) {
+            navigator.app.exitApp();
+        } else if (navigator.device) {
+            navigator.device.exitApp();
+        } else {
+            window.close();
+        }
+    },
+    /*  Produce toast messages    */
+    toast: function (text, durration_in_ms, position_top_right_left_bottom, offset_in_px) {
+        if (position_top_right_left_bottom == undefined) { position_top_right_left_bottom = 'bottom' }//default the position
+        if (durration_in_ms == undefined) { durration_in_ms = 4000 }//default the duration
+        if (offset_in_px == undefined) { offset_in_px = -160 }//default the offset
+        window.plugins.toast.showWithOptions({ message: text, duration: durration_in_ms, position: position_top_right_left_bottom, addPixelsY: offset_in_px });
+    },
+    /*  Push text to the keyboard   */
+    clipboard: function (textpush) {
+        copyText.toString(); //Makes it a string so the clipboard will accept it
+        var temptxtbox = document.createElement("input"); //creates an 'input' element and assigns it to 'temptxtbox'
+        document.body.appendChild(temptxtbox); //Puts the input element into the document
+        temptxtbox.setAttribute("id", "temp_copy"); //Assigns an id to the input element
+        document.getElementById("temp_copy").value = copyText; //Puts the txt u want to copy into the input element
+        temptxtbox.select(); //Makes the curser select the text that's in the input element
+        document.execCommand("copy"); //Commands the document to copy the selected text
+        document.body.removeChild(temptxtbox); //Removes the input element from the document
+    },
+    /*  Produce Random numbers  */
+    rand: {
+        HEX: function () { return '#' + Math.floor(Math.random() * 16777215).toString(16) /* hex color code */ },
+        RGB: function () { return { RED: this.number(255, 0), GREEN: this.number(255, 0), BLUE: this.number(255, 0) } /* object with RGB color code */ },
+        HSL: function () { return { HUE: this.number(360, 0), SATURATION: this.number(100, 0) + '%', LIGHTENESS: this.number(100, 1) + '%' }/* HSL color code */ },
+        number(max, min) { return Math.floor(Math.random() * (max - min + 1)) + min /* Random number*/ }
     },
 }

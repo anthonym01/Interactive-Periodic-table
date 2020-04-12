@@ -39,7 +39,7 @@
         /* prevent webkit from resizing text to fit */
         -webkit-user-select: none;
         /* prevent copy paste, to allow, change 'none' to 'text' */
-        font-family: Lexend_Deca ,system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+        font-family: Lexend_Deca, system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
         margin: 0px;
         padding: 0px;
         /* Padding to avoid the "unsafe" areas behind notches in the screen */
@@ -155,7 +155,8 @@
         overflow-y: scroll;
     }
 
-    .eleiment_blob,.eleiment_blob_inverse {
+    .eleiment_blob,
+    .eleiment_blob_inverse {
         /*  The scrollable rectabgular bars */
         position: relative;
         height: 25vw;
@@ -173,11 +174,13 @@
         text-shadow: 0vw 0vw 0.5vw #000;
         color: #fff;
     }
-    .eleiment_blob_inverse{
+
+    .eleiment_blob_inverse {
         color: rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255) ;
+        background-color: rgb(255, 255, 255);
         text-shadow: 0vw 0vw 0.5vw #fff;
     }
+
     .eleiment_blob:active {
         /*  Transition for effect  */
         color: rgb(0, 0, 0) !important;
@@ -185,7 +188,7 @@
         text-shadow: 0vw 0vw 0.5vw #fff !important;
         transition-duration: 0ms !important;
     }
-    
+
     .eleiment_blob_inverse:active {
         /*  Transition for effect  */
         color: rgb(255, 255, 255) !important;
@@ -206,9 +209,9 @@
     .eliment_container .acr {
         /* Eliment acronym */
         position: absolute;
-        top: 2vw;
+        top: 3vw;
         height: 17vw;
-        font-size: 16vw;
+        font-size: 15vw;
         right: 0;
         width: 100%;
         text-align: center;
@@ -307,13 +310,28 @@
         top: 0;
         right: 0;
         width: 100vw;
-        height: 10vw;
+        height: 9vw;
         background-color: rgb(46, 46, 46);
         box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
+        display: flex;
+        flex-wrap: nowrap;
+
     }
 
-    .sub_nav button {
-        float: left;
+    .Detail_btn,
+    .Detail_btn_active {
+        height: 100%;
+        width: 50%;
+        font-size: 6vw;
+        background-color: rgb(46, 46, 46);
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .Detail_btn_active {
+        border-bottom: 1vw solid;
     }
 
     /* TEMP */
