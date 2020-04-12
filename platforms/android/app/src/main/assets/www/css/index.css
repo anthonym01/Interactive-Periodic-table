@@ -1,32 +1,76 @@
-* {-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */}
-@font-face{src:url(../fonts/handwriting-black-draft_DEMO.otf); font-family: handwriting;}/* Handwriting font */
-@font-face{src:url(../fonts/Minecrafter.Reg.ttf); font-family: minecraft;}/* Minecraft clean font */
-@font-face{src:url(../fonts/Minecrafter.Alt.ttf); font-family: minecraft_cracked;}/* Minecraft cracked font */
-@font-face {src: url(../fonts/LexendDeca-Regular.ttf); font-family: Lexend_Deca;}
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    src: url(../fonts/handwriting-black-draft_DEMO.otf);
+    font-family: handwriting;
+}
+
+/* Handwriting font */
+@font-face {
+    src: url(../fonts/Minecrafter.Reg.ttf);
+    font-family: minecraft;
+}
+
+/* Minecraft clean font */
+@font-face {
+    src: url(../fonts/Minecrafter.Alt.ttf);
+    font-family: minecraft_cracked;
+}
+
+/* Minecraft cracked font */
+@font-face {
+    src: url(../fonts/LexendDeca-Regular.ttf);
+    font-family: Lexend_Deca;
+}
+
 /*   <--  Portrait layout -->   */
-.colorponker{background-color: hsl(59, 100%, 82%) ;}
-@media screen{
+.colorponker {
+    background-color: hsl(59, 100%, 82%);
+}
+
+@media screen {
     body {
-        -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-        -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-        -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-        font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-        margin:0px;
-        padding:0px;                                /* Padding to avoid the "unsafe" areas behind notches in the screen */
+        -webkit-touch-callout: none;
+        /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;
+        /* prevent webkit from resizing text to fit */
+        -webkit-user-select: none;
+        /* prevent copy paste, to allow, change 'none' to 'text' */
+        font-family: Lexend_Deca ,system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+        margin: 0px;
+        padding: 0px;
+        /* Padding to avoid the "unsafe" areas behind notches in the screen */
         padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-        height:100vh;
-        width:100vw;
-        background-color:rgb(0, 0, 0);
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
     }
 
     /*Scrollbar custom*/
-    ::-webkit-scrollbar-track {background: rgb(0, 0, 0);}/*Scrollbar background*/
-    ::-webkit-scrollbar-thumb {z-index: 9999;background: rgb(170, 170, 170);}/*scrollbar thumb*/
-    ::-webkit-scrollbar-thumb:active {background: rgb(255, 255, 255);}/*activeing on scrollbar thumb*/
+    ::-webkit-scrollbar-track {
+        background: rgb(0, 0, 0);
+    }
+
+    /*Scrollbar background*/
+    ::-webkit-scrollbar-thumb {
+        z-index: 9999;
+        background: rgb(170, 170, 170);
+    }
+
+    /*scrollbar thumb*/
+    ::-webkit-scrollbar-thumb:active {
+        background: rgb(255, 255, 255);
+    }
+
+    /*activeing on scrollbar thumb*/
 
     /*  Footer navigtion  */
-    .footnav{/* Footer meat */
+    .footnav {
+        /* Footer meat */
         position: absolute;
         bottom: 0;
         left: 0;
@@ -35,7 +79,10 @@
         z-index: 100;
         background-color: rgb(46, 46, 46);
     }
-    .navbtn,.navbtn_ative{/*  Buttons containing icons  */
+
+    .navbtn,
+    .navbtn_ative {
+        /*  Buttons containing icons  */
         position: relative;
         height: 7vh;
         width: 33.33vw;
@@ -43,8 +90,15 @@
         float: left;
         transition: background-color 500ms;
         cursor: pointer;
-    }.navbtn_ative{background-color:rgb(0, 173, 9);}
-    .navbtn .navcon,.navbtn_ative .navcon{/*  Relitiveistic icon positioning(shifting based on device type)  */
+    }
+
+    .navbtn_ative {
+        background-color: rgb(0, 173, 9);
+    }
+
+    .navbtn .navcon,
+    .navbtn_ative .navcon {
+        /*  Relitiveistic icon positioning(shifting based on device type)  */
         background-size: contain;
         background-repeat: no-repeat;
         height: 7vh;
@@ -54,15 +108,39 @@
         margin-left: auto;
         transition: transform 300ms;
     }
-    .navbtn #setting_icon{background-image: url('../img/setting.webp');transform: rotate(0deg);}/*  Setting Icon  */
-    .navbtn_ative #setting_icon{background-image: url('../img/setting.webp');transform: rotate(90deg);}
-    .navbtn #table_icon{background-image: url('../img/icon.png')}/*  Table Icon  */
-    .navbtn_ative #table_icon{background-image: url('../img/icon.png')}
-    .navbtn #list_icon{background-image: url('../img/Clip-dark-closes.webp')}/*  List Icon  */
-    .navbtn_ative #list_icon{background-image: url('../img/Clip-dark.webp')}
+
+    .navbtn #setting_icon {
+        background-image: url('../img/setting.webp');
+        transform: rotate(0deg);
+    }
+
+    /*  Setting Icon  */
+    .navbtn_ative #setting_icon {
+        background-image: url('../img/setting.webp');
+        transform: rotate(90deg);
+    }
+
+    .navbtn #table_icon {
+        background-image: url('../img/icon.png')
+    }
+
+    /*  Table Icon  */
+    .navbtn_ative #table_icon {
+        background-image: url('../img/icon.png')
+    }
+
+    .navbtn #list_icon {
+        background-image: url('../img/Clip-dark-closes.webp')
+    }
+
+    /*  List Icon  */
+    .navbtn_ative #list_icon {
+        background-image: url('../img/Clip-dark.webp')
+    }
 
 
-    mainview{/* main view screens */
+    mainview {
+        /* main view screens */
         position: absolute;
         top: 0;
         left: 0;
@@ -73,94 +151,131 @@
     }
 
     /*  List view  */
-    #list_view{
+    #list_view {
         overflow-y: scroll;
     }
-    .eleiment_blob{/*  The scrollable rectabgular bars */
+
+    .eleiment_blob,.eleiment_blob_inverse {
+        /*  The scrollable rectabgular bars */
         position: relative;
-        height:25vw;
-        width:95vw;
-        border-radius: 5vw!important;
-        background-color: rgb(128, 128, 128);/* debug colors */
+        height: 25vw;
+        width: 95vw;
+        border-radius: 5vw !important;
+        background-color: rgb(128, 128, 128);
+        /* debug colors */
         margin-top: 4vw;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 4vw;
         overflow: hidden;
         cursor: pointer;
-        transition: color 300ms,background-color 300ms;
+        transition: color 300ms, background-color 300ms;
         text-shadow: 0vw 0vw 0.5vw #000;
+        color: #fff;
     }
-    .eleiment_blob:active{/*  Transition for effect  */
-        color: rgb(0, 0, 0)!important;
-        background-color: rgb(255, 255, 255)!important;
-        text-shadow: 0vw 0vw 0.5vw #fff!important;
-        transition-duration:0ms!important;
+    .eleiment_blob_inverse{
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255) ;
+        text-shadow: 0vw 0vw 0.5vw #fff;
     }
-        /*  The semi-square with the eliment details  */
-    .eliment_container{
+    .eleiment_blob:active {
+        /*  Transition for effect  */
+        color: rgb(0, 0, 0) !important;
+        background-color: rgb(255, 255, 255) !important;
+        text-shadow: 0vw 0vw 0.5vw #fff !important;
+        transition-duration: 0ms !important;
+    }
+    
+    .eleiment_blob_inverse:active {
+        /*  Transition for effect  */
+        color: rgb(255, 255, 255) !important;
+        background-color: rgb(0, 0, 0) !important;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255) !important;
+        transition-duration: 0ms !important;
+    }
+
+    /*  The semi-square with the eliment details  */
+    .eliment_container {
         position: relative;
-        height:25vw;
+        height: 25vw;
         width: 25vw;
-        background-color: cornflowerblue;/* begug color */
+        background-color: cornflowerblue;
+        /* begug color */
     }
-    .eliment_container .acr{/* Eliment acronym */
+
+    .eliment_container .acr {
+        /* Eliment acronym */
         position: absolute;
-        top:2vw;
+        top: 2vw;
         height: 17vw;
         font-size: 16vw;
-        right:0;
+        right: 0;
         width: 100%;
         text-align: center;
         font-family: Lexend_Deca;
     }
-    .eliment_container .standard_atomic{/* Top number */
+
+    .eliment_container .standard_atomic {
+        /* Top number */
         position: absolute;
-        top:0.5vw;
-        right:2vw;
+        top: 0.5vw;
+        right: 2vw;
         font-size: 6vw;
         width: 12vw;
         text-align: right;
     }
-    .eliment_container .mass_number{/* Bottom number */
+
+    .eliment_container .mass_number {
+        /* Bottom number */
         position: absolute;
-        bottom:0vw;
-        right:0vw;
+        bottom: 0vw;
+        right: 0vw;
         font-size: 4.5vw;
         width: 100%;
         text-align: center;
     }
-        /* Details to the right of the bar */
-    .eliment_details{
+
+    /* Details to the right of the bar */
+    .eliment_details {
         position: absolute;
-        top:0;
-        right:0;
+        top: 0;
+        right: 0;
         height: 100%;
         width: 70vw;
     }
-    .eliment_details .name{/* Name at top */
+
+    .eliment_details .name {
+        /* Name at top */
         position: absolute;
-        top:1vw;
-        right:0;
+        top: 1vw;
+        right: 0;
         height: auto;
         width: 100%;
         font-size: 8vw;
         text-align: center;
         font-family: Lexend_Deca;
     }
-    .eliment_details .electron_config,.Oxidation{/* Electron shell numbers */
+
+    .eliment_details .electron_config,
+    .Oxidation {
+        /* Electron shell numbers */
         position: absolute;
-        bottom:5.5vw;
-        right:33%;
-        width:67%;
+        bottom: 5.5vw;
+        right: 33%;
+        width: 67%;
         font-family: Lexend_Deca;
         font-size: 4vw;
         text-align: center;
         overflow: visible;
         white-space: pre-wrap;
     }
-    .eliment_details .electron_config{ bottom:0.5vw }
-    .eliment_details .group{/*  Class grouping  */
+
+    .eliment_details .electron_config {
+        bottom: 0.5vw
+    }
+
+    .eliment_details .group {
+        /*  Class grouping  */
         position: absolute;
         bottom: 0.5vw;
         right: 3%;
@@ -171,52 +286,69 @@
     }
 
     /*  Table view  */
-    #table_view{
+    #table_view {
         overflow: scroll;
     }
 
     /* Detail View */
-    #Detail_view{/* View repurposed to serve as an information pannel */
+    #Detail_view {
+        /* View repurposed to serve as an information pannel */
         overflow-y: scroll;
         overflow-x: hidden;
         z-index: 50;
         opacity: 0;
-        transition: transform 300ms,opacity 300ms;
-        transform: translate(0,100%);
+        transition: transform 300ms, opacity 300ms;
+        transform: translate(0, 100%);
     }
-    .sub_nav{/* Sub navigation (pannel to pannel) */
+
+    .sub_nav {
+        /* Sub navigation (pannel to pannel) */
         position: absolute;
-        top:0;
-        right:0;
+        top: 0;
+        right: 0;
         width: 100vw;
-        height:10vw;
+        height: 10vw;
         background-color: rgb(46, 46, 46);
         box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
     }
-    .sub_nav button{float: left;}/* TEMP */
-    #Detail_view #header{/* Header == Name of elimement at top */
+
+    .sub_nav button {
+        float: left;
+    }
+
+    /* TEMP */
+    #Detail_view #header {
+        /* Header == Name of elimement at top */
         position: absolute;
-        top:10vw;
+        top: 10vw;
         width: 100vw;
         font-size: 10vw;
         font-family: Lexend_Deca;
         text-align: center;
-        margin:none!important;
+        margin: none !important;
     }
-    .sub_pane{/* basically scrollable sub views */
+
+    .sub_pane {
+        /* basically scrollable sub views */
         overflow-y: scroll;
         position: absolute;
-        top:25vw;
+        top: 25vw;
         width: 100vw;
-        height:auto;
+        height: auto;
         min-height: 75vh;
-        padding-bottom:3vw;
+        padding-bottom: 3vw;
         transition: transform 300ms;
     }
-        /*  Detail pannel  */
-    #detail_pane{transform: translate(0,0);}
-    .background_representation_passive,.background_representation_active{/* Eliment background image */
-        top:-12vw;
+
+    /*  Detail pannel  */
+    #detail_pane {
+        transform: translate(0, 0);
+    }
+
+    .background_representation_passive,
+    .background_representation_active {
+        /* Eliment background image */
+        top: -12vw;
         left: 0;
         position: absolute;
         width: 100vw;
@@ -227,69 +359,88 @@
         background-image: url('../img/Eliments/1.webp');
         transition: all 300ms;
     }
-    .background_representation_active{/*  Active image brought to front  */
-        top:0;
+
+    .background_representation_active {
+        /*  Active image brought to front  */
+        top: 0;
         height: 100vw;
         z-index: 100;
         background-size: contain;
     }
-    .background_representation_passive #background_representation_description{display: none;}/* Background image with picture */
-    .background_representation_active #background_representation_description{
+
+    .background_representation_passive #background_representation_description {
+        display: none;
+    }
+
+    /* Background image with picture */
+    .background_representation_active #background_representation_description {
         display: block;
         font-family: Lexend_Deca;
         position: absolute;
         left: 5vw;
-        width:90vw;
+        width: 90vw;
         white-space: pre-line;
         bottom: 0;
         text-align: center;
         font-size: 6vw;
-        text-shadow:0vw 0vw 2vw #000000,0vw 0vw 4vw hsl(0, 0%, 0%);
+        text-shadow: 0vw 0vw 2vw #000000, 0vw 0vw 4vw hsl(0, 0%, 0%);
     }
-    #represent_shader{/* darken the detail table */
+
+    #represent_shader {
+        /* darken the detail table */
         z-index: 90;
         position: absolute;
         display: none;
         height: 100%;
         width: 100%;
-        top:0;
+        top: 0;
         right: 0;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0, 0, 0, 0.7);
     }
-    #detail_pane .eliment_container{/* Eliment square in the detail view */
+
+    #detail_pane .eliment_container {
+        /* Eliment square in the detail view */
         margin-left: 2vw;
         margin-top: 22vw;
         text-shadow: 0vw 0vw 0.5vw #000;
     }
-    #detail_pane .acr{/* Eliment acronym */
+
+    #detail_pane .acr {
+        /* Eliment acronym */
         position: absolute;
-        top:2vw;
+        top: 2vw;
         height: 17vw;
         font-size: 16vw;
-        right:0;
+        right: 0;
         width: 100%;
         text-align: center;
         font-family: Lexend_Deca;
     }
-    #detail_pane .standard_atomic{/* Top number */
+
+    #detail_pane .standard_atomic {
+        /* Top number */
         position: absolute;
-        top:0.5vw;
-        right:2vw;
+        top: 0.5vw;
+        right: 2vw;
         font-size: 6vw;
         width: 12vw;
         text-align: right;
     }
-    #detail_pane .mass_number{/* Bottom number */
+
+    #detail_pane .mass_number {
+        /* Bottom number */
         position: absolute;
-        bottom:0vw;
-        right:0vw;
+        bottom: 0vw;
+        right: 0vw;
         font-size: 4.5vw;
         width: 100%;
         text-align: center;
     }
-    .detail_table{/* Table with variety of eliment details */
+
+    .detail_table {
+        /* Table with variety of eliment details */
         position: relative;
-        margin-top:5vw;
+        margin-top: 5vw;
         table-layout: fixed;
         border-collapse: collapse;
         height: auto;
@@ -300,28 +451,34 @@
         box-shadow: 0vw 0vw 3vw #0055ff;
         overflow: hidden;
     }
+
     .detail_table tr:nth-child(even) {
         background-color: rgb(36, 36, 36);
     }
-    .detail_table tr:active{
+
+    .detail_table tr:active {
         color: black;
         background-color: white;
         transition: background-color 0ms;
     }
-    .detail_table td,th{
+
+    .detail_table td,
+    th {
         font-family: Lexend_Deca;
-        padding-top:2vw;
-        padding-bottom:2vw;
-        font-size:4.5vw;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        font-size: 4.5vw;
         text-align: center;
         align-content: center;
         transition: background-color 300ms;
     }
-    .detail_table th{
-        font-size:7vw;
+
+    .detail_table th {
+        font-size: 7vw;
         text-shadow: 0vw 0vw 3vw #000000;
     }
-    .sub_table{
+
+    .sub_table {
         font-size: 4vw;
         position: relative;
         table-layout: fixed;
@@ -329,32 +486,52 @@
         height: auto;
         width: 100%;
     }
-    .sub_table tr{background: none!important;}
-    #spectrum_bar{
+
+    .sub_table tr {
+        background: none !important;
+    }
+
+    #spectrum_bar {
         position: relative;
         width: 100%;
-        background-image: linear-gradient(90deg,hsl(0, 0%, 0%),hsl(235, 100%, 50%),hsl(172, 100%, 50%),hsl(125, 100%, 50%),hsl(59, 100%, 50%),hsl(0, 100%, 50%),hsl(0, 0%, 0%));
-        height:8vw;
-    }#spectrum_bar::after{content: "Implimentation incomplete";position: absolute;top:0;right: 0;height: 100%;width: 100%;}
+        background-image: linear-gradient(90deg, hsl(0, 0%, 0%), hsl(235, 100%, 50%), hsl(172, 100%, 50%), hsl(125, 100%, 50%), hsl(59, 100%, 50%), hsl(0, 100%, 50%), hsl(0, 0%, 0%));
+        height: 8vw;
+    }
 
-    #spectrum_bar .spectrum_neddle{
+    #spectrum_bar::after {
+        content: "Implimentation incomplete";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    #spectrum_bar .spectrum_neddle {
         position: absolute;
         bottom: 0;
-        left:0;
+        left: 0;
         height: 80%;
         width: 0;
         border-left: 0.5vw solid rgb(255, 255, 255);
     }
-        /*  Isotope pannel  */
-    #isotope_pane{transform: translate(100%,0);}
-    .isotopic_container{ /* Bars in disguise */
+
+    /*  Isotope pannel  */
+    #isotope_pane {
+        transform: translate(100%, 0);
+    }
+
+    .isotopic_container {
+        /* Bars in disguise */
         position: relative;
         height: 35vw;
         width: 100vw;
         margin-top: 3vw;
         margin-bottom: 3vw;
     }
-    .model_container{   /*Container for isotopic models (canvas will be placed inside)*/
+
+    .model_container {
+        /*Container for isotopic models (canvas will be placed inside)*/
         position: absolute;
         top: 0;
         left: 0;
@@ -365,7 +542,9 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    .isotope_detail{ /* Details to the right of the isotope model */
+
+    .isotope_detail {
+        /* Details to the right of the isotope model */
         position: absolute;
         top: 0;
         left: 35vw;
@@ -373,106 +552,128 @@
         width: 65vw;
         overflow-x: scroll;
     }
-    .isotope_detail table{/* Table with variety of eliment details */
+
+    .isotope_detail table {
+        /* Table with variety of eliment details */
         table-layout: fixed;
         border-collapse: collapse;
         height: 100%;
         width: 100%;
     }
-    .isotope_detail td,th{
+
+    .isotope_detail td,
+    th {
         font-family: Lexend_Deca;
-        padding-top:0.7vw;
-        padding-bottom:0.7vw;
-        font-size:4vw;
+        padding-top: 0.7vw;
+        padding-bottom: 0.7vw;
+        font-size: 4vw;
         text-align: center;
         align-content: center;
         transition: background-color 300ms;
     }
-    .isotope_detail th{
-        font-size:5.5vw;
+
+    .isotope_detail th {
+        font-size: 5.5vw;
     }
 
 
     /*  Setting view  */
-    #setting_view{
+    #setting_view {
         overflow-y: scroll;
     }
-    .setting_toggle{/* trigger for switch (may also be a tap button) */
+
+    .setting_toggle {
+        /* trigger for switch (may also be a tap button) */
         position: relative;
         width: 100%;
-        height:6vh;
+        height: 6vh;
         margin-top: 1vh;
         cursor: pointer;
         font-size: 5vh;
         text-align: center;
     }
-    .setting_toggle .text{/* Text in teh setting toggle ofset by the width of the switch */
+
+    .setting_toggle .text {
+        /* Text in teh setting toggle ofset by the width of the switch */
         position: absolute;
-        top:0;
+        top: 0;
         left: 0;
         height: 100%;
         width: 86vw;
     }
-        /* Switches in the .setting_toggle */
-    .switch_container_active,.switch_container_dissabled{/*Switch containment*/
+
+    /* Switches in the .setting_toggle */
+    .switch_container_active,
+    .switch_container_dissabled {
+        /*Switch containment*/
         position: absolute;
-        transform: translate(12vh,0);
-        top:0vh;
-        right:13vh;
-        width:12vh;
-        height:5vh;
-        border:0.5vh solid;
+        transform: translate(12vh, 0);
+        top: 0vh;
+        right: 13vh;
+        width: 12vh;
+        height: 5vh;
+        border: 0.5vh solid;
         border-radius: 5vh;
-        cursor:pointer;
+        cursor: pointer;
     }
-    .switchbdy{/*Body of the switch*/
+
+    .switchbdy {
+        /*Body of the switch*/
         position: absolute;
-        width:12vh;
-        height:5vh;
+        width: 12vh;
+        height: 5vh;
         border-radius: 5vh;
-        cursor:pointer;
+        cursor: pointer;
         transition: background-color;
         transition-duration: 300ms;
     }
-    .switch_knob{/* Switch knob */
-        top:0.2vh;
-        right:0.2vh;
+
+    .switch_knob {
+        /* Switch knob */
+        top: 0.2vh;
+        right: 0.2vh;
         position: absolute;
-        height:4.6vh;
-        width:4.6vh;
+        height: 4.6vh;
+        width: 4.6vh;
         border-radius: 50%;
-        z-index:1;
-        transform: translate(0px/*-39px*/,0);
-        transition: transform,background-color;
+        z-index: 1;
+        transform: translate(0px
+                /*-39px*/
+                , 0);
+        transition: transform, background-color;
         transition-duration: 300ms;
     }
-    .switch_container_dissabled .switch_knob{/* dissabled switch, switch knob moved relitive to width of  */
-        transform: translate(-7vh,0);
+
+    .switch_container_dissabled .switch_knob {
+        /* dissabled switch, switch knob moved relitive to width of  */
+        transform: translate(-7vh, 0);
     }
-    .switch_container_active{
+
+    .switch_container_active {
         background-color: rgb(0, 0, 0);
     }
-    .switch_container_active .switchbdy{
+
+    .switch_container_active .switchbdy {
         background-color: rgb(0, 0, 0);
     }
-    .switch_container_active .switch_knob{
+
+    .switch_container_active .switch_knob {
         background-color: rgb(255, 255, 255);
     }
-    .switch_container_dissabled{
+
+    .switch_container_dissabled {
         background-color: rgb(0, 0, 0);
-        border:0.5vh solid rgb(122,122,122);
+        border: 0.5vh solid rgb(122, 122, 122);
     }
-    .switch_container_dissabled .switchbdy{
+
+    .switch_container_dissabled .switchbdy {
         background-color: rgb(0, 0, 0);
     }
-    .switch_container_dissabled .switch_knob{
-        background-color: rgb(122,122,122);
+
+    .switch_container_dissabled .switch_knob {
+        background-color: rgb(122, 122, 122);
     }
 }
 
 /*    <--  Landscape layout (with min-width) -->     */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-
-    
-}
-
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {}

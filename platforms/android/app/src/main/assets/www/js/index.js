@@ -291,7 +291,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Beryllium",
-            color: { hue: 0, sat: 0, light: 75 },
+            color: { hue: 0, sat: 0, light: 75 },invert:true,
             described_appearance: "99% pure, crystalline big fragment",
             acronym: "Be",
             Standard_atomic_weight: 9.012,
@@ -529,7 +529,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Fluorine",
-            color: { hue: 61, sat: 100, light: 50 },
+            color: { hue: 61, sat: 100, light: 50 },invert:true,
             described_appearance: "Florite Crystal under black light",
             acronym: "F",
             Standard_atomic_weight: 18.998,
@@ -888,8 +888,8 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Sulfur",
-            color: { hue: 56, sat: 100, light: 50 },
-            described_appearance: "Crystaline Sulphur",
+            color: { hue: 56, sat: 100, light: 50 },invert:true,
+            described_appearance: "Crystaline Sulfur",
             acronym: "S",
             Standard_atomic_weight: 32.06,
             atomic_num: 16,
@@ -1094,7 +1094,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Calcium",
-            color: { hue: 0, sat: 0, light: 90 },
+            color: { hue: 0, sat: 0, light: 90 },invert:true,
             described_appearance: "Pure Calcium",
             acronym: "Ca",
             Standard_atomic_weight: 40.078,
@@ -1298,7 +1298,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Chromium",
-            color: { hue: 0, sat: 0, light: 75 },
+            color: { hue: 0, sat: 0, light: 75 },invert:true,
             described_appearance: "Chromium Flake",
             acronym: "Cr",
             Standard_atomic_weight: 51.996,
@@ -1913,7 +1913,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Krypton",
-            color: { hue: 0, sat: 0, light: 100 },
+            color: { hue: 0, sat: 0, light: 100 },invert:true,
             described_appearance: "Krypton gas in an electric feild",
             acronym: "Kr",
             Standard_atomic_weight: 83.798,
@@ -6314,7 +6314,12 @@ let atom_info = {// information dispensing utility
         function build_bar(index) {  // Construct the scrollable eliment bars (will be called 118 times)
             //Create blob bar
             var eleiment_blob = document.createElement('div');
-            eleiment_blob.setAttribute('class', 'eleiment_blob'); eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
+            if (atom_info.details[index].invert==true) {
+                eleiment_blob.setAttribute('class', 'eleiment_blob_inverse');
+            } else {
+                eleiment_blob.setAttribute('class', 'eleiment_blob');
+            }
+            eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
             eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
             eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
             //create eliment container( the square that looks like it belongs in a text book )
@@ -6656,11 +6661,6 @@ let atom_info = {// information dispensing utility
             console.log('Bakcground-image passive');
         }
     },
-    clipboard: {
-        push: function () {
-
-        },
-    }
 }
 
 /*  table list manager */
