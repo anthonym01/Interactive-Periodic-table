@@ -58,6 +58,7 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
+
 });
 
 var config = {//Configuration handler
@@ -119,6 +120,7 @@ let atom_info = {// information dispensing utility
             document.getElementById('detail_btn').addEventListener('touchstart', atom_info.navDETAIL)
             document.getElementById('isotope_btn').addEventListener('touchstart', atom_info.navISOTOPE)
             document.getElementById('background_representation').addEventListener('touchstart', atom_info.BKG_img_action)
+            document.getElementById('represent_shader').addEventListener('touchstart', atom_info.BKG_img_action)
             document.getElementById('next_btn').addEventListener('touchstart', atom_info.next)
             document.getElementById('previous_btn').addEventListener('touchstart', atom_info.previous)
         }
@@ -127,10 +129,12 @@ let atom_info = {// information dispensing utility
             document.getElementById('detail_btn').addEventListener('click', atom_info.navDETAIL);
             document.getElementById('isotope_btn').addEventListener('click', atom_info.navISOTOPE);
             document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
+            document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
             document.getElementById('next_btn').addEventListener('click', atom_info.next)
             document.getElementById('previous_btn').addEventListener('click', atom_info.previous)
         }
         this.render_list();//very important blyat
+        //this.populate(0);
     },
     details: [// search 'incomplete', "" and "no data" take actions appropriatly
         {
@@ -252,7 +256,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Beryllium",
-            color: { hue: 0, sat: 0, light: 75 },invert:true,
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
             described_appearance: "99% pure, crystalline big fragment",
             acronym: "Be",
             Standard_atomic_weight: 9.012,
@@ -490,7 +494,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Fluorine",
-            color: { hue: 61, sat: 100, light: 50 },invert:true,
+            color: { hue: 61, sat: 100, light: 50 }, invert: true,
             described_appearance: "Florite Crystal under black light",
             acronym: "F",
             Standard_atomic_weight: 18.998,
@@ -849,7 +853,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Sulfur",
-            color: { hue: 56, sat: 100, light: 50 },invert:true,
+            color: { hue: 56, sat: 100, light: 50 }, invert: true,
             described_appearance: "Crystaline Sulfur",
             acronym: "S",
             Standard_atomic_weight: 32.06,
@@ -1055,7 +1059,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Calcium",
-            color: { hue: 0, sat: 0, light: 90 },invert:true,
+            color: { hue: 0, sat: 0, light: 90 }, invert: true,
             described_appearance: "Pure Calcium",
             acronym: "Ca",
             Standard_atomic_weight: 40.078,
@@ -1259,7 +1263,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Chromium",
-            color: { hue: 0, sat: 0, light: 75 },invert:true,
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
             described_appearance: "Chromium Flake",
             acronym: "Cr",
             Standard_atomic_weight: 51.996,
@@ -1874,7 +1878,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Krypton",
-            color: { hue: 0, sat: 0, light: 100 },invert:true,
+            color: { hue: 0, sat: 0, light: 100 }, invert: true,
             described_appearance: "Krypton gas in an electric feild",
             acronym: "Kr",
             Standard_atomic_weight: 83.798,
@@ -6275,7 +6279,7 @@ let atom_info = {// information dispensing utility
         function build_bar(index) {  // Construct the scrollable eliment bars (will be called 118 times)
             //Create blob bar
             var eleiment_blob = document.createElement('div');
-            if (atom_info.details[index].invert==true) {
+            if (atom_info.details[index].invert == true) {
                 eleiment_blob.setAttribute('class', 'eleiment_blob_inverse');
             } else {
                 eleiment_blob.setAttribute('class', 'eleiment_blob');
@@ -6332,9 +6336,15 @@ let atom_info = {// information dispensing utility
     /* Detail pannel actions */
     populate: function (index) {// Populate atomic details pannel based on data in array
         console.log('Papulate with atom: ', index + 1);
-        document.getElementById('detail_btn').style.borderColor='hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
-        document.getElementById('isotope_btn').style.borderColor='hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
-        
+        document.getElementById('detail_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+        document.getElementById('isotope_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+        if (atom_info.details[index].invert == true) {
+            document.getElementById('detil_elem_color_container').style.color = 'black';
+            document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #fff';
+        } else {
+            document.getElementById('detil_elem_color_container').style.color = 'white';
+            document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #000';
+        }
         if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
             config.properties.current_atom = index;//set current render (will be usefull later)
             //prep the page
@@ -6575,49 +6585,31 @@ let atom_info = {// information dispensing utility
     },
     show: function () {
         console.log('Show atomic info show');
-        document.getElementById('Detail_view').style.opacity = "1.0";//changing property while no display nullifies transition
-        if (config.data.animation) {
-            document.getElementById('Detail_view').style.display = "block";
-            setTimeout(() => {
-                document.getElementById('Detail_view').style.transform = "translate(0,0)";//delay required for transition cause blyat
-            }, 15);
-        } else {
-            document.getElementById('Detail_view').style.display = "block";
-            document.getElementById('Detail_view').style.transform = "translate(0,0)";
-        }
+        document.getElementById('Detail_view').style.display = "";
+        setTimeout(() => {
+            document.getElementById('Detail_view').classList = "Detail_view_active"
+        }, 50);
     },
     hide: function () {
         console.log('Hide atomic info hide');
-        if (config.data.animation) {
-            document.getElementById('Detail_view').style.opacity = "0.0";
-            document.getElementById('Detail_view').style.transform = "translate(0,100%)";
-            setTimeout(() => {
-                document.getElementById('Detail_view').style.display = "none";//hide after animation complete
-            }, 300);
-        } else {
+        document.getElementById('Detail_view').classList = "Detail_view"
+        setTimeout(() => {
             document.getElementById('Detail_view').style.display = "none";
-            document.getElementById('Detail_view').style.opacity = "0.0";
-            document.getElementById('Detail_view').style.transform = "translate(0,100%)";
-        }
-        if (document.getElementById('background_representation').className == "background_representation_active") {
-            console.log('Bakcground-image passive triggered from detail hide');
-            document.getElementById('background_representation').className = "background_representation_passive";
-            document.getElementById('represent_shader').style.display = "none";
-        }
+        }, 300);
     },
     navDETAIL: function () {//"scroll" to detail sub pannel
         console.log('Detail nav');
         document.getElementById('detail_pane').style.transform = "translate(0,0)"
         document.getElementById('isotope_pane').style.transform = "translate(100%,0)"
-        document.getElementById('detail_btn').classList="Detail_btn_active"
-        document.getElementById('isotope_btn').classList="Detail_btn"
+        document.getElementById('detail_btn').classList = "Detail_btn_active"
+        document.getElementById('isotope_btn').classList = "Detail_btn"
     },
     navISOTOPE: function () {//"scroll" to isotope sub pannel
         console.log('Isotope nav');
         document.getElementById('detail_pane').style.transform = "translate(-100%,0)"
         document.getElementById('isotope_pane').style.transform = "translate(0,0)"
-        document.getElementById('detail_btn').classList="Detail_btn"
-        document.getElementById('isotope_btn').classList="Detail_btn_active"
+        document.getElementById('detail_btn').classList = "Detail_btn"
+        document.getElementById('isotope_btn').classList = "Detail_btn_active"
     },
     BKG_img_action: function () {
         if (document.getElementById('background_representation').className == "background_representation_passive") {
@@ -6698,10 +6690,7 @@ let UI = {//for general UI thingys
         },
         setting_view: function () {// Navigate to settings
             console.log('Setting navigation started');
-            if (document.getElementById('Detail_view').style.display == "block") {
-                console.log('SETTING BUTTON triggers Atomic info hide');
-                atom_info.hide();
-            }
+            atom_info.hide();
             document.getElementById('table_view').style.display = "none";
             document.getElementById('list_view').style.display = "none";
             document.getElementById('setting_view').style.display = "block";
@@ -6711,10 +6700,7 @@ let UI = {//for general UI thingys
         },
         list_view: function () {// Naviagte to list
             console.log('List navigation started');
-            if (document.getElementById('Detail_view').style.display == "block") {
-                console.log('LIST BUTTON triggers Atomic info hide');
-                atom_info.hide();
-            }
+            atom_info.hide();
             document.getElementById('table_view').style.display = "none";
             document.getElementById('list_view').style.display = "block";
             document.getElementById('setting_view').style.display = "none";
@@ -6724,10 +6710,7 @@ let UI = {//for general UI thingys
         },
         table_view: function () {// Navigate to table
             console.log('Table navigation started');
-            if (document.getElementById('Detail_view').style.display == "block") {
-                console.log('TABLE BUTTON triggers Atomic info hide');
-                atom_info.hide();
-            }
+            atom_info.hide();
             document.getElementById('table_view').style.display = "block";
             document.getElementById('list_view').style.display = "none";
             document.getElementById('setting_view').style.display = "none";
