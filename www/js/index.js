@@ -119,10 +119,10 @@ let atom_info = {// information dispensing utility
             console.warn('Atomic info uses touch actions');
             document.getElementById('detail_btn').addEventListener('touchstart', atom_info.navDETAIL)
             document.getElementById('isotope_btn').addEventListener('touchstart', atom_info.navISOTOPE)
-            document.getElementById('background_representation').addEventListener('touchstart', atom_info.BKG_img_action)
+            document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
             document.getElementById('represent_shader').addEventListener('touchstart', atom_info.BKG_img_action)
-            document.getElementById('next_btn').addEventListener('touchstart', atom_info.next)
-            document.getElementById('previous_btn').addEventListener('touchstart', atom_info.previous)
+            /*document.getElementById('next_btn').addEventListener('touchstart', atom_info.next)
+            document.getElementById('previous_btn').addEventListener('touchstart', atom_info.previous)*/
         }
         function clickstartup() {
             console.warn('Atomic info uses click actions');
@@ -130,15 +130,30 @@ let atom_info = {// information dispensing utility
             document.getElementById('isotope_btn').addEventListener('click', atom_info.navISOTOPE);
             document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
             document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
-            document.getElementById('next_btn').addEventListener('click', atom_info.next)
-            document.getElementById('previous_btn').addEventListener('click', atom_info.previous)
+            /*document.getElementById('next_btn').addEventListener('click', atom_info.next)
+            document.getElementById('previous_btn').addEventListener('click', atom_info.previous)*/
         }
         this.render_list();//very important blyat
         //this.populate(0);
     },
     details: [// search 'incomplete', "" and "no data" take actions appropriatly
         {
-            name: "Hydrogen", color: { hue: 303, sat: 100, light: 50 }, described_appearance: "Hydrogen plasma glows Purple, in other states it's colourless", acronym: "H", Standard_atomic_weight: 1.008, atomic_num: 1, Appearance: "Colorless gas", group: "1: H and alkali metals", period: "1", block: "S-block", category: "Reactive nonmetal", Electron_configuration: "1s<sup>1</sup>", Electrons_per_shell: "1", Phase_STP: "gas", stated_alotrope: "(H<sub>2</sub>)", Melting_Point: { Kelvin: 13.99, Celcious: -259.16, Ferinheight: -434.49 }, Boiling_Point: { Kelvin: 20.271, Celcious: -252.879, Ferinheight: -423.182 }, Density: "0.08988 g/L", Triple_point: "13.8033 K, ​7.041 kPa", Critical_point: "32.938 K, 1.2858 MPa", Heat_of_fusion: "(H<sub>2</sub>) 0.117 kJ/mol", Heat_of_vaporization: "(H<sub>2</sub>) 0.904 kJ/mol", Molar_heat_capacity: "(H<sub>2</sub>) 28.836 J/(mol*K)", Vapor_pressure: { t_1: "-", t_10: "-", t_100: "-", t_1k: "-", t_10k: 15, t_100k: 20 }, Oxydation: "-1, +1", Electronegativity: "Pauling scale: 2.20", Ionization_energies: "1st: 1312.0 kJ/mol", Covalent_radius: "31 +/- 5 pm", Van_der_Waals_radius: "120 pm", Spectrum: [7, 22, 90], Natural_occurrence: "primordial", Crystal_structure: "​hexagonal", Speed_of_sound: "1310 m/s (gas, 27 °C)", Thermal_Conductivity: "0.1805 W/(m K)", Magnetic_susceptibility: "−3.98*10−6 cm3/mol (298 °K)", CAS_Number: "12385-13-6 (H)<br>1333-74-0 (H<sub>2</sub>)",
+            name: "Hydrogen",
+            color: { hue: 303, sat: 100, light: 50 },
+            described_appearance: "Hydrogen plasma glows Purple, in other states it's colourless",
+            acronym: "H",
+            Standard_atomic_weight: 1.008,
+            atomic_num: 1,
+            Appearance: "Colorless gas",
+            group: "1: H and alkali metals",
+            period: "1",
+            block: "S-block",
+            category: "Reactive nonmetal",
+            Electron_configuration: "1s<sup>1</sup>",
+            Electrons_per_shell: "1",
+            Phase_STP: "gas",
+            stated_alotrope: "(H<sub>2</sub>)",
+            Melting_Point: { Kelvin: 13.99, Celcious: -259.16, Ferinheight: -434.49 }, Boiling_Point: { Kelvin: 20.271, Celcious: -252.879, Ferinheight: -423.182 }, Density: "0.08988 g/L", Triple_point: "13.8033 K, ​7.041 kPa", Critical_point: "32.938 K, 1.2858 MPa", Heat_of_fusion: "(H<sub>2</sub>) 0.117 kJ/mol", Heat_of_vaporization: "(H<sub>2</sub>) 0.904 kJ/mol", Molar_heat_capacity: "(H<sub>2</sub>) 28.836 J/(mol*K)", Vapor_pressure: { t_1: "-", t_10: "-", t_100: "-", t_1k: "-", t_10k: 15, t_100k: 20 }, Oxydation: "-1, +1", Electronegativity: "Pauling scale: 2.20", Ionization_energies: "1st: 1312.0 kJ/mol", Covalent_radius: "31 +/- 5 pm", Van_der_Waals_radius: "120 pm", Spectrum: [7, 22, 90], Natural_occurrence: "primordial", Crystal_structure: "​hexagonal", Speed_of_sound: "1310 m/s (gas, 27 °C)", Thermal_Conductivity: "0.1805 W/(m K)", Magnetic_susceptibility: "−3.98*10−6 cm3/mol (298 °K)", CAS_Number: "12385-13-6 (H)<br>1333-74-0 (H<sub>2</sub>)",
             isotopes: [//...isotopes
                 { name: "Protinium", acronym: "(<sup>1</sup>H)", neutron: 0, mass: 0, abundance: "99.98%", decay_mode: "stable", half_life: null, Product: null },
                 { name: "Deuterium", acronym: "(<sup>2</sup>H)", neutron: 1, mass: 0, abundance: "0.02%", decay_mode: "stable", half_life: null, Product: null },
@@ -356,7 +371,7 @@ let atom_info = {// information dispensing utility
             Mohs_hardness: "~9.5",
             CAS_Number: "7440-42-8",
             isotopes: [//...isotopes
-                { name: "", acronym: "(<sup>99</sup>X)", neutron: null, mass: null, abundance: "", decay_mode: "stable", half_life: "", Product: "" },
+                { name: "Boron-7", acronym: "(<sup>7</sup>B)", neutron: 2, mass: 7.0297, abundance: "", decay_mode: "stable", half_life: "", Product: "" },
             ],
         },
         {
@@ -6338,6 +6353,7 @@ let atom_info = {// information dispensing utility
         console.log('Papulate with atom: ', index + 1);
         document.getElementById('detail_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
         document.getElementById('isotope_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+
         if (atom_info.details[index].invert == true) {
             document.getElementById('detil_elem_color_container').style.color = 'black';
             document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #fff';
@@ -6345,6 +6361,7 @@ let atom_info = {// information dispensing utility
             document.getElementById('detil_elem_color_container').style.color = 'white';
             document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #000';
         }
+
         if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
             config.properties.current_atom = index;//set current render (will be usefull later)
             //prep the page
@@ -6374,6 +6391,7 @@ let atom_info = {// information dispensing utility
             document.getElementById('Electron_configuration').innerHTML = this.details[index].Electron_configuration;
             document.getElementById('Electrons_per_shell').innerHTML = this.details[index].Electrons_per_shell;
             document.getElementById('Phase_STP').innerHTML = this.details[index].Phase_STP;
+
             if (typeof (atom_info.details[index].Melting_Point) != 'undefined') {//check if melting point
                 if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
                     document.getElementById('meltpt_molicule').innerHTML = this.details[index].stated_alotrope;
@@ -6383,12 +6401,15 @@ let atom_info = {// information dispensing utility
                 document.getElementById('Melting_Point_Ferinheight').innerHTML = this.details[index].Melting_Point.Ferinheight + '°F';
                 document.getElementById('melt_table').style.display = "";//clear table style (so it can be seen)
                 document.getElementById('melt_pt_noex').style.display = "none";//remove the not extister
+                document.getElementById('meltpt_row').classList = "enabled"
             } else {
                 document.getElementById('meltpt_molicule').innerHTML = '';
                 document.getElementById('melt_table').style.display = "none";//clear table style (so it can be seen)
                 document.getElementById('melt_pt_noex').style.display = "block";//remove the not extister
                 document.getElementById('melt_pt_noex').innerHTML = this.details[index].name + ' Does not "melt"';//does not melt
+                document.getElementById('meltpt_row').classList = "dissabled"
             }
+
             if (typeof (atom_info.details[index].Boiling_Point) != 'undefined') {//check if boiling point
                 if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
                     document.getElementById('boilpt_molicule').innerHTML = this.details[index].stated_alotrope;
@@ -6398,12 +6419,15 @@ let atom_info = {// information dispensing utility
                 document.getElementById('Boiling_Point_Ferinheight').innerHTML = this.details[index].Boiling_Point.Ferinheight + '°F';
                 document.getElementById('boil_table').style.display = "";//clear table style (so it can be seen)
                 document.getElementById('boil_pt_noex').style.display = "none";//remove the not extister
+                document.getElementById('boilpt_row').classList = "enabled"
             } else {
                 document.getElementById('meltpt_molicule').innerHTML = '';
                 document.getElementById('boil_table').style.display = "none";//clear table style (so it can be seen)
                 document.getElementById('boil_pt_noex').style.display = "block";//remove the not extister
-                document.getElementById('boil_pt_noex').innerHTML = this.details[index].name + ' Does not "melt"';//does not melt
+                document.getElementById('boil_pt_noex').innerHTML = this.details[index].name + ' Does not "Boil"';//does not melt
+                document.getElementById('boilpt_row').classList = "dissabled"
             }
+
             if (typeof (atom_info.details[index].Sublimation_point) != 'undefined') {//check if sublimation point
                 if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
                     document.getElementById('Sublimation_point_molicule').innerHTML = this.details[index].stated_alotrope;
@@ -6413,12 +6437,15 @@ let atom_info = {// information dispensing utility
                 document.getElementById('Sublimation_point_Ferinheight').innerHTML = this.details[index].Sublimation_point.Ferinheight + '°F';
                 document.getElementById('sublime_table').style.display = "";//clear table style (so it can be seen)
                 document.getElementById('sub_pt_noex').style.display = "none";//remove the not extister
+                document.getElementById('sublimation_row').classList = "enabled"
             } else {
                 document.getElementById('Sublimation_point_molicule').innerHTML = '';
                 document.getElementById('sublime_table').style.display = "none";//clear table style (so it can be seen)
                 document.getElementById('sub_pt_noex').style.display = "block";//remove the not extister
                 document.getElementById('sub_pt_noex').innerHTML = this.details[index].name + ' Does not "sublimate"';//does not melt
+                document.getElementById('sublimation_row').classList = "dissabled"
             }
+
             document.getElementById('Density').innerHTML = this.details[index].Density;
             document.getElementById('Triple_point').innerHTML = this.details[index].Triple_point;
             document.getElementById('Critical_point').innerHTML = this.details[index].Critical_point;
@@ -6437,61 +6464,111 @@ let atom_info = {// information dispensing utility
             document.getElementById('Ionization_energies').innerHTML = this.details[index].Ionization_energies;
             if (typeof (this.details[index].Atomic_radius) != 'undefined') {//check if atomic radius
                 document.getElementById('Atomic_radius').innerHTML = this.details[index].Atomic_radius;
-                document.getElementById('Atomic_radius_row').style.color = "";
+                document.getElementById('Atomic_radius_row').classList = "enabled";
             } else {
                 document.getElementById('Atomic_radius').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Atomic_radius_row').style.color = "grey";
+                document.getElementById('Atomic_radius_row').classList = "dissabled";
             }
+
             document.getElementById('Covalent_radius').innerHTML = this.details[index].Covalent_radius;
             document.getElementById('Van_der_Waals_radius').innerHTML = this.details[index].Van_der_Waals_radius;
             document.getElementById('Natural_occurrence').innerHTML = this.details[index].Natural_occurrence;
             document.getElementById('Crystal_structure').innerHTML = this.details[index].Crystal_structure;
             document.getElementById('Speed_of_sound').innerHTML = this.details[index].Speed_of_sound;
+
             if (typeof (this.details[index].Thermal_expansion) != 'undefined') {//check if Thermal_expansion
                 document.getElementById('Thermal_expansion').innerHTML = this.details[index].Thermal_expansion;
-            } else { document.getElementById('Thermal_expansion').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Thermal_expansion_row').classList = "enabled"
+            } else {
+                document.getElementById('Thermal_expansion').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Thermal_expansion_row').classList = "dissabled"
+            }
+
             document.getElementById('Thermal_Conductivity').innerHTML = this.details[index].Thermal_Conductivity;
+
             if (typeof (this.details[index].Electrical_resistivity) != 'undefined') {//check if Electrical_resistivity
                 document.getElementById('Electrical_resistivity').innerHTML = this.details[index].Electrical_resistivity;
-            } else { document.getElementById('Electrical_resistivity').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Electrical_resistivity_row').classList = "enabled"
+            } else {
+                document.getElementById('Electrical_resistivity').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Electrical_resistivity_row').classList = "dissabled"
+            }
             //? Curie_point
+
             if (typeof (this.details[index].Magnetic_ordering) != 'undefined') {//check if Magnetic_ordering
                 document.getElementById('Magnetic_ordering').innerHTML = this.details[index].Magnetic_ordering;
-            } else { document.getElementById('Magnetic_ordering').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Magnetic_ordering_row').classList = "enabled"
+            } else {
+                document.getElementById('Magnetic_ordering').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Magnetic_ordering_row').classList = "dissabled"
+            }
+
             document.getElementById('Magnetic_susceptibility').innerHTML = this.details[index].Magnetic_susceptibility;
+
             if (typeof (this.details[index].Youngs_modulus) != 'undefined') {//check if Youngs_modulus
                 document.getElementById('Youngs_modulus').innerHTML = this.details[index].Youngs_modulus;
-            } else { document.getElementById('Youngs_modulus').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Youngs_modulus_row').classList = "enabled"
+            } else {
+                document.getElementById('Youngs_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Youngs_modulus_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Shear_modulus) != 'undefined') {//check if Shear_modulus
                 document.getElementById('Shear_modulus').innerHTML = this.details[index].Shear_modulus;
-            } else { document.getElementById('Shear_modulus').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Shear_modulus_row').classList = "enabled"
+            } else {
+                document.getElementById('Shear_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Shear_modulus_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Bulk_modulus) != 'undefined') {//check if Bulk_modulus
                 document.getElementById('Bulk_modulus').innerHTML = this.details[index].Bulk_modulus;
-            } else { document.getElementById('Bulk_modulus').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Bulk_modulus_row').classList = "enabled"
+            } else {
+                document.getElementById('Bulk_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Bulk_modulus_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Poisson_ratio) != 'undefined') {//check if Poisson_ratio
                 document.getElementById('Poisson_ratio').innerHTML = this.details[index].Poisson_ratio;
-            } else { document.getElementById('Poisson_ratio').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Poisson_ratio_row').classList = "enabled"
+            } else {
+                document.getElementById('Poisson_ratio').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Poisson_ratio_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Mohs_hardness) != 'undefined') {//check if Mohs_hardness
                 document.getElementById('Mohs_hardness').innerHTML = this.details[index].Mohs_hardness;
-            } else { document.getElementById('Mohs_hardness').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Mohs_hardness_row').classList = "enabled"
+            } else {
+                document.getElementById('Mohs_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Mohs_hardness_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Vickers_hardness) != 'undefined') {//check if Vickers_hardness
                 document.getElementById('Vickers_hardness').innerHTML = this.details[index].Vickers_hardness;
-            } else { document.getElementById('Vickers_hardness').innerHTML = "Not applicable to " + this.details[index].name; }
+                document.getElementById('Vickers_hardness_row').classList = "enabled"
+            } else {
+                document.getElementById('Vickers_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Vickers_hardness_row').classList = "dissabled"
+            }
+
             if (typeof (this.details[index].Brinell_hardness) != 'undefined') {//check if Brinell_hardness
                 document.getElementById('Brinell_hardness').innerHTML = this.details[index].Brinell_hardness;
-            } else { document.getElementById('Brinell_hardness').innerHTML = "Not applicable to " + this.details[index].name; }
-            document.getElementById('CAS_Number').innerHTML = this.details[index].CAS_Number;
-            //represent spectrum (switch to for loop)
-            var i = 0;
-            while (this.details[index].Spectrum[i] != null || undefined) {
-                render_spectrum(this.details[index].Spectrum[i]);
-                i++;
+                document.getElementById('Brinell_hardness_row').classList = "enabled"
+            } else {
+                document.getElementById('Brinell_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                document.getElementById('Brinell_hardness_row').classList = "dissabled"
             }
-            //loop to render model brothgar (switch to for loop)
-            var i = 0;
-            while (this.details[index].isotopes[i] != undefined || null) {
+
+            document.getElementById('CAS_Number').innerHTML = this.details[index].CAS_Number;
+
+            var i;
+            for (i = 0; i < this.details[index].Spectrum.length; i++) {
+                render_spectrum(this.details[index].Spectrum[i]);
+            }
+            for (i = 0; i < this.details[index].isotopes.length; i++) {
                 render_model(this.details[index].isotopes[i]);
-                i++;
             }
         } else { console.warn('Already populated', index + 1) }
 
@@ -6664,7 +6741,7 @@ let UI = {//for general UI thingys
                 console.log('Back button triggers Bakcground-image passive');
                 document.getElementById('background_representation').className = "background_representation_passive";
                 document.getElementById('represent_shader').style.display = "none";
-            } else if (document.getElementById('Detail_view').style.display == "block") {// Detail pannel on screen (controled by atomic info)
+            } else if (document.getElementById('Detail_view').classList == "Detail_view_active") {// Detail pannel on screen (controled by atomic info)
                 console.log('Back button triggers Atomic info hide');
                 atom_info.hide();
             } else if (document.getElementById('list_view').style.display == "block") {

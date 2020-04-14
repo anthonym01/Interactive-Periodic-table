@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--Meta Eliments-->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -10,7 +12,7 @@
     <meta name="keywords" content="none">
     <meta name="author" content="Samuel A. Matheson">
     <meta charset="utf-8">
-    
+
     <!--Style sheets-->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" id="anim" href="">
@@ -18,12 +20,15 @@
     <script defer type="text/javascript" src="js/index.js"></script>
     <title>Periodic Table</title>
 </head>
+
 <body>
     <!-- Independent view containing information about eliments (will overlay other views) -->
     <mainview id="Detail_view" class="Detail_view" style="display: none;">
         <div id="header">placeholder</div>
-        <div class="sub_pane" id="detail_pane"><!-- Detail pane (minor rework later)-->
+        <div class="sub_pane" id="detail_pane">
+            <!-- Detail pane (minor rework later)-->
             <div id="represent_shader"></div>
+
             <div id="background_representation" class="background_representation_passive" name="passive">
                 <div id="background_representation_description">placeholder</div>
             </div>
@@ -32,9 +37,9 @@
                 <div class="mass_number" id="detail_mass_num_main">420</div>
                 <div class="standard_atomic" id="detail_atomic_num_main">69</div>
             </div>
-            <button id="previous_btn" style="z-index: 999;">temp prev</button>
-            <button id="next_btn" style="z-index: 999;">temp next</button>
-            <table class="detail_table" id="General_properties_table"><!-- General Properties -->
+
+            <table class="detail_table" id="General_properties_table">
+                <!-- General Properties -->
                 <tr>
                     <th colspan="2">General properties</th>
                 </tr>
@@ -71,7 +76,9 @@
                     <td id="Electrons_per_shell">Placeholder</td>
                 </tr>
             </table>
-            <table class="detail_table" id="Physical_properties_table"><!-- Physical Properties -->
+
+            <table class="detail_table" id="Physical_properties_table">
+                <!-- Physical Properties -->
                 <tr>
                     <th colspan="2">Physical properties</th>
                 </tr>
@@ -79,7 +86,7 @@
                     <td>Phase S.T.P.:</td>
                     <td id="Phase_STP">Placeholder</td>
                 </tr>
-                <tr>
+                <tr id="meltpt_row">
                     <td>Melting Point <span id="meltpt_molicule"></span>:</td>
                     <td>
                         <table id="melt_table" class="sub_table">
@@ -96,7 +103,7 @@
                         <span id="melt_pt_noex"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr id="boilpt_row">
                     <td>Boiling Point <span id="boilpt_molicule"></span>:</td>
                     <td>
                         <table id="boil_table" class="sub_table">
@@ -113,7 +120,7 @@
                         <span id="boil_pt_noex"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr id="sublimation_row" class="dissabled">
                     <td>Sublimation Point <span id="Sublimation_point_molicule"></span>:</td>
                     <td>
                         <table id="sublime_table" class="sub_table">
@@ -186,7 +193,9 @@
                     <td id="Appearance">Placeholder</td>
                 </tr>
             </table>
-            <table class="detail_table" id="atomic_properties_table"><!-- Atomic Properties -->
+
+            <table class="detail_table" id="atomic_properties_table">
+                <!-- Atomic Properties -->
                 <tr>
                     <th colspan="2">Atomic properties</th>
                 </tr>
@@ -236,7 +245,9 @@
                 </tr>
 
             </table>
-            <table class="detail_table" id="Other_properties_table"><!-- Other Properties -->
+
+            <table class="detail_table" id="Other_properties_table">
+                <!-- Other Properties -->
                 <tr>
                     <th colspan="2">Other properties</th>
                 </tr>
@@ -272,12 +283,12 @@
                     <td>Youngs modulus</td>
                     <td id="Youngs_modulus">Placeholder</td>
                 </tr>
-                
+
                 <tr id="Shear_modulus_row">
                     <td>Shear modulus:</td>
                     <td id="Shear_modulus">Placeholder</td>
                 </tr>
-                
+
                 <tr id="Bulk_modulus_row">
                     <td>Bulk modulus:</td>
                     <td id="Bulk_modulus">Placeholder</td>
@@ -305,16 +316,19 @@
                 <!--Interesting fact here-->
             </table>
         </div>
-        <div class="sub_pane" id="isotope_pane"><!-- Isotope pane -->
+        <div class="sub_pane" id="isotope_pane">
+            <!-- Isotope pane -->
         </div>
-        <div class="sub_nav" id="sub_nav"><!-- Subnavigation -->
+        <div class="sub_nav" id="sub_nav">
+            <!-- Subnavigation -->
             <button class="Detail_btn_active" id="detail_btn">Details</button>
             <button class="Detail_btn" id="isotope_btn">Isotope</button>
         </div>
     </mainview>
 
     <!--  list view  -->
-    <mainview id="list_view"><!-- Rendered via script -->
+    <mainview id="list_view">
+        <!-- Rendered via script -->
 
     </mainview>
 
@@ -325,11 +339,13 @@
 
     <!--  Setting view  -->
     <mainview id="setting_view">
-        
+
         <div class="setting_toggle" id="Animations_btn" title="toggle Animations">
             <div class="text">Animations</div>
             <div class="switch_container_active" id="Animations_switch_container">
-                <div class="switchbdy" id="Animations_switchbdy"><div class="switch_knob"></div></div>
+                <div class="switchbdy" id="Animations_switchbdy">
+                    <div class="switch_knob"></div>
+                </div>
             </div>
         </div>
 
@@ -338,10 +354,17 @@
 
     <!--  Footer nav  -->
     <div class="footnav">
-        <div class="navbtn" id="list_btn"><div id="list_icon" class="navcon"></div></div>
-        <div class="navbtn" id="table_btn"><div id="table_icon" class="navcon"></div></div>
-        <div class="navbtn" id="setting_btn"><div id="setting_icon" class="navcon"></div></div>
+        <div class="navbtn" id="list_btn">
+            <div id="list_icon" class="navcon"></div>
+        </div>
+        <div class="navbtn" id="table_btn">
+            <div id="table_icon" class="navcon"></div>
+        </div>
+        <div class="navbtn" id="setting_btn">
+            <div id="setting_icon" class="navcon"></div>
+        </div>
     </div>
 
 </body>
+
 </html>
