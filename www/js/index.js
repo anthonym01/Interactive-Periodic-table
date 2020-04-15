@@ -64,6 +64,7 @@ window.addEventListener('load', function () {//applictaion needs to be construct
 var config = {//Configuration handler
     data: {
         animation: true,
+        theme: "Neon",
     },
     properties: {
         exit: false,
@@ -92,6 +93,11 @@ var config = {//Configuration handler
                 console.warn('"animation" was invalid, found to be :', this.data.animation, ' and was defaulted');
                 this.data.animation = true;
             } else { console.log('animation valid: ', this.data.animation) }
+        }
+
+        if (typeof (this.data.theme) == 'undefined') {//validate theme
+            console.warn('"theme" did not exist and was defaulted');
+            this.data.theme = "Neon";
         }
 
         if (!configisvalid) {
@@ -6286,30 +6292,42 @@ let atom_info = {// information dispensing utility
         },
     ],
     render_list: function () {// Render and build function seperate to faccilitate anonymus action calls
-        var index = 0;
-        while (this.details[index] != null || undefined) {// render out list
+        var index;
+        for (index = 0; index < this.details.length; index++) {// render out list
             build_bar(index);
-            index++;
         }
+
         function build_bar(index) {  // Construct the scrollable eliment bars (will be called 118 times)
             //Create blob bar
             var eleiment_blob = document.createElement('div');
-            if (atom_info.details[index].invert == true) {
-                eleiment_blob.setAttribute('class', 'eleiment_blob_inverse');
-            } else {
-                eleiment_blob.setAttribute('class', 'eleiment_blob');
-            }
-            eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
-            eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
-            eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            //create eliment container( the square that looks like it belongs in a text book )
             var eliment_container = document.createElement('div');
+            eleiment_blob.setAttribute('class', 'eleiment_blob');
 
+            eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
+
+            if(config.data.theme == "Neon"){
+                eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
+                //eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
+                //eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 50%)';
+                eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 80%)';
+                eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+            }else if(config.data.theme == "material"){
+                if (atom_info.details[index].invert == true) {
+                    eleiment_blob.setAttribute('class', 'eleiment_blob inverse');
+                }
+                eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
+                eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
+            }else{
+
+            }
+
+            //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');
             var Standard_atomic_weightber = document.createElement('div');
             var standard_atomic = document.createElement('div');
             eliment_container.setAttribute('class', 'eliment_container');
-            eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
+            //eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             acr.setAttribute('class', 'acr');
             Standard_atomic_weightber.setAttribute('class', 'mass_number');
             standard_atomic.setAttribute('class', 'standard_atomic');
@@ -6713,6 +6731,7 @@ let UI = {//for general UI thingys
     initialize: function () {
         console.warn('UI initalize');
         this.animation.setpostition();
+        this.set_theme();
         if (typeof (device) != 'undefined') {//check device mode
             if (device.platform == 'Android' || 'iOS') {//mobile
                 touchstartup();
@@ -6722,6 +6741,7 @@ let UI = {//for general UI thingys
         } else {
             clickstartup();
         }
+
         function touchstartup() {
             document.getElementById('list_btn').addEventListener('touchstart', UI.Navigate.list_view);
             document.getElementById('table_btn').addEventListener('touchstart', UI.Navigate.table_view);
@@ -6733,6 +6753,34 @@ let UI = {//for general UI thingys
             document.getElementById('table_btn').addEventListener('click', UI.Navigate.table_view);
             document.getElementById('setting_btn').addEventListener('click', UI.Navigate.setting_view);
             document.getElementById('Animations_btn').addEventListener('click', UI.animation.flip);
+        }
+
+        document.getElementById('set_neon').addEventListener('click', function () {
+            config.data.theme = "Neon";
+            //UI.set_theme();
+            config.save();
+            location.reload()
+        });
+        document.getElementById('set_material').addEventListener('click', function () {
+            config.data.theme = "material";
+            //UI.set_theme();
+            config.save();
+            location.reload()
+        });
+    },
+    set_theme: function () {
+        if (config.data.theme == "Neon") {
+            console.log("Set neon theme");
+            //utility.toast("Set neon theme");
+            document.getElementById('body').classList="Neon";
+        } else if (config.data.theme == "material") {
+            console.log("Set material theme");
+            //utility.toast("Set material theme");
+            document.getElementById('body').classList="material";
+        } else {
+            console.warn("Theme value invalid : ", config.data.theme);
+            config.data.theme = "Neon";
+            document.getElementById('body').classList="Neon";
         }
     },
     Navigate: {
