@@ -10,6 +10,10 @@
     <feature name="Toast">
         <param name="android-package" value="nl.xservices.plugins.Toast" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Periodic Table</name>
     <description>
         A periodic table
@@ -27,5 +31,11 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <icon src="res/icon/icon.png" />
+    <splash density="land" src="res/splashscreen/base_landscape.png" />
+    <splash density="port" src="res/splashscreen/base_partrait.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashScreenSpinnerColor" value="white" />
 </widget>

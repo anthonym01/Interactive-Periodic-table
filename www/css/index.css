@@ -89,51 +89,67 @@
         float: left;
         transition: background-color 500ms;
         cursor: pointer;
+        overflow: hidden;
     }
 
     .material .navbtn_ative {
         background-color: rgb(0, 173, 9);
     }
 
-    @keyframes neon{
-        0%{
-            background-color: hsl(0,100%,40%);
+    .material .neonblurser {
+        display: none;
+    }
+
+    @keyframes neon {
+        0% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(0, 100%, 40%) inset;
         }
-        10%{
-            background-color: hsl(36,100%,40%)
+
+        10% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(36, 100%, 40%) inset;
         }
-        20%{
-            background-color: hsl(72,100%,40%)
+
+        20% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(72, 100%, 40%) inset;
         }
-        30%{
-            background-color: hsl(108,100%,40%);
+
+        30% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(108, 100%, 40%) inset;
         }
-        40%{
-            background-color: hsl(144,100%,40%);
+
+        40% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(144, 100%, 40%) inset;
         }
-        50%{
-            background-color: hsl(180,100%,40%);
+
+        50% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(180, 100%, 40%) inset;
         }
-        60%{
-            background-color: hsl(216,100%,40%);
+
+        60% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(216, 100%, 40%) inset;
         }
-        70%{
-            background-color: hsl(252,100%,40%);
+
+        70% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(252, 100%, 40%) inset;
         }
-        80%{
-            background-color: hsl(288,100%,40%);
+
+        80% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(288, 100%, 40%) inset;
         }
-        90%{
-            background-color: hsl(324,100%,40%);
+
+        90% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(324, 100%, 40%) inset;
         }
-        100%{
-            background-color: hsl(360,100%,40%);
+
+        100% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(360, 100%, 40%) inset;
         }
     }
-    
+
     .Neon .navbtn_ative {
+        /*background-color: rgb(0, 173, 9);*/
+        box-shadow: 0vw 0vw 7vw 1vw #fff inset;
         animation: neon 15s linear infinite;
-        background-color: rgb(0, 173, 9);
     }
 
     .navbtn .navcon,
@@ -147,6 +163,7 @@
         margin-right: auto;
         margin-left: auto;
         transition: transform 300ms;
+        overflow: visible;
     }
 
     .navbtn #setting_icon {
@@ -195,7 +212,7 @@
         overflow-y: scroll;
     }
 
-    .Neon .eleiment_blob{
+    .Neon .eleiment_blob {
         /*  The scrollable rectabgular bars */
         position: relative;
         height: 25vw;
@@ -212,7 +229,7 @@
         box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
     }
 
-    .material .eleiment_blob{
+    .material .eleiment_blob {
         /*  The scrollable rectabgular bars */
         position: relative;
         height: 25vw;
@@ -230,7 +247,11 @@
         color: #fff;
         /*box-shadow: none!important;*/
     }
-    .material .inverse{color:black!important;text-shadow: 0vw 0vw 0.5vw #fff!important;}
+
+    .material .inverse {
+        color: black !important;
+        text-shadow: 0vw 0vw 0.5vw #fff !important;
+    }
 
     .eleiment_blob:active {
         /*  Transition for effect  */
@@ -350,6 +371,25 @@
         overflow: scroll;
     }
 
+    .periodic_table {
+        position: relative;
+        background: none;
+        border-collapse: separate;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .periodic_table td {
+        position: relative;
+        /*display: flex;*/
+        justify-content: center;
+        align-content: center;
+        height: fit-content;
+        width: fit-content;
+    }
+
+
+
     /* Detail View */
     .Detail_view,
     .Detail_view_active {
@@ -382,6 +422,7 @@
         flex-wrap: nowrap;
 
     }
+
     .material .sub_nav {
         /* Sub navigation (pannel to pannel) */
         position: absolute;
@@ -390,7 +431,7 @@
         width: 100vw;
         height: 9vw;
         background-color: rgb(46, 46, 46);
-        box-shadow:none!important;
+        box-shadow: none !important;
         display: flex;
         flex-wrap: nowrap;
 
@@ -549,6 +590,7 @@
         box-shadow: 0vw 0vw 3vw #0055ff;
         overflow: hidden;
     }
+
     .material .detail_table {
         /* Table with variety of eliment details */
         position: relative;
@@ -560,7 +602,7 @@
         margin-left: auto;
         margin-right: auto;
         border-radius: 1vw;
-        box-shadow: none!important;
+        box-shadow: none !important;
         overflow: hidden;
     }
 

@@ -58,7 +58,7 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
-
+    setTimeout(()=>{navigator.splashscreen.hide();},300);
 });
 
 var config = {//Configuration handler
@@ -161,9 +161,9 @@ let atom_info = {// information dispensing utility
             stated_alotrope: "(H<sub>2</sub>)",
             Melting_Point: { Kelvin: 13.99, Celcious: -259.16, Ferinheight: -434.49 }, Boiling_Point: { Kelvin: 20.271, Celcious: -252.879, Ferinheight: -423.182 }, Density: "0.08988 g/L", Triple_point: "13.8033 K, ​7.041 kPa", Critical_point: "32.938 K, 1.2858 MPa", Heat_of_fusion: "(H<sub>2</sub>) 0.117 kJ/mol", Heat_of_vaporization: "(H<sub>2</sub>) 0.904 kJ/mol", Molar_heat_capacity: "(H<sub>2</sub>) 28.836 J/(mol*K)", Vapor_pressure: { t_1: "-", t_10: "-", t_100: "-", t_1k: "-", t_10k: 15, t_100k: 20 }, Oxydation: "-1, +1", Electronegativity: "Pauling scale: 2.20", Ionization_energies: "1st: 1312.0 kJ/mol", Covalent_radius: "31 +/- 5 pm", Van_der_Waals_radius: "120 pm", Spectrum: [7, 22, 90], Natural_occurrence: "primordial", Crystal_structure: "​hexagonal", Speed_of_sound: "1310 m/s (gas, 27 °C)", Thermal_Conductivity: "0.1805 W/(m K)", Magnetic_susceptibility: "−3.98*10−6 cm3/mol (298 °K)", CAS_Number: "12385-13-6 (H)<br>1333-74-0 (H<sub>2</sub>)",
             isotopes: [//...isotopes
-                { name: "Protinium", acronym: "(<sup>1</sup>H)", neutron: 0, mass: 0, abundance: "99.98%", decay_mode: "stable", half_life: null, Product: null },
-                { name: "Deuterium", acronym: "(<sup>2</sup>H)", neutron: 1, mass: 0, abundance: "0.02%", decay_mode: "stable", half_life: null, Product: null },
-                { name: "Tritium", acronym: "(<sup>3</sup>H)", neutron: 2, mass: 0, abundance: "trace amount", decay_mode: "β<sup>-</sup>", half_life: "12.32 yrs", Product: "<sup>3</sup>He" }
+                { name: "Protinium", acronym: "(<sup>1</sup>H)", neutron: 0, mass: 1, abundance: "99.98%", decay_mode: "stable", half_life: null, Product: null },
+                { name: "Deuterium", acronym: "(<sup>2</sup>H)", neutron: 1, mass: 2, abundance: "0.02%", decay_mode: "stable", half_life: null, Product: null },
+                { name: "Tritium", acronym: "(<sup>3</sup>H)", neutron: 2, mass: 3, abundance: "trace amount", decay_mode: "β<sup>-</sup>", half_life: "12.32 yrs", Product: "<sup>3</sup>He" }
             ],
         },
         {
@@ -215,7 +215,6 @@ let atom_info = {// information dispensing utility
                 { name: "Helium-9", acronym: "(<sup>9</sup>He)", neutron: 7, mass: 9.043, abundance: "man made", decay_mode: "stable", half_life: null, Product: null },
                 { name: "Helium-10", acronym: "(<sup>10</sup>He)", neutron: 8, mass: 10.052, abundance: "man made", decay_mode: "stable", half_life: null, Product: null },
             ],
-            interesting_fact: ""
         },
         {
             name: "Lithium",
@@ -335,7 +334,6 @@ let atom_info = {// information dispensing utility
                 { name: "Beryllium-15", acronym: "(<sup>15</sup>Be)", neutron: 11, mass: 15.053, abundance: "trace", decay_mode: "stable", half_life: "", Product: "" },
                 { name: "Beryllium-16", acronym: "(<sup>16</sup>Be)", neutron: 12, mass: 16.061, abundance: "trace", decay_mode: "stable", half_life: "", Product: "" },
             ],
-            interesting_fact: ""
         },
         {
             name: "Boron",
@@ -6311,6 +6309,7 @@ let atom_info = {// information dispensing utility
                 //eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 50%)';
                 eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 80%)';
                 eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                eleiment_blob.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
             }else if(config.data.theme == "material"){
                 if (atom_info.details[index].invert == true) {
                     eleiment_blob.setAttribute('class', 'eleiment_blob inverse');

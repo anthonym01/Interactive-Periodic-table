@@ -15,6 +15,9 @@
     },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "com.ANTHONYM.pt"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     }
   },
   "dependent_plugins": {}

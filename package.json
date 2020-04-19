@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build_android": "cordova build android"
+    "build_android": "cordova build android",
+    "build_windows": "cordova build windows"
   },
   "keywords": [
     "ecosystem:cordova"
@@ -17,6 +18,7 @@
     "cordova": "^9.0.0",
     "cordova-android": "^8.1.0",
     "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-splashscreen": "^5.0.3",
     "cordova-plugin-x-toast": "^2.7.2"
   },
   "devDependencies": {
@@ -26,7 +28,8 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-x-toast": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "android"
