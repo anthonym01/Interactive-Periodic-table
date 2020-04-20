@@ -28,7 +28,7 @@
 
 /*   <--  Portrait layout -->   */
 .colorponker {
-    background-color: hsl(59, 100%, 82%);
+    background-color: hsl(295, 100%, 82%);
 }
 
 @media screen {
@@ -227,6 +227,7 @@
         border-style: solid;
         border-width: 1vw;
         box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
+        text-shadow: 0vw 0vw 2vw #fff;
     }
 
     .material .eleiment_blob {
@@ -369,6 +370,7 @@
     /*  Table view  */
     #table_view {
         overflow: scroll;
+        /*touch-action:pinch-zoom;*/
     }
 
     .periodic_table {
@@ -387,7 +389,69 @@
         height: fit-content;
         width: fit-content;
     }
+.eliment_spacer{width: 100%;height: 7vw;}
+.ap-spec{/* Eliment acronym */
+    position: absolute;
+    top: 9vw;
+    height: 8vw;
+    font-size: 7vw;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Lexend_Deca;}
+    .Neon .eliment_block{
+        height: 25vw;
+        width: 25vw;
+        background-color: rgb(0, 0, 0);
+        margin:1vw;
+        border: 1vw solid #fff;
+        text-shadow: 0vw 0vw 2vw #fff;
+        box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
+        cursor: pointer;
+        transition: color 300ms,background-color 300ms;
+    }
+    
+    .material .eliment_block{
+        height: 25vw;
+        width: 25vw;
+        background-color: gray;
+        margin:1vw;
+        cursor: pointer;
+        transition: color 300ms,background-color 300ms;
+    }
+    .eliment_block:active{color:black!important;background-color: rgb(255, 255, 255)!important;transition: color 0ms,background-color 0ms;        
+    }
+    .eliment_block .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 4vw;
+        height: 17vw;
+        font-size: 15vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
 
+    .eliment_block .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 1vw;
+        right: 3vw;
+        font-size: 6vw;
+        width: 12vw;
+        text-align: right;
+    }
+
+    .eliment_block .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 2vw;
+        right: 0vw;
+        font-size: 4.5vw;
+        width: 100%;
+        text-align: center;
+    }
 
 
     /* Detail View */

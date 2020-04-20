@@ -1846,7 +1846,7 @@ let atom_info = {// information dispensing utility
         {
             name: "Bromine",
             color: { hue: 0, sat: 100, light: 25 },
-            described_appearance: "Bromine in a 25ml bottle",
+            described_appearance: "Liquid Bromine",
             acronym: "Br",
             Standard_atomic_weight: 79.904,
             atomic_num: 35,
@@ -2792,7 +2792,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Iodine",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 295, sat: 100, light: 50 },
             described_appearance: "Iodine sublimation<br>(going straight from solid to gas)",
             acronym: "I",
             Standard_atomic_weight: 126.904,
@@ -6722,6 +6722,54 @@ let atom_info = {// information dispensing utility
 let table = {
     initialize: function () {
         console.warn('table list initalize');
+        this.render_list()
+    },
+    render_list: function () {// Render and build function seperate to faccilitate anonymus action calls
+        var index;
+        for (index = 0; index < 118; index++) {// render out list
+            build_bar(index);
+        }
+
+        function build_bar(index) {  // Construct the scrollable eliment bars (will be called 118 times)
+            //Create blob bar
+            var eliment_block = document.createElement('div');
+            eliment_block.setAttribute('class', 'eliment_block');
+            eliment_block.setAttribute('name', atom_info.details[index].atomic_num);
+
+            if(config.data.theme == "Neon"){
+                eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
+                eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 80%)';
+                eliment_block.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                eliment_block.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+            }else if(config.data.theme == "material"){
+                if (atom_info.details[index].invert == true) {
+                    eliment_block.setAttribute('class', 'eliment_block inverse');
+                }
+                eliment_block.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
+                eliment_block.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+            }else{
+
+            }
+
+            //create eliment container( the square that looks like it belongs in a text book )
+            var acr = document.createElement('div');
+            var Standard_atomic_weightber = document.createElement('div');
+            var standard_atomic = document.createElement('div');
+            acr.setAttribute('class', 'acr');
+            Standard_atomic_weightber.setAttribute('class', 'mass_number');
+            standard_atomic.setAttribute('class', 'standard_atomic');
+            acr.innerText = atom_info.details[index].acronym;
+            Standard_atomic_weightber.innerText = atom_info.details[index].Standard_atomic_weight;
+            standard_atomic.innerText = atom_info.details[index].atomic_num;
+            eliment_block.appendChild(acr);
+            eliment_block.appendChild(Standard_atomic_weightber);
+            eliment_block.appendChild(standard_atomic);
+            document.getElementById('cell_'+Number(index+1)).appendChild(eliment_block);
+
+            eliment_block.addEventListener('click', () => {//anonymus population call
+                atom_info.populate(index);
+            });
+        }
     },
 }
 
