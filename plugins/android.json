@@ -8,15 +8,15 @@
   },
   "installed_plugins": {
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.ANTHONYM.pt"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.ANTHONYM.pt"
-    },
-    "cordova-plugin-x-toast": {
-      "PACKAGE_NAME": "com.ANTHONYM.pt"
+      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     },
     "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
+    },
+    "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     }
   },

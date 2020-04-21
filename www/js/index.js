@@ -58,13 +58,14 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
-    setTimeout(()=>{navigator.splashscreen.hide();},300);
+    setTimeout(() => { navigator.splashscreen.hide(); }, 500);
 });
 
 var config = {//Configuration handler
     data: {
         animation: true,
         theme: "Neon",
+        theming_group:true,
     },
     properties: {
         exit: false,
@@ -88,16 +89,19 @@ var config = {//Configuration handler
         if (typeof (this.data.animation) == 'undefined') {//validate theme
             console.warn('"animation" did not exist and was defaulted');
             this.data.animation = true;
-        } else {
-            if (this.data.animation != false && this.data.animation != true) {
-                console.warn('"animation" was invalid, found to be :', this.data.animation, ' and was defaulted');
-                this.data.animation = true;
-            } else { console.log('animation valid: ', this.data.animation) }
+            configisvalid = false;
+        }
+
+        if (typeof (this.data.theming_group) == 'undefined') {//validate theme
+            console.warn('"theming_group" did not exist and was defaulted');
+            this.data.theming_group = true;
+            configisvalid = false;
         }
 
         if (typeof (this.data.theme) == 'undefined') {//validate theme
             console.warn('"theme" did not exist and was defaulted');
             this.data.theme = "Neon";
+            configisvalid = false;
         }
 
         if (!configisvalid) {
@@ -2103,7 +2107,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Zirconium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 80 }, invert: true,
             described_appearance: "Zirconium",
             acronym: "Zr",
             Standard_atomic_weight: 91.224,
@@ -2156,7 +2160,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Niobium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 30, light: 70 }, invert: true,
             described_appearance: "Niobium",
             acronym: "Nb",
             Standard_atomic_weight: 92.906,
@@ -2209,7 +2213,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Molybdenum",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 45 }, invert: false,
             described_appearance: "Molybdenum",
             acronym: "Mo",
             Standard_atomic_weight: 95.95,
@@ -2262,7 +2266,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Technetium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 50 },
             described_appearance: "Technetium",
             acronym: "Tc",
             Standard_atomic_weight: 97,
@@ -2315,7 +2319,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Ruthenium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 90 }, invert: true,
             described_appearance: "Ruthenium",
             acronym: "Ru",
             Standard_atomic_weight: 101.07,
@@ -2368,7 +2372,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Rhodium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 95 }, invert: true,
             described_appearance: "Rhodium powder and nuggets",
             acronym: "Rh",
             Standard_atomic_weight: 102.905,
@@ -2421,7 +2425,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Palladium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 70 }, invert: true,
             described_appearance: "Palladium Ingots",
             acronym: "Pd",
             Standard_atomic_weight: 106.42,
@@ -2474,7 +2478,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Silver",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 }, invert: true,
             described_appearance: "Silver Ingots",
             acronym: "Ag",
             Standard_atomic_weight: 107.8682,
@@ -2527,7 +2531,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Cadmium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 80 }, invert: true,
             described_appearance: "A crystal cadmium bar and a 1 cm<sup>3</sup> cadmium cube",
             acronym: "Cd",
             Standard_atomic_weight: 112.414,
@@ -2580,7 +2584,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Indium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
             described_appearance: "99.995% pure Indium lumps",
             acronym: "In",
             Standard_atomic_weight: 114.818,
@@ -2633,7 +2637,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Tin",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 50 },
             described_appearance: "Tin Crystals grown from a solution with electricity",
             acronym: "Sn",
             Standard_atomic_weight: 118.710,
@@ -2686,7 +2690,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Antimony",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 20, light: 60 },
             described_appearance: "Antimony",
             acronym: "Sb",
             Standard_atomic_weight: 21.760,
@@ -2739,8 +2743,8 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Tellurium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "Tellurium waffer",
+            color: { hue: 0, sat: 0, light: 10 }, invert: false,
+            described_appearance: "Tellurium powder",
             acronym: "Te",
             Standard_atomic_weight: 127.60,
             atomic_num: 52,
@@ -2845,7 +2849,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Xenon",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 50, light: 80 },
             described_appearance: "Xenon glowing pale blue in an electric feild",
             acronym: "Xe",
             Standard_atomic_weight: 131.293,
@@ -2898,7 +2902,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Caesium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 100, light: 50 }, invert: true,
             described_appearance: "Caesium in a flask",
             acronym: "Cs",
             Standard_atomic_weight: 132.905,
@@ -2951,7 +2955,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Barium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 100, light: 39 },
             described_appearance: "99.999% pure Barium",
             acronym: "Ba",
             Standard_atomic_weight: 137.327,
@@ -3004,7 +3008,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Lanthanum",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 100, light: 30 },
             described_appearance: "Crystaline Lanthanum",
             acronym: "La",
             Standard_atomic_weight: 138.905,
@@ -3057,7 +3061,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Cerium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 100, light: 32 },
             described_appearance: "Cerium in a flask",
             acronym: "Ce",
             Standard_atomic_weight: 140.116,
@@ -3110,7 +3114,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "praseodymium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
             described_appearance: "praseodymium in a flask",
             acronym: "Pr",
             Standard_atomic_weight: 140.907,
@@ -3163,7 +3167,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Neodymium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 30, light: 70 },
             described_appearance: "Neodymium disks<br>(these are not magnets)",
             acronym: "Nd",
             Standard_atomic_weight: 144.242,
@@ -3216,7 +3220,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Promethium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 120, sat: 100, light: 50 },
             described_appearance: "Promethium glows green in the dark, its radioactive, with no stable isotopes",
             acronym: "Pm",
             Standard_atomic_weight: 145,
@@ -3269,7 +3273,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Samarium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 30, light: 60 },
             described_appearance: "Samarium in a flask",
             acronym: "Sm",
             Standard_atomic_weight: 150.36,
@@ -3322,7 +3326,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Europium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 20, light: 70 },
             described_appearance: "",
             acronym: "Eu",
             Standard_atomic_weight: 151.964,
@@ -3375,7 +3379,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Gadolinium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 120, sat: 30, light: 70 },
             described_appearance: "Gadolinium flek",
             acronym: "Gd",
             Standard_atomic_weight: 157.25,
@@ -3428,7 +3432,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Terbium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 65 },
             described_appearance: "Terbium",
             acronym: "Tb",
             Standard_atomic_weight: 158.925,
@@ -3481,7 +3485,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Dysprosium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 60, sat: 30, light: 60 },
             described_appearance: "Dysprosium chips",
             acronym: "Dy",
             Standard_atomic_weight: 162.5,
@@ -3534,7 +3538,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Holmium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 10, light: 70 },
             described_appearance: "Holmium",
             acronym: "Ho",
             Standard_atomic_weight: 164.93,
@@ -3587,7 +3591,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Erbium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 10, light: 70 },
             described_appearance: "Erbium",
             acronym: "Er",
             Standard_atomic_weight: 167.259,
@@ -3640,7 +3644,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Thulium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 25 }, invert: false,
             described_appearance: "Thulium",
             acronym: "Tm",
             Standard_atomic_weight: 168.934,
@@ -3693,7 +3697,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Ytterbium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 30, sat: 61, light: 50 },
             described_appearance: "Ytterbium chunk",
             acronym: "Yb",
             Standard_atomic_weight: 173.045,
@@ -3746,7 +3750,7 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Lutetium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 210, sat: 30, light: 70 },
             described_appearance: "Lutetium fleck",
             acronym: "Lu",
             Standard_atomic_weight: 174.966,
@@ -3799,11 +3803,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Hafnium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 60 },
+            described_appearance: "Shiny metalic 99.9% Hafnium flecks",
+            acronym: "Hf",
+            Standard_atomic_weight: 178.486,
+            atomic_num: 72,
             Appearance: "",
             group: "",
             period: "",
@@ -3852,11 +3856,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Tantalum",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 210, sat: 20, light: 70 },
+            described_appearance: "Tantalum",
+            acronym: "Ta",
+            Standard_atomic_weight: 180.947,
+            atomic_num: 73,
             Appearance: "",
             group: "",
             period: "",
@@ -3905,11 +3909,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Tungsten",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 70 }, invert: true,
+            described_appearance: "Tungsten is highly refractive and can look very pretty",
+            acronym: "W",
+            Standard_atomic_weight: 183.84,
+            atomic_num: 74,
             Appearance: "",
             group: "",
             period: "",
@@ -3958,11 +3962,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Rhenium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 35 },
+            described_appearance: "Rhenium",
+            acronym: "Re",
+            Standard_atomic_weight: 186.207,
+            atomic_num: 75,
             Appearance: "",
             group: "",
             period: "",
@@ -4011,11 +4015,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Osmium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 210, sat: 30, light: 70 },
+            described_appearance: "Osmium",
+            acronym: "Os",
+            Standard_atomic_weight: 190.23,
+            atomic_num: 76,
             Appearance: "",
             group: "",
             period: "",
@@ -4064,11 +4068,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Iridium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 60, sat: 10, light: 65 },
+            described_appearance: "Iridium",
+            acronym: "Ir",
+            Standard_atomic_weight: 192.217,
+            atomic_num: 77,
             Appearance: "",
             group: "",
             period: "",
@@ -4117,11 +4121,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Platinum",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 90 }, invert: true,
+            described_appearance: "Platinum ingots",
+            acronym: "Pt",
+            Standard_atomic_weight: 195.084,
+            atomic_num: 78,
             Appearance: "",
             group: "",
             period: "",
@@ -4170,11 +4174,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Gold",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 50, sat: 100, light: 50 },
+            described_appearance: "Gold bars",
+            acronym: "Au",
+            Standard_atomic_weight: 196.966,
+            atomic_num: 79,
             Appearance: "",
             group: "",
             period: "",
@@ -4223,11 +4227,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Mercury",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 55 },
+            described_appearance: "Mercury is liquid around room temperature",
+            acronym: "Hg",
+            Standard_atomic_weight: 200.592,
+            atomic_num: 80,
             Appearance: "",
             group: "",
             period: "",
@@ -4276,11 +4280,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Thallium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 210, sat: 30, light: 70 },
+            described_appearance: "Thallium",
+            acronym: "Tl",
+            Standard_atomic_weight: 204.38,
+            atomic_num: 81,
             Appearance: "",
             group: "",
             period: "",
@@ -4329,11 +4333,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Lead",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 60 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Pb",
+            Standard_atomic_weight: 207.2,
+            atomic_num: 82,
             Appearance: "",
             group: "",
             period: "",
@@ -4382,11 +4386,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Bismuth",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 60, sat: 30, light: 70 },
+            described_appearance: "Bismuth is highly refractive",
+            acronym: "Bi",
+            Standard_atomic_weight: 208.980,
+            atomic_num: 83,
             Appearance: "",
             group: "",
             period: "",
@@ -4435,11 +4439,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Polonium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 180, sat: 40, light: 70 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Po",
+            Standard_atomic_weight: 209,
+            atomic_num: 84,
             Appearance: "",
             group: "",
             period: "",
@@ -4488,11 +4492,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Astatine",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 120, sat: 100, light: 50 },
+            described_appearance: "Theroioretical representation of a visible quantity of Astatine, (Its incredibly rare, only a few million atoms have ever been created/collected)",
+            acronym: "At",
+            Standard_atomic_weight: 210,
+            atomic_num: 85,
             Appearance: "",
             group: "",
             period: "",
@@ -4541,11 +4545,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Radon",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 75 },
+            described_appearance: "Radon gas<br>Color-less, Odorless, Poisonus, Radioactive and Dangerous",
+            acronym: "Rn",
+            Standard_atomic_weight: 222,
+            atomic_num: 86,
             Appearance: "",
             group: "",
             period: "",
@@ -4594,11 +4598,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Francium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 27, sat: 100, light: 40 },
+            described_appearance: "Francium",
+            acronym: "Fr",
+            Standard_atomic_weight: 223,
+            atomic_num: 87,
             Appearance: "",
             group: "",
             period: "",
@@ -4647,11 +4651,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Radium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 120, sat: 100, light: 50 },
+            described_appearance: "Radium glows in the dark",
+            acronym: "Ra",
+            Standard_atomic_weight: 226,
+            atomic_num: 88,
             Appearance: "",
             group: "",
             period: "",
@@ -4700,11 +4704,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Actinium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 210, sat: 100, light: 55 },
+            described_appearance: "Actinium has is silvery-white, glowing with an eerie blue light, sometimes with a golden cast",
+            acronym: "Ac",
+            Standard_atomic_weight: 227,
+            atomic_num: 89,
             Appearance: "",
             group: "",
             period: "",
@@ -4753,11 +4757,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Thorium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 20 },
+            described_appearance: "silvery Thorium, with black tarnish",
+            acronym: "Th",
+            Standard_atomic_weight: 232.037,
+            atomic_num: 90,
             Appearance: "",
             group: "",
             period: "",
@@ -4806,11 +4810,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Protactinium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 60, sat: 50, light: 60 },
+            described_appearance: "Protactinium",
+            acronym: "Pa",
+            Standard_atomic_weight: 231.035,
+            atomic_num: 91,
             Appearance: "",
             group: "",
             period: "",
@@ -4859,11 +4863,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Uranium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 120, sat: 100, light: 50 },
+            described_appearance: "Glowing Uranium",
+            acronym: "U",
+            Standard_atomic_weight: 238.028,
+            atomic_num: 92,
             Appearance: "",
             group: "",
             period: "",
@@ -4912,11 +4916,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Neptunium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 50 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Np",
+            Standard_atomic_weight: 237,
+            atomic_num: 93,
             Appearance: "",
             group: "",
             period: "",
@@ -4965,11 +4969,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Plutonium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 39, sat: 100, light: 50 },
+            described_appearance: "Glowing Plutonium, under 'normal' conditions its grey-ish",
+            acronym: "Pu",
+            Standard_atomic_weight: 244,
+            atomic_num: 94,
             Appearance: "",
             group: "",
             period: "",
@@ -5018,16 +5022,16 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Americium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
+            described_appearance: "Americium under a microscope",
+            acronym: "Am",
+            Standard_atomic_weight: 243,
+            atomic_num: 95,
             Appearance: "",
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5071,11 +5075,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Curium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 270, sat: 100, light: 50 },
+            described_appearance: "silvery metallic, glows purple in the dark",
+            acronym: "Cm",
+            Standard_atomic_weight: 247,
+            atomic_num: 96,
             Appearance: "",
             group: "",
             period: "",
@@ -5124,11 +5128,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Berkelium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 0, sat: 0, light: 75 }, invert: true,
+            described_appearance: "Berkelium under a microscope",
+            acronym: "Bk",
+            Standard_atomic_weight: 247,
+            atomic_num: 97,
             Appearance: "",
             group: "",
             period: "",
@@ -5177,11 +5181,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Californium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            color: { hue: 60, sat: 50, light: 60 }, invert: true,
+            described_appearance: "Californium",
+            acronym: "Cf",
+            Standard_atomic_weight: 251,
+            atomic_num: 98,
             Appearance: "",
             group: "",
             period: "",
@@ -5230,11 +5234,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Einsteinium",
-            color: { hue: null, sat: null, light: null },
-            described_appearance: "",
-            acronym: "",
+            color: { hue: 210, sat: 100, light: 55 },
+            described_appearance: "silvery, glows blue in the dark",
+            acronym: "Es",
             Standard_atomic_weight: null,
-            atomic_num: null,
+            atomic_num: 99,
             Appearance: "",
             group: "",
             period: "",
@@ -5283,11 +5287,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Fermium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 }, invert: true,
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Fm",
+            Standard_atomic_weight: 257,
+            atomic_num: 100,
             Appearance: "",
             group: "",
             period: "",
@@ -5336,11 +5340,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Mendelevium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 }, invert: true,
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Md",
+            Standard_atomic_weight: 258,
+            atomic_num: 101,
             Appearance: "",
             group: "",
             period: "",
@@ -5389,11 +5393,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Nobelium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "No",
+            Standard_atomic_weight: 259,
+            atomic_num: 102,
             Appearance: "",
             group: "",
             period: "",
@@ -5442,11 +5446,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Lawrencium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Lr",
+            Standard_atomic_weight: 266,
+            atomic_num: 103,
             Appearance: "",
             group: "",
             period: "",
@@ -5495,11 +5499,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Rutherfordium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Rf",
+            Standard_atomic_weight: 267,
+            atomic_num: 104,
             Appearance: "",
             group: "",
             period: "",
@@ -5548,11 +5552,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Dubnium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Db",
+            Standard_atomic_weight: 268,
+            atomic_num: 105,
             Appearance: "",
             group: "",
             period: "",
@@ -5601,11 +5605,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Seaborgium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Sg",
+            Standard_atomic_weight: 269,
+            atomic_num: 106,
             Appearance: "",
             group: "",
             period: "",
@@ -5654,11 +5658,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Bohrium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Bh",
+            Standard_atomic_weight: 270,
+            atomic_num: 107,
             Appearance: "",
             group: "",
             period: "",
@@ -5707,11 +5711,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Hassium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Hs",
+            Standard_atomic_weight: 269,
+            atomic_num: 108,
             Appearance: "",
             group: "",
             period: "",
@@ -5760,11 +5764,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Meitnerium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Mt",
+            Standard_atomic_weight: 278,
+            atomic_num: 109,
             Appearance: "",
             group: "",
             period: "",
@@ -5813,11 +5817,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Darmstadtium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Ds",
+            Standard_atomic_weight: 281,
+            atomic_num: 110,
             Appearance: "",
             group: "",
             period: "",
@@ -5866,11 +5870,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Roentgenium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Rg",
+            Standard_atomic_weight: 282,
+            atomic_num: 111,
             Appearance: "",
             group: "",
             period: "",
@@ -5919,11 +5923,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Copernicium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Cn",
+            Standard_atomic_weight: 285,
+            atomic_num: 112,
             Appearance: "",
             group: "",
             period: "",
@@ -5972,11 +5976,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Nihonium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Nh",
+            Standard_atomic_weight: 286,
+            atomic_num: 113,
             Appearance: "",
             group: "",
             period: "",
@@ -6025,11 +6029,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Flerovium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Fl",
+            Standard_atomic_weight: 289,
+            atomic_num: 114,
             Appearance: "",
             group: "",
             period: "",
@@ -6078,11 +6082,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Moscovium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Mc",
+            Standard_atomic_weight: 290,
+            atomic_num: 115,
             Appearance: "",
             group: "",
             period: "",
@@ -6131,11 +6135,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Livermorium",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Lv",
+            Standard_atomic_weight: 293,
+            atomic_num: 116,
             Appearance: "",
             group: "",
             period: "",
@@ -6184,11 +6188,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Tennessine",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Ts",
+            Standard_atomic_weight: 294,
+            atomic_num: 117,
             Appearance: "",
             group: "",
             period: "",
@@ -6237,11 +6241,11 @@ let atom_info = {// information dispensing utility
         },
         {
             name: "Oganesson",
-            color: { hue: null, sat: null, light: null },
+            color: { hue: 0, sat: 0, light: 100 },
             described_appearance: "",
-            acronym: "",
-            Standard_atomic_weight: null,
-            atomic_num: null,
+            acronym: "Og",
+            Standard_atomic_weight: 294,
+            atomic_num: 118,
             Appearance: "",
             group: "",
             period: "",
@@ -6303,21 +6307,23 @@ let atom_info = {// information dispensing utility
 
             eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
 
-            if(config.data.theme == "Neon"){
+            if (config.data.theme == "Neon") {
                 eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                //eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                //eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 50%)';
-                eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 80%)';
+                if (atom_info.details[index].color.sat < 50) {
+                    eleiment_blob.style.color = 'white';
+                } else {
+                    eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
+                }
                 eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
                 eleiment_blob.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            }else if(config.data.theme == "material"){
+            } else if (config.data.theme == "material") {
                 if (atom_info.details[index].invert == true) {
                     eleiment_blob.setAttribute('class', 'eleiment_blob inverse');
                 }
                 eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
                 eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
                 eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
-            }else{
+            } else {
 
             }
 
@@ -6736,18 +6742,22 @@ let table = {
             eliment_block.setAttribute('class', 'eliment_block');
             eliment_block.setAttribute('name', atom_info.details[index].atomic_num);
 
-            if(config.data.theme == "Neon"){
+            if (config.data.theme == "Neon") {
                 eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 80%)';
+                if (atom_info.details[index].color.sat < 50) {
+                    eliment_block.style.color = 'white';
+                } else {
+                    eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
+                }
                 eliment_block.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
                 eliment_block.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            }else if(config.data.theme == "material"){
+            } else if (config.data.theme == "material") {
                 if (atom_info.details[index].invert == true) {
                     eliment_block.setAttribute('class', 'eliment_block inverse');
                 }
                 eliment_block.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
                 eliment_block.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            }else{
+            } else {
 
             }
 
@@ -6764,7 +6774,7 @@ let table = {
             eliment_block.appendChild(acr);
             eliment_block.appendChild(Standard_atomic_weightber);
             eliment_block.appendChild(standard_atomic);
-            document.getElementById('cell_'+Number(index+1)).appendChild(eliment_block);
+            document.getElementById('cell_' + Number(index + 1)).appendChild(eliment_block);
 
             eliment_block.addEventListener('click', () => {//anonymus population call
                 atom_info.populate(index);
@@ -6819,15 +6829,15 @@ let UI = {//for general UI thingys
         if (config.data.theme == "Neon") {
             console.log("Set neon theme");
             //utility.toast("Set neon theme");
-            document.getElementById('body').classList="Neon";
+            document.getElementById('body').classList = "Neon";
         } else if (config.data.theme == "material") {
             console.log("Set material theme");
             //utility.toast("Set material theme");
-            document.getElementById('body').classList="material";
+            document.getElementById('body').classList = "material";
         } else {
             console.warn("Theme value invalid : ", config.data.theme);
             config.data.theme = "Neon";
-            document.getElementById('body').classList="Neon";
+            document.getElementById('body').classList = "Neon";
         }
     },
     Navigate: {

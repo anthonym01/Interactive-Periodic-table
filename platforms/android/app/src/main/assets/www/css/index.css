@@ -27,9 +27,6 @@
 }
 
 /*   <--  Portrait layout -->   */
-.colorponker {
-    background-color: hsl(295, 100%, 82%);
-}
 
 @media screen {
     .Neon {
@@ -389,38 +386,51 @@
         height: fit-content;
         width: fit-content;
     }
-.eliment_spacer{width: 100%;height: 7vw;}
-.ap-spec{/* Eliment acronym */
-    position: absolute;
-    top: 9vw;
-    height: 8vw;
-    font-size: 7vw;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    font-family: Lexend_Deca;}
-    .Neon .eliment_block{
+
+    .eliment_spacer {
+        width: 100%;
+        height: 7vw;
+    }
+
+    .ap-spec {
+        /* Eliment acronym */
+        position: absolute;
+        top: 9vw;
+        height: 8vw;
+        font-size: 7vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .Neon .eliment_block {
         height: 25vw;
         width: 25vw;
         background-color: rgb(0, 0, 0);
-        margin:1vw;
+        margin: 1vw;
         border: 1vw solid #fff;
         text-shadow: 0vw 0vw 2vw #fff;
         box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
         cursor: pointer;
-        transition: color 300ms,background-color 300ms;
+        transition: color 300ms, background-color 300ms;
     }
-    
-    .material .eliment_block{
+
+    .material .eliment_block {
         height: 25vw;
         width: 25vw;
         background-color: gray;
-        margin:1vw;
+        margin: 1vw;
         cursor: pointer;
-        transition: color 300ms,background-color 300ms;
+        transition: color 300ms, background-color 300ms;
     }
-    .eliment_block:active{color:black!important;background-color: rgb(255, 255, 255)!important;transition: color 0ms,background-color 0ms;        
+
+    .eliment_block:active {
+        color: black !important;
+        background-color: rgb(255, 255, 255) !important;
+        transition: color 0ms, background-color 0ms;
     }
+
     .eliment_block .acr {
         /* Eliment acronym */
         position: absolute;
@@ -893,4 +903,6 @@
 }
 
 /*    <--  Landscape layout (with min-width) -->     */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {}
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    
+}
