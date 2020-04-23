@@ -131,8 +131,6 @@ let atom_info = {// information dispensing utility
             document.getElementById('isotope_btn').addEventListener('touchstart', atom_info.navISOTOPE)
             document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
             document.getElementById('represent_shader').addEventListener('touchstart', atom_info.BKG_img_action)
-            /*document.getElementById('next_btn').addEventListener('touchstart', atom_info.next)
-            document.getElementById('previous_btn').addEventListener('touchstart', atom_info.previous)*/
         }
         function clickstartup() {
             console.warn('Atomic info uses click actions');
@@ -140,8 +138,6 @@ let atom_info = {// information dispensing utility
             document.getElementById('isotope_btn').addEventListener('click', atom_info.navISOTOPE);
             document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
             document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
-            /*document.getElementById('next_btn').addEventListener('click', atom_info.next)
-            document.getElementById('previous_btn').addEventListener('click', atom_info.previous)*/
         }
         this.render_list();//very important blyat
         //this.populate(0);
@@ -6315,10 +6311,10 @@ let atom_info = {// information dispensing utility
                 case "Transition metal": eleiment_blob.setAttribute('class', 'eleiment_blob Transition-metal'); break;
                 case "actinoid": eleiment_blob.setAttribute('class', 'eleiment_blob actinoid'); break;
                 case "lanthanoid": eleiment_blob.setAttribute('class', 'eleiment_blob lanthanoid'); break;
-                default:eleiment_blob.setAttribute('class', 'eleiment_blob unknown');
+                default: eleiment_blob.setAttribute('class', 'eleiment_blob unknown');
             }
 
-            if(config.data.theming_group!=true){
+            /* if(config.data.theming_group!=true){
                 if (config.data.theme == "Neon") {
                     eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
                     if (atom_info.details[index].color.sat < 50) {
@@ -6339,8 +6335,8 @@ let atom_info = {// information dispensing utility
     
                 }
     
-            }
-            
+            }*/
+
             //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');
             var Standard_atomic_weightber = document.createElement('div');
@@ -6764,10 +6760,10 @@ let table = {
                 case "Transition metal": eliment_block.setAttribute('class', 'eliment_block Transition-metal'); break;
                 case "actinoid": eliment_block.setAttribute('class', 'eliment_block actinoid'); break;
                 case "lanthanoid": eliment_block.setAttribute('class', 'eliment_block lanthanoid'); break;
-                default:eliment_block.setAttribute('class', 'eliment_block unknown');
+                default: eliment_block.setAttribute('class', 'eliment_block unknown');
             }
 
-            if(config.data.theming_group!=true){
+            /*if(config.data.theming_group!=true){
                 if (config.data.theme == "Neon") {
                     eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
                     if (atom_info.details[index].color.sat < 50) {
@@ -6786,7 +6782,7 @@ let table = {
                 } else {
 
                 }
-            }
+            }*/
 
             //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');

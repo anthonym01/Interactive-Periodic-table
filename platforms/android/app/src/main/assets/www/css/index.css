@@ -238,10 +238,10 @@
     }
 
     .Neon .Noble-gas {
-        border: 1vw solid hsl(270, 100%, 40%);
-        box-shadow: 0vw 0vw 5vw 0vw hsl(270, 100%, 50%);
-        text-shadow: 0vw 0vw 2vw hsl(270, 100%, 50%);
-        color: hsl(270, 100%, 70%);
+        border: 1vw solid hsl(204, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(204, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(204, 100%, 50%);
+        color: hsl(204, 100%, 70%);
     }
 
     .Neon .Alkali-metal {
@@ -259,7 +259,7 @@
     }
 
     .Neon .Metalloid {
-        border: 1vw solid hsl(161, 100%, 40%);
+        border: 1vw solid hsl(160, 100%, 40%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(161, 100%, 50%);
         text-shadow: 0vw 0vw 2vw hsl(161, 100%, 50%);
         color: hsl(161, 100%, 70%);
@@ -271,27 +271,34 @@
         text-shadow: 0vw 0vw 2vw hsl(188, 100%, 50%);
         color: hsl(188, 100%, 70%);
     }
+
     .Neon .Transition-metal {
         border: 1vw solid hsl(0, 100%, 40%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(0, 100%, 50%);
         text-shadow: 0vw 0vw 2vw hsl(0, 100%, 50%);
         color: hsl(0, 100%, 70%);
     }
+
     .Neon .actinoid {
         border: 1vw solid hsl(295, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(295, 100%, 50%);
         text-shadow: 0vw 0vw 2vw hsl(295, 100%, 50%);
         color: hsl(295, 100%, 50%);
-    }.Neon .lanthanoid {
-        border: 1vw solid hsl(276, 100%, 40%);
-        box-shadow: 0vw 0vw 5vw 0vw hsl(276, 100%, 40%);
-        text-shadow: 0vw 0vw 2vw hsl(276, 100%, 40%);
-        color: hsl(276, 100%, 40%);
     }
-    .Neon .unknown {border: 1vw solid rgb(255, 255, 255);
+
+    .Neon .lanthanoid {
+        border: 1vw solid hsl(276, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(276, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(276, 100%, 50%);
+        color: hsl(276, 100%, 70%);
+    }
+
+    .Neon .unknown {
+        border: 1vw solid rgb(255, 255, 255);
         box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
         text-shadow: 0vw 0vw 2vw #fff;
-        color: white;}
+        color: white;
+    }
 
     .material .eleiment_blob {
         /*  The scrollable rectabgular bars */
@@ -299,6 +306,48 @@
         background-color: rgb(128, 128, 128);
         text-shadow: 0vw 0vw 0.5vw #000;
         color: #fff;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .material .Reactive-nonmetal {
+        background-color: hsl(123, 100%, 60%);
+    }
+
+    .material .Noble-gas {
+        background-color: hsl(204, 100%, 60%);
+    }
+
+    .material .Alkali-metal {
+        background-color: hsl(40, 100%, 60%);
+    }
+
+    .material .Alkaline-earth-metal {
+        background-color: hsl(60, 100%, 60%);
+    }
+
+    .material .Metalloid {
+        background-color: hsl(160, 100%, 60%);
+    }
+
+    .material .Post-transition-metal {
+        background-color: hsl(188, 100%, 60%);
+    }
+
+    .material .Transition-metal {
+        background-color: hsl(0, 100%, 60%);
+    }
+
+    .material .actinoid {
+        background-color: hsl(295, 100%, 60%);
+    }
+
+    .material .lanthanoid {
+        background-color: hsl(276, 100%, 60%);
+    }
+
+    .material .unknown {
+        background-color: hsl(0, 0%, 100%);
     }
 
     .material .inverse {
@@ -321,7 +370,6 @@
     .material .eliment_container {
         background-color: cornflowerblue;
     }
-
 
     .eliment_container .acr {
         /* Eliment acronym */
@@ -427,8 +475,10 @@
         height: fit-content;
         width: fit-content;
         text-align: center;
-        border:none!important;
-        box-shadow:none!important;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
 
     .eliment_spacer {
@@ -451,11 +501,7 @@
     .Neon .eliment_block {
         height: 25vw;
         width: 25vw;
-        /*background-color: rgb(0, 0, 0);*/
         margin: 1vw;
-        /*border: 1vw solid #fff;*/
-        /*text-shadow: 0vw 0vw 2vw #fff;*/
-        /*box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);*/
         cursor: pointer;
         transition: color 300ms, background-color 300ms;
     }
@@ -463,10 +509,14 @@
     .material .eliment_block {
         height: 25vw;
         width: 25vw;
-        background-color: gray;
-        margin: 1vw;
+        border: 1vw solid #000;
+        /*background-color: gray;*/
+        border-radius: none !important;
+        margin: none;
         cursor: pointer;
         transition: color 300ms, background-color 300ms;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
 
     .eliment_block:active {
