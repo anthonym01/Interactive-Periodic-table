@@ -65,7 +65,7 @@ var config = {//Configuration handler
     data: {
         animation: true,
         theme: "Neon",
-        theming_group: true,
+        low_performance: false,
     },
     properties: {
         exit: false,
@@ -92,9 +92,9 @@ var config = {//Configuration handler
             configisvalid = false;
         }
 
-        if (typeof (this.data.theming_group) == 'undefined') {//validate theme
+        if (typeof (this.data.low_performance) == 'undefined') {//validate theme
             console.warn('"theming_group" did not exist and was defaulted');
-            this.data.theming_group = true;
+            this.data.low_performance = true;
             configisvalid = false;
         }
 
@@ -6811,6 +6811,7 @@ let UI = {//for general UI thingys
     initialize: function () {
         console.warn('UI initalize');
         this.animation.setpostition();
+        this.low_performance.setpostition();
         this.set_theme();
         if (typeof (device) != 'undefined') {//check device mode
             if (device.platform == 'Android' || 'iOS') {//mobile
@@ -6827,26 +6828,15 @@ let UI = {//for general UI thingys
             document.getElementById('table_btn').addEventListener('touchstart', UI.Navigate.table_view);
             document.getElementById('setting_btn').addEventListener('touchstart', UI.Navigate.setting_view);
             document.getElementById('Animations_btn').addEventListener('touchstart', UI.animation.flip);
+            document.getElementById('low_performance_btn').addEventListener('touchstart', UI.low_performance.flip);
         }
         function clickstartup() {
             document.getElementById('list_btn').addEventListener('click', UI.Navigate.list_view);
             document.getElementById('table_btn').addEventListener('click', UI.Navigate.table_view);
             document.getElementById('setting_btn').addEventListener('click', UI.Navigate.setting_view);
             document.getElementById('Animations_btn').addEventListener('click', UI.animation.flip);
+            document.getElementById('low_performance_btn').addEventListener('click', UI.low_performance.flip);
         }
-
-        document.getElementById('set_neon').addEventListener('click', function () {
-            config.data.theme = "Neon";
-            //UI.set_theme();
-            config.save();
-            location.reload()
-        });
-        document.getElementById('set_material').addEventListener('click', function () {
-            config.data.theme = "material";
-            //UI.set_theme();
-            config.save();
-            location.reload()
-        });
     },
     set_theme: function () {
         if (config.data.theme == "Neon") {
@@ -6944,6 +6934,30 @@ let UI = {//for general UI thingys
             } else {
                 document.getElementById('Animations_switch_container').className = 'switch_container_dissabled';
                 document.getElementById('anim').href = "css/noanime.css";//nomation sheet removes animations
+            }
+        },
+    },
+    low_performance: {
+        flip: function () {
+            console.log('animation switch triggered');
+            if (config.data.low_performance) {//turn off the switch
+                config.data.low_performance = false;
+                config.data.theme = "Neon";
+                utility.toast('Low performance mode dissabled'); console.warn('Low performance mode dissabled');
+            } else {//turn on the witch
+                config.data.low_performance = true;
+                config.data.theme = "material";
+                utility.toast('Low performance mode enabled'); console.warn('Low performance mode enabled');
+            }
+            config.save();
+            UI.low_performance.setpostition();
+            setTimeout(()=>{location.reload();},500)
+        },
+        setpostition: function () {
+            if (config.data.low_performance) {
+                document.getElementById('low_performance_switch_container').className = 'switch_container_active';
+            } else {
+                document.getElementById('low_performance_switch_container').className = 'switch_container_dissabled';
             }
         },
     },
