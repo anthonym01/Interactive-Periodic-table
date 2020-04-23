@@ -209,7 +209,7 @@
         overflow-y: scroll;
     }
 
-    .Neon .eleiment_blob {
+    .eleiment_blob {
         /*  The scrollable rectabgular bars */
         position: relative;
         height: 25vw;
@@ -220,35 +220,6 @@
         margin-bottom: 4vw;
         overflow: hidden;
         cursor: pointer;
-        transition: color 300ms, background-color 300ms;
-        border-style: solid;
-        border-width: 1vw;
-        box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
-        text-shadow: 0vw 0vw 2vw #fff;
-    }
-
-    .material .eleiment_blob {
-        /*  The scrollable rectabgular bars */
-        position: relative;
-        height: 25vw;
-        width: 95vw;
-        border-radius: 5vw;
-        background-color: rgb(128, 128, 128);
-        margin-top: 4vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 4vw;
-        overflow: hidden;
-        cursor: pointer;
-        transition: color 300ms, background-color 300ms;
-        text-shadow: 0vw 0vw 0.5vw #000;
-        color: #fff;
-        /*box-shadow: none!important;*/
-    }
-
-    .material .inverse {
-        color: black !important;
-        text-shadow: 0vw 0vw 0.5vw #fff !important;
     }
 
     .eleiment_blob:active {
@@ -259,28 +230,98 @@
         transition-duration: 0ms !important;
     }
 
+    .Neon .Reactive-nonmetal {
+        border: 1vw solid hsl(123, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(123, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(123, 100%, 50%);
+        color: hsl(123, 100%, 80%);
+    }
+
+    .Neon .Noble-gas {
+        border: 1vw solid hsl(270, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(270, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(270, 100%, 50%);
+        color: hsl(270, 100%, 70%);
+    }
+
+    .Neon .Alkali-metal {
+        border: 1vw solid hsl(40, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(40, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(40, 100%, 50%);
+        color: hsl(40, 100%, 70%);
+    }
+
+    .Neon .Alkaline-earth-metal {
+        border: 1vw solid hsl(60, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(60, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(60, 100%, 50%);
+        color: hsl(60, 100%, 70%);
+    }
+
+    .Neon .Metalloid {
+        border: 1vw solid hsl(161, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(161, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(161, 100%, 50%);
+        color: hsl(161, 100%, 70%);
+    }
+
+    .Neon .Post-transition-metal {
+        border: 1vw solid hsl(188, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(188, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(188, 100%, 50%);
+        color: hsl(188, 100%, 70%);
+    }
+    .Neon .Transition-metal {
+        border: 1vw solid hsl(0, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(0, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(0, 100%, 50%);
+        color: hsl(0, 100%, 70%);
+    }
+    .Neon .actinoid {
+        border: 1vw solid hsl(295, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(295, 100%, 50%);
+        text-shadow: 0vw 0vw 2vw hsl(295, 100%, 50%);
+        color: hsl(295, 100%, 50%);
+    }.Neon .lanthanoid {
+        border: 1vw solid hsl(276, 100%, 40%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(276, 100%, 40%);
+        text-shadow: 0vw 0vw 2vw hsl(276, 100%, 40%);
+        color: hsl(276, 100%, 40%);
+    }
+    .Neon .unknown {border: 1vw solid rgb(255, 255, 255);
+        box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
+        text-shadow: 0vw 0vw 2vw #fff;
+        color: white;}
+
+    .material .eleiment_blob {
+        /*  The scrollable rectabgular bars */
+        border-radius: 4vw;
+        background-color: rgb(128, 128, 128);
+        text-shadow: 0vw 0vw 0.5vw #000;
+        color: #fff;
+    }
+
+    .material .inverse {
+        color: black !important;
+        text-shadow: 0vw 0vw 0.5vw #fff !important;
+    }
+
     /*  The semi-square with the eliment details  */
-    .Neon .eliment_container {
+    .eliment_container {
         position: relative;
         height: 25vw;
         width: 25vw;
-        /*background-color: cornflowerblue;*/
-        /* begug color */
+    }
+
+    .Neon .eliment_container {
         border-right: 1vw solid;
         border-color: inherit;
     }
 
     .material .eliment_container {
-        position: relative;
-        height: 25vw;
-        width: 25vw;
         background-color: cornflowerblue;
-        /* begug color */
     }
 
-    #detil_elem_color_container {
-        border: none;
-    }
 
     .eliment_container .acr {
         /* Eliment acronym */
@@ -364,11 +405,6 @@
         text-align: center;
     }
 
-
-
-
-
-    
     /*  Table view  */
     #table_view {
         overflow: scroll;
@@ -390,6 +426,9 @@
         align-content: center;
         height: fit-content;
         width: fit-content;
+        text-align: center;
+        border:none!important;
+        box-shadow:none!important;
     }
 
     .eliment_spacer {
@@ -412,11 +451,11 @@
     .Neon .eliment_block {
         height: 25vw;
         width: 25vw;
-        background-color: rgb(0, 0, 0);
+        /*background-color: rgb(0, 0, 0);*/
         margin: 1vw;
-        border: 1vw solid #fff;
-        text-shadow: 0vw 0vw 2vw #fff;
-        box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
+        /*border: 1vw solid #fff;*/
+        /*text-shadow: 0vw 0vw 2vw #fff;*/
+        /*box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);*/
         cursor: pointer;
         transition: color 300ms, background-color 300ms;
     }
@@ -486,6 +525,11 @@
         display: block;
         opacity: 1;
         transform: translate(0, 0);
+    }
+
+    #detil_elem_color_container {
+        /*  Remove border from populate*/
+        border: none;
     }
 
     .Neon .sub_nav {

@@ -65,7 +65,7 @@ var config = {//Configuration handler
     data: {
         animation: true,
         theme: "Neon",
-        theming_group:true,
+        theming_group: true,
     },
     properties: {
         exit: false,
@@ -1193,7 +1193,7 @@ let atom_info = {// information dispensing utility
             group: "4",
             period: "4",
             block: "d-block",
-            category: "Transitional Metal",
+            category: "Transition metal",
             Electron_configuration: "3d<sup>2</sup> 4s<sup>2</sup>",
             Electrons_per_shell: "2, 8, 10, 2",
             Phase_STP: "(at STP) solid",
@@ -1295,7 +1295,7 @@ let atom_info = {// information dispensing utility
             group: "6",
             period: "4",
             block: "d-block",
-            category: "transition metal",
+            category: "Transition metal",
             Electron_configuration: "3d<sup>5</sup> 4s<sup>1</sup>",
             Electrons_per_shell: "2, 8, 13, 1",
             Phase_STP: "(at STP) solid",
@@ -1603,7 +1603,7 @@ let atom_info = {// information dispensing utility
             group: "12",
             period: "4",
             block: "d-block",
-            category: "Post-transition metal",
+            category: "Transition metal",
             Electron_configuration: "3d<sup>10</sup> 4s<sup>2</sup>",
             Electrons_per_shell: "2, 8, 18, 2",
             Phase_STP: "(at STP) solid",
@@ -2063,7 +2063,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2116,7 +2116,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2169,7 +2169,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2222,7 +2222,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2275,7 +2275,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2328,7 +2328,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2381,7 +2381,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2434,7 +2434,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2487,7 +2487,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2540,7 +2540,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2593,7 +2593,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2646,7 +2646,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2699,7 +2699,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Metalloid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2752,7 +2752,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Metalloid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2805,7 +2805,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Reactive nonmetal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2858,7 +2858,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Noble gas",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2911,7 +2911,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Alkali metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -2964,7 +2964,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Alkaline earth metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3017,7 +3017,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3070,7 +3070,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3123,7 +3123,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3176,7 +3176,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3229,7 +3229,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3282,7 +3282,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3335,7 +3335,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3388,7 +3388,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3441,7 +3441,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3494,7 +3494,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3547,7 +3547,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3600,7 +3600,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3653,7 +3653,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3706,7 +3706,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3759,7 +3759,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "lanthanoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3812,7 +3812,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3865,7 +3865,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3918,7 +3918,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -3971,7 +3971,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4024,7 +4024,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4077,7 +4077,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4130,7 +4130,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4183,7 +4183,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4236,7 +4236,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4289,7 +4289,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4342,7 +4342,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4395,7 +4395,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4448,7 +4448,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4501,7 +4501,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Metalloid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4554,7 +4554,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Noble gas",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4607,7 +4607,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Alkali metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4660,7 +4660,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Alkaline earth metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4713,7 +4713,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4766,7 +4766,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4819,7 +4819,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4868,11 +4868,11 @@ let atom_info = {// information dispensing utility
             acronym: "U",
             Standard_atomic_weight: 238.028,
             atomic_num: 92,
-            Appearance: "",
+            Appearance: "actinoid",
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4925,7 +4925,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -4978,7 +4978,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5084,7 +5084,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5137,7 +5137,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5190,7 +5190,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5243,7 +5243,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5296,7 +5296,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5349,7 +5349,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5402,7 +5402,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5455,7 +5455,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "actinoid",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5508,7 +5508,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5561,7 +5561,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5614,7 +5614,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5667,7 +5667,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5720,7 +5720,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5773,7 +5773,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5826,7 +5826,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5879,7 +5879,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5932,7 +5932,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -5985,7 +5985,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6038,7 +6038,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "Post-transition metal",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6091,7 +6091,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6144,7 +6144,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6197,7 +6197,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6250,7 +6250,7 @@ let atom_info = {// information dispensing utility
             group: "",
             period: "",
             block: "-block",
-            category: "",
+            category: "unknown",
             Electron_configuration: "",
             Electrons_per_shell: "",
             Phase_STP: "",
@@ -6303,30 +6303,44 @@ let atom_info = {// information dispensing utility
             //Create blob bar
             var eleiment_blob = document.createElement('div');
             var eliment_container = document.createElement('div');
-            eleiment_blob.setAttribute('class', 'eleiment_blob');
-
             eleiment_blob.setAttribute('name', atom_info.details[index].atomic_num);
 
-            if (config.data.theme == "Neon") {
-                eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                if (atom_info.details[index].color.sat < 50) {
-                    eleiment_blob.style.color = 'white';
-                } else {
-                    eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
-                }
-                eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                eleiment_blob.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            } else if (config.data.theme == "material") {
-                if (atom_info.details[index].invert == true) {
-                    eleiment_blob.setAttribute('class', 'eleiment_blob inverse');
-                }
-                eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
-                eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
-            } else {
-
+            switch (atom_info.details[index].category) {
+                case "Reactive nonmetal": eleiment_blob.setAttribute('class', 'eleiment_blob Reactive-nonmetal'); break;
+                case "Noble gas": eleiment_blob.setAttribute('class', 'eleiment_blob Noble-gas'); break;
+                case "Alkali metal": eleiment_blob.setAttribute('class', 'eleiment_blob Alkali-metal'); break;
+                case "Alkaline earth metal": eleiment_blob.setAttribute('class', 'eleiment_blob Alkaline-earth-metal'); break;
+                case "Metalloid": eleiment_blob.setAttribute('class', 'eleiment_blob Metalloid'); break;
+                case "Post-transition metal": eleiment_blob.setAttribute('class', 'eleiment_blob Post-transition-metal'); break;
+                case "Transition metal": eleiment_blob.setAttribute('class', 'eleiment_blob Transition-metal'); break;
+                case "actinoid": eleiment_blob.setAttribute('class', 'eleiment_blob actinoid'); break;
+                case "lanthanoid": eleiment_blob.setAttribute('class', 'eleiment_blob lanthanoid'); break;
+                default:eleiment_blob.setAttribute('class', 'eleiment_blob unknown');
             }
 
+            if(config.data.theming_group!=true){
+                if (config.data.theme == "Neon") {
+                    eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
+                    if (atom_info.details[index].color.sat < 50) {
+                        eleiment_blob.style.color = 'white';
+                    } else {
+                        eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
+                    }
+                    eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                    eleiment_blob.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                } else if (config.data.theme == "material") {
+                    if (atom_info.details[index].invert == true) {
+                        eleiment_blob.setAttribute('class', 'eleiment_blob inverse');
+                    }
+                    eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
+                    eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                    eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
+                } else {
+    
+                }
+    
+            }
+            
             //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');
             var Standard_atomic_weightber = document.createElement('div');
@@ -6739,26 +6753,39 @@ let table = {
         function build_bar(index) {  // Construct the scrollable eliment bars (will be called 118 times)
             //Create blob bar
             var eliment_block = document.createElement('div');
-            eliment_block.setAttribute('class', 'eliment_block');
             eliment_block.setAttribute('name', atom_info.details[index].atomic_num);
+            switch (atom_info.details[index].category) {
+                case "Reactive nonmetal": eliment_block.setAttribute('class', 'eliment_block Reactive-nonmetal'); break;
+                case "Noble gas": eliment_block.setAttribute('class', 'eliment_block Noble-gas'); break;
+                case "Alkali metal": eliment_block.setAttribute('class', 'eliment_block Alkali-metal'); break;
+                case "Alkaline earth metal": eliment_block.setAttribute('class', 'eliment_block Alkaline-earth-metal'); break;
+                case "Metalloid": eliment_block.setAttribute('class', 'eliment_block Metalloid'); break;
+                case "Post-transition metal": eliment_block.setAttribute('class', 'eliment_block Post-transition-metal'); break;
+                case "Transition metal": eliment_block.setAttribute('class', 'eliment_block Transition-metal'); break;
+                case "actinoid": eliment_block.setAttribute('class', 'eliment_block actinoid'); break;
+                case "lanthanoid": eliment_block.setAttribute('class', 'eliment_block lanthanoid'); break;
+                default:eliment_block.setAttribute('class', 'eliment_block unknown');
+            }
 
-            if (config.data.theme == "Neon") {
-                eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                if (atom_info.details[index].color.sat < 50) {
-                    eliment_block.style.color = 'white';
+            if(config.data.theming_group!=true){
+                if (config.data.theme == "Neon") {
+                    eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
+                    if (atom_info.details[index].color.sat < 50) {
+                        eliment_block.style.color = 'white';
+                    } else {
+                        eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
+                    }
+                    eliment_block.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                    eliment_block.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
+                } else if (config.data.theme == "material") {
+                    if (atom_info.details[index].invert == true) {
+                        eliment_block.setAttribute('class', 'eliment_block inverse');
+                    }
+                    eliment_block.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
+                    eliment_block.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
                 } else {
-                    eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
-                }
-                eliment_block.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                eliment_block.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            } else if (config.data.theme == "material") {
-                if (atom_info.details[index].invert == true) {
-                    eliment_block.setAttribute('class', 'eliment_block inverse');
-                }
-                eliment_block.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
-                eliment_block.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-            } else {
 
+                }
             }
 
             //create eliment container( the square that looks like it belongs in a text book )
