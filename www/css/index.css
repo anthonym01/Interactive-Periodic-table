@@ -432,7 +432,7 @@
         right: 31%;
         width: 67%;
         font-family: Lexend_Deca;
-        font-size: 4vw;
+        font-size: 3.5vw;
         text-align: center;
         overflow: visible;
         white-space: pre-wrap;
@@ -449,12 +449,12 @@
         right: 3%;
         width: 30%;
         font-family: Lexend_Deca;
-        font-size: 4vw;
+        font-size: 3.5vw;
         text-align: center;
     }
 
 
-    
+
     /*  Table view  */
     #table_view {
         overflow: scroll;
@@ -505,7 +505,7 @@
         width: 25vw;
         margin: 1vw;
         cursor: pointer;
-        transition: color 300ms, background-color 300ms;
+        transition: color 300ms, background-color 300ms,opacity 300ms;
     }
 
     .material .eliment_block {
@@ -530,9 +530,9 @@
     .eliment_block .acr {
         /* Eliment acronym */
         position: absolute;
-        top: 4vw;
-        height: 17vw;
-        font-size: 15vw;
+        top: 3vw;
+        height: 15vw;
+        font-size: 14vw;
         right: 0;
         width: 100%;
         text-align: center;
@@ -547,6 +547,16 @@
         font-size: 6vw;
         width: 12vw;
         text-align: right;
+    }
+
+    .eliment_block .name {
+        /* Bottom number */
+        position: absolute;
+        bottom: 7vw;
+        right: 0vw;
+        font-size: 3.3vw;
+        width: 100%;
+        text-align: center;
     }
 
     .eliment_block .mass_number {

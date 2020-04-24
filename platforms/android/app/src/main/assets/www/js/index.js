@@ -70,6 +70,7 @@ var config = {//Configuration handler
     properties: {
         exit: false,
         current_atom: null,
+        focused_table: false,
     },
     save: function () {//Save the config file
         localStorage.setItem("Periodic_table_cfg", JSON.stringify(config.data));
@@ -6314,29 +6315,6 @@ let atom_info = {// information dispensing utility
                 default: eleiment_blob.setAttribute('class', 'eleiment_blob unknown');
             }
 
-            /* if(config.data.theming_group!=true){
-                if (config.data.theme == "Neon") {
-                    eleiment_blob.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                    if (atom_info.details[index].color.sat < 50) {
-                        eleiment_blob.style.color = 'white';
-                    } else {
-                        eleiment_blob.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
-                    }
-                    eleiment_blob.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                    eleiment_blob.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                } else if (config.data.theme == "material") {
-                    if (atom_info.details[index].invert == true) {
-                        eleiment_blob.setAttribute('class', 'eleiment_blob inverse');
-                    }
-                    eleiment_blob.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
-                    eleiment_blob.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                    eliment_container.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
-                } else {
-    
-                }
-    
-            }*/
-
             //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');
             var Standard_atomic_weightber = document.createElement('div');
@@ -6739,6 +6717,17 @@ let table = {
     initialize: function () {
         console.warn('table list initalize');
         this.render_list()
+
+        document.getElementById('Reactive_nonmetal').addEventListener('click', table.focus.Reactive_nonmetal)
+        document.getElementById('Noble_gas').addEventListener('click', table.focus.Noble_gas)
+        document.getElementById('Alkali_metal').addEventListener('click', table.focus.Alkali_metal)
+        document.getElementById('Alkaline_earth_metal').addEventListener('click', table.focus.Alkaline_earth_metal)
+        document.getElementById('Metalloid').addEventListener('click', table.focus.Metalloid)
+        document.getElementById('Post_transition_metal').addEventListener('click', table.focus.Post_transition_metal)
+        document.getElementById('Transition_metal').addEventListener('click', table.focus.Transition_metal)
+        document.getElementById('Actinoid').addEventListener('click', table.focus.Actinoid)
+        document.getElementById('Lanthanoid').addEventListener('click', table.focus.Lanthanoid)
+        document.getElementById('unknown').addEventListener('click', table.focus.unknown)
     },
     render_list: function () {// Render and build function seperate to faccilitate anonymus action calls
         var index;
@@ -6763,40 +6752,24 @@ let table = {
                 default: eliment_block.setAttribute('class', 'eliment_block unknown');
             }
 
-            /*if(config.data.theming_group!=true){
-                if (config.data.theme == "Neon") {
-                    eliment_block.style.borderColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light) + '%)';
-                    if (atom_info.details[index].color.sat < 50) {
-                        eliment_block.style.color = 'white';
-                    } else {
-                        eliment_block.style.color = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%, 100%)';
-                    }
-                    eliment_block.style.boxShadow = "0vw 0vw 4vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                    eliment_block.style.textShadow = "0vw 0vw 2vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                } else if (config.data.theme == "material") {
-                    if (atom_info.details[index].invert == true) {
-                        eliment_block.setAttribute('class', 'eliment_block inverse');
-                    }
-                    eliment_block.style.backgroundColor = 'hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + Number(atom_info.details[index].color.light - 10) + '%)';
-                    eliment_block.style.boxShadow = "0vw 1vw 2vw 0vw hsl(" + atom_info.details[index].color.hue + "," + atom_info.details[index].color.sat + "%," + atom_info.details[index].color.light + "%)"
-                } else {
-
-                }
-            }*/
-
             //create eliment container( the square that looks like it belongs in a text book )
             var acr = document.createElement('div');
             var Standard_atomic_weightber = document.createElement('div');
             var standard_atomic = document.createElement('div');
+            var name = document.createElement('div');
             acr.setAttribute('class', 'acr');
             Standard_atomic_weightber.setAttribute('class', 'mass_number');
             standard_atomic.setAttribute('class', 'standard_atomic');
+            name.setAttribute('class', 'name');
             acr.innerText = atom_info.details[index].acronym;
             Standard_atomic_weightber.innerText = atom_info.details[index].Standard_atomic_weight;
             standard_atomic.innerText = atom_info.details[index].atomic_num;
+            name.innerText = atom_info.details[index].name;
             eliment_block.appendChild(acr);
             eliment_block.appendChild(Standard_atomic_weightber);
+            eliment_block.appendChild(name);
             eliment_block.appendChild(standard_atomic);
+            eliment_block.setAttribute('id', 'eliment_' + Number(index + 1))
             document.getElementById('cell_' + Number(index + 1)).appendChild(eliment_block);
 
             eliment_block.addEventListener('click', () => {//anonymus population call
@@ -6804,6 +6777,279 @@ let table = {
             });
         }
     },
+    focus: {
+        Reactive_nonmetal: function () {
+            console.log('Focus Reactive nonmetal');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Reactive nonmetal") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+
+        },
+        Noble_gas: function () {
+            console.log('Focus Noble gas');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Noble gas") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Alkali_metal: function () {
+            console.log('Focus Alkali metal');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Alkali metal") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Alkaline_earth_metal: function () {
+            console.log('Focus Alkaline earth metal');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Alkaline earth metal") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Metalloid: function () {
+            console.log('Focus Metalloid');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Metalloid") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Post_transition_metal: function () {
+            console.log('Focus Post-transition metal');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Post-transition metal") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Transition_metal: function () {
+            console.log('Focus Transition metal');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "Transition metal") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Actinoid: function () {
+            console.log('Focus Actinoid');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "actinoid") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                //document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        Lanthanoid: function () {
+            console.log('Focus Lanthanoid');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "lanthanoid") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                //document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                document.getElementById('unknown').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        unknown: function () {
+            console.log('Focus unknown');
+            if (config.properties.focused_table == true) {//check a non reactive nonmetal
+                table.focus.reset()
+            } else {
+                var i;
+                for (i = 1; i < 119; i++) {
+                    if (atom_info.details[i - 1].category != "unknown") {
+                        document.getElementById('eliment_' + i).style.opacity = "0.5";
+                    }
+                }
+                document.getElementById('lanthanoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('actinoid-ap-spec').style.opacity = "0.5";
+                document.getElementById('Reactive_nonmetal').style.opacity = "0.5";
+                document.getElementById('Noble_gas').style.opacity = "0.5";
+                document.getElementById('Alkaline_earth_metal').style.opacity = "0.5";
+                document.getElementById('Metalloid').style.opacity = "0.5";
+                document.getElementById('Post_transition_metal').style.opacity = "0.5";
+                document.getElementById('Transition_metal').style.opacity = "0.5";
+                document.getElementById('Actinoid').style.opacity = "0.5";
+                document.getElementById('Lanthanoid').style.opacity = "0.5";
+                document.getElementById('Alkali_metal').style.opacity = "0.5";
+                config.properties.focused_table = true
+            }
+        },
+        reset: function () {
+            config.properties.focused_table = false
+            var i;
+            for (i = 1; i < 119; i++) {
+                document.getElementById('eliment_' + i).style.opacity = "";
+            }
+            document.getElementById('actinoid-ap-spec').style.opacity = "";
+            document.getElementById('lanthanoid-ap-spec').style.opacity = "";
+            document.getElementById('Noble_gas').style.opacity = "";
+            document.getElementById('Alkali_metal').style.opacity = "";
+            document.getElementById('Alkaline_earth_metal').style.opacity = "";
+            document.getElementById('Metalloid').style.opacity = "";
+            document.getElementById('Post_transition_metal').style.opacity = "";
+            document.getElementById('Transition_metal').style.opacity = "";
+            document.getElementById('Actinoid').style.opacity = "";
+            document.getElementById('Lanthanoid').style.opacity = "";
+            document.getElementById('Reactive_nonmetal').style.opacity = "";
+            document.getElementById('unknown').style.opacity = "";
+        }
+    }
+
 }
 
 /*  UI manager  */
@@ -6917,7 +7163,7 @@ let UI = {//for general UI thingys
     animation: {
         flip: function () {
             console.log('animation switch triggered');
-            if (config.data.animation) {//turn off the switch
+            if (config.data.animation == true) {//turn off the switch
                 config.data.animation = false;
                 utility.toast('animations dissabled'); console.warn('animations dissabled');
             } else {//turn on the witch
@@ -6928,7 +7174,7 @@ let UI = {//for general UI thingys
             UI.animation.setpostition();
         },
         setpostition: function () {
-            if (config.data.animation) {
+            if (config.data.animation == true) {
                 document.getElementById('Animations_switch_container').className = 'switch_container_active';
                 document.getElementById('anim').href = "";
             } else {
@@ -6940,7 +7186,7 @@ let UI = {//for general UI thingys
     low_performance: {
         flip: function () {
             console.log('animation switch triggered');
-            if (config.data.low_performance) {//turn off the switch
+            if (config.data.low_performance == true) {//turn off the switch
                 config.data.low_performance = false;
                 config.data.theme = "Neon";
                 utility.toast('Low performance mode dissabled'); console.warn('Low performance mode dissabled');
@@ -6951,10 +7197,10 @@ let UI = {//for general UI thingys
             }
             config.save();
             UI.low_performance.setpostition();
-            setTimeout(()=>{location.reload();},500)
+            setTimeout(() => { location.reload(); }, 500)
         },
         setpostition: function () {
-            if (config.data.low_performance) {
+            if (config.data.low_performance == true) {
                 document.getElementById('low_performance_switch_container').className = 'switch_container_active';
             } else {
                 document.getElementById('low_performance_switch_container').className = 'switch_container_dissabled';
