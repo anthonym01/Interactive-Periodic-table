@@ -71,6 +71,7 @@ var config = {//Configuration handler
         exit: false,
         current_atom: null,
         focused_table: false,
+        focus_on:"nothing",
     },
     save: function () {//Save the config file
         localStorage.setItem("Periodic_table_cfg", JSON.stringify(config.data));
@@ -6361,227 +6362,233 @@ let atom_info = {// information dispensing utility
     },
     /* Detail pannel actions */
     populate: function (index) {// Populate atomic details pannel based on data in array
-        console.log('Papulate with atom: ', index + 1);
-        document.getElementById('detail_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
-        document.getElementById('isotope_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
-
-        if (atom_info.details[index].invert == true) {
-            document.getElementById('detil_elem_color_container').style.color = 'black';
-            document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #fff';
-        } else {
-            document.getElementById('detil_elem_color_container').style.color = 'white';
-            document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #000';
+        if(config.properties.focused_table == true && config.properties.focus_on != this.details[index].category){
+            table.focus.reset()
+        }else{
+            console.log('Papulate with atom: ', index + 1);
+            document.getElementById('detail_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+            document.getElementById('isotope_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+    
+            if (atom_info.details[index].invert == true) {
+                document.getElementById('detil_elem_color_container').style.color = 'black';
+                document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #fff';
+            } else {
+                document.getElementById('detil_elem_color_container').style.color = 'white';
+                document.getElementById('detil_elem_color_container').style.textShadow = '0vw 0vw 0.5vw #000';
+            }
+    
+            if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
+                config.properties.current_atom = index;//set current render (will be usefull later)
+                //prep the page
+                document.getElementById("isotope_pane").innerHTML = "";//Clear the isotope models
+                document.getElementById('spectrum_bar').innerHTML = "";//Clear the spectrum
+                document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the top of the page
+                document.getElementById('General_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
+                document.getElementById('Physical_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
+                document.getElementById('atomic_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
+                document.getElementById('Other_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
+                document.getElementById('background_representation').style.backgroundImage = 'url("img/Eliments/' + (index + 1) + '.webp")';//background representation
+                document.getElementById('background_representation_description').innerHTML = this.details[index].described_appearance;//description
+                document.getElementById('header').innerText = this.details[index].name;//Populate name feild
+                document.getElementById('detil_elem_color_container').style.backgroundColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+                //eliment aquare
+                document.getElementById('detail_acr_main').innerHTML = this.details[index].acronym;
+                document.getElementById('detail_atomic_num_main').innerHTML = this.details[index].atomic_num;
+                document.getElementById('detail_mass_num_main').innerHTML = this.details[index].Standard_atomic_weight;
+                //Tabled details
+                document.getElementById('Standard_atomic_weight').innerHTML = this.details[index].Standard_atomic_weight;
+                document.getElementById('atomic_num').innerHTML = this.details[index].atomic_num;
+                document.getElementById('Appearance').innerHTML = this.details[index].Appearance;
+                document.getElementById('group').innerHTML = this.details[index].group;
+                document.getElementById('period').innerHTML = this.details[index].period;
+                document.getElementById('block').innerHTML = this.details[index].block;
+                document.getElementById('category').innerHTML = this.details[index].category;
+                document.getElementById('Electron_configuration').innerHTML = this.details[index].Electron_configuration;
+                document.getElementById('Electrons_per_shell').innerHTML = this.details[index].Electrons_per_shell;
+                document.getElementById('Phase_STP').innerHTML = this.details[index].Phase_STP;
+    
+                if (typeof (atom_info.details[index].Melting_Point) != 'undefined') {//check if melting point
+                    if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
+                        document.getElementById('meltpt_molicule').innerHTML = this.details[index].stated_alotrope;
+                    } else { document.getElementById('meltpt_molicule').innerHTML = "" }
+                    document.getElementById('Melting_Point_Kelvin').innerHTML = this.details[index].Melting_Point.Kelvin + '°K';
+                    document.getElementById('Melting_Point_Celcious').innerHTML = this.details[index].Melting_Point.Celcious + '°C';
+                    document.getElementById('Melting_Point_Ferinheight').innerHTML = this.details[index].Melting_Point.Ferinheight + '°F';
+                    document.getElementById('melt_table').style.display = "";//clear table style (so it can be seen)
+                    document.getElementById('melt_pt_noex').style.display = "none";//remove the not extister
+                    document.getElementById('meltpt_row').classList = "enabled"
+                } else {
+                    document.getElementById('meltpt_molicule').innerHTML = '';
+                    document.getElementById('melt_table').style.display = "none";//clear table style (so it can be seen)
+                    document.getElementById('melt_pt_noex').style.display = "block";//remove the not extister
+                    document.getElementById('melt_pt_noex').innerHTML = this.details[index].name + ' Does not "melt"';//does not melt
+                    document.getElementById('meltpt_row').classList = "dissabled"
+                }
+    
+                if (typeof (atom_info.details[index].Boiling_Point) != 'undefined') {//check if boiling point
+                    if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
+                        document.getElementById('boilpt_molicule').innerHTML = this.details[index].stated_alotrope;
+                    } else { document.getElementById('boilpt_molicule').innerHTML = "" }
+                    document.getElementById('Boiling_Point_Kelvin').innerHTML = this.details[index].Boiling_Point.Kelvin + '°K';
+                    document.getElementById('Boiling_Point_Celcious').innerHTML = this.details[index].Boiling_Point.Celcious + '°C';
+                    document.getElementById('Boiling_Point_Ferinheight').innerHTML = this.details[index].Boiling_Point.Ferinheight + '°F';
+                    document.getElementById('boil_table').style.display = "";//clear table style (so it can be seen)
+                    document.getElementById('boil_pt_noex').style.display = "none";//remove the not extister
+                    document.getElementById('boilpt_row').classList = "enabled"
+                } else {
+                    document.getElementById('meltpt_molicule').innerHTML = '';
+                    document.getElementById('boil_table').style.display = "none";//clear table style (so it can be seen)
+                    document.getElementById('boil_pt_noex').style.display = "block";//remove the not extister
+                    document.getElementById('boil_pt_noex').innerHTML = this.details[index].name + ' Does not "Boil"';//does not melt
+                    document.getElementById('boilpt_row').classList = "dissabled"
+                }
+    
+                if (typeof (atom_info.details[index].Sublimation_point) != 'undefined') {//check if sublimation point
+                    if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
+                        document.getElementById('Sublimation_point_molicule').innerHTML = this.details[index].stated_alotrope;
+                    } else { document.getElementById('Sublimation_point_molicule').innerHTML = "" }
+                    document.getElementById('Sublimation_point_Kelvin').innerHTML = this.details[index].Sublimation_point.Kelvin + '°K';
+                    document.getElementById('Sublimation_point_Celcious').innerHTML = this.details[index].Sublimation_point.Celcious + '°C';
+                    document.getElementById('Sublimation_point_Ferinheight').innerHTML = this.details[index].Sublimation_point.Ferinheight + '°F';
+                    document.getElementById('sublime_table').style.display = "";//clear table style (so it can be seen)
+                    document.getElementById('sub_pt_noex').style.display = "none";//remove the not extister
+                    document.getElementById('sublimation_row').classList = "enabled"
+                } else {
+                    document.getElementById('Sublimation_point_molicule').innerHTML = '';
+                    document.getElementById('sublime_table').style.display = "none";//clear table style (so it can be seen)
+                    document.getElementById('sub_pt_noex').style.display = "block";//remove the not extister
+                    document.getElementById('sub_pt_noex').innerHTML = this.details[index].name + ' Does not "sublimate"';//does not melt
+                    document.getElementById('sublimation_row').classList = "dissabled"
+                }
+    
+                document.getElementById('Density').innerHTML = this.details[index].Density;
+                document.getElementById('Triple_point').innerHTML = this.details[index].Triple_point;
+                document.getElementById('Critical_point').innerHTML = this.details[index].Critical_point;
+                document.getElementById('Heat_of_fusion').innerHTML = this.details[index].Heat_of_fusion;
+                document.getElementById('Heat_of_vaporization').innerHTML = this.details[index].Heat_of_vaporization;
+                document.getElementById('Molar_heat_capacity').innerHTML = this.details[index].Molar_heat_capacity;
+                document.getElementById('t_1').innerHTML = this.details[index].Vapor_pressure.t_1;
+                document.getElementById('t_10').innerHTML = this.details[index].Vapor_pressure.t_10;
+                document.getElementById('t_100').innerHTML = this.details[index].Vapor_pressure.t_100;
+                document.getElementById('t_1k').innerHTML = this.details[index].Vapor_pressure.t_1k;
+                document.getElementById('t_10k').innerHTML = this.details[index].Vapor_pressure.t_10k;
+                document.getElementById('t_100k').innerHTML = this.details[index].Vapor_pressure.t_100k;
+                document.getElementById('Oxydation').innerHTML = this.details[index].Oxydation;
+                document.getElementById('Electronegativity').innerHTML = this.details[index].Electronegativity;
+                //? Band_gap
+                document.getElementById('Ionization_energies').innerHTML = this.details[index].Ionization_energies;
+                if (typeof (this.details[index].Atomic_radius) != 'undefined') {//check if atomic radius
+                    document.getElementById('Atomic_radius').innerHTML = this.details[index].Atomic_radius;
+                    document.getElementById('Atomic_radius_row').classList = "enabled";
+                } else {
+                    document.getElementById('Atomic_radius').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Atomic_radius_row').classList = "dissabled";
+                }
+    
+                document.getElementById('Covalent_radius').innerHTML = this.details[index].Covalent_radius;
+                document.getElementById('Van_der_Waals_radius').innerHTML = this.details[index].Van_der_Waals_radius;
+                document.getElementById('Natural_occurrence').innerHTML = this.details[index].Natural_occurrence;
+                document.getElementById('Crystal_structure').innerHTML = this.details[index].Crystal_structure;
+                document.getElementById('Speed_of_sound').innerHTML = this.details[index].Speed_of_sound;
+    
+                if (typeof (this.details[index].Thermal_expansion) != 'undefined') {//check if Thermal_expansion
+                    document.getElementById('Thermal_expansion').innerHTML = this.details[index].Thermal_expansion;
+                    document.getElementById('Thermal_expansion_row').classList = "enabled"
+                } else {
+                    document.getElementById('Thermal_expansion').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Thermal_expansion_row').classList = "dissabled"
+                }
+    
+                document.getElementById('Thermal_Conductivity').innerHTML = this.details[index].Thermal_Conductivity;
+    
+                if (typeof (this.details[index].Electrical_resistivity) != 'undefined') {//check if Electrical_resistivity
+                    document.getElementById('Electrical_resistivity').innerHTML = this.details[index].Electrical_resistivity;
+                    document.getElementById('Electrical_resistivity_row').classList = "enabled"
+                } else {
+                    document.getElementById('Electrical_resistivity').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Electrical_resistivity_row').classList = "dissabled"
+                }
+                //? Curie_point
+    
+                if (typeof (this.details[index].Magnetic_ordering) != 'undefined') {//check if Magnetic_ordering
+                    document.getElementById('Magnetic_ordering').innerHTML = this.details[index].Magnetic_ordering;
+                    document.getElementById('Magnetic_ordering_row').classList = "enabled"
+                } else {
+                    document.getElementById('Magnetic_ordering').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Magnetic_ordering_row').classList = "dissabled"
+                }
+    
+                document.getElementById('Magnetic_susceptibility').innerHTML = this.details[index].Magnetic_susceptibility;
+    
+                if (typeof (this.details[index].Youngs_modulus) != 'undefined') {//check if Youngs_modulus
+                    document.getElementById('Youngs_modulus').innerHTML = this.details[index].Youngs_modulus;
+                    document.getElementById('Youngs_modulus_row').classList = "enabled"
+                } else {
+                    document.getElementById('Youngs_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Youngs_modulus_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Shear_modulus) != 'undefined') {//check if Shear_modulus
+                    document.getElementById('Shear_modulus').innerHTML = this.details[index].Shear_modulus;
+                    document.getElementById('Shear_modulus_row').classList = "enabled"
+                } else {
+                    document.getElementById('Shear_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Shear_modulus_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Bulk_modulus) != 'undefined') {//check if Bulk_modulus
+                    document.getElementById('Bulk_modulus').innerHTML = this.details[index].Bulk_modulus;
+                    document.getElementById('Bulk_modulus_row').classList = "enabled"
+                } else {
+                    document.getElementById('Bulk_modulus').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Bulk_modulus_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Poisson_ratio) != 'undefined') {//check if Poisson_ratio
+                    document.getElementById('Poisson_ratio').innerHTML = this.details[index].Poisson_ratio;
+                    document.getElementById('Poisson_ratio_row').classList = "enabled"
+                } else {
+                    document.getElementById('Poisson_ratio').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Poisson_ratio_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Mohs_hardness) != 'undefined') {//check if Mohs_hardness
+                    document.getElementById('Mohs_hardness').innerHTML = this.details[index].Mohs_hardness;
+                    document.getElementById('Mohs_hardness_row').classList = "enabled"
+                } else {
+                    document.getElementById('Mohs_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Mohs_hardness_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Vickers_hardness) != 'undefined') {//check if Vickers_hardness
+                    document.getElementById('Vickers_hardness').innerHTML = this.details[index].Vickers_hardness;
+                    document.getElementById('Vickers_hardness_row').classList = "enabled"
+                } else {
+                    document.getElementById('Vickers_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Vickers_hardness_row').classList = "dissabled"
+                }
+    
+                if (typeof (this.details[index].Brinell_hardness) != 'undefined') {//check if Brinell_hardness
+                    document.getElementById('Brinell_hardness').innerHTML = this.details[index].Brinell_hardness;
+                    document.getElementById('Brinell_hardness_row').classList = "enabled"
+                } else {
+                    document.getElementById('Brinell_hardness').innerHTML = "Not applicable to " + this.details[index].name;
+                    document.getElementById('Brinell_hardness_row').classList = "dissabled"
+                }
+    
+                document.getElementById('CAS_Number').innerHTML = this.details[index].CAS_Number;
+    
+                var i;
+                for (i = 0; i < this.details[index].Spectrum.length; i++) {
+                    render_spectrum(this.details[index].Spectrum[i]);
+                }
+                for (i = 0; i < this.details[index].isotopes.length; i++) {
+                    render_model(this.details[index].isotopes[i]);
+                }
+            } else { console.warn('Already populated', index + 1) }
+            atom_info.show();
         }
-
-        if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
-            config.properties.current_atom = index;//set current render (will be usefull later)
-            //prep the page
-            document.getElementById("isotope_pane").innerHTML = "";//Clear the isotope models
-            document.getElementById('spectrum_bar').innerHTML = "";//Clear the spectrum
-            document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the top of the page
-            document.getElementById('General_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
-            document.getElementById('Physical_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
-            document.getElementById('atomic_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
-            document.getElementById('Other_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
-            document.getElementById('background_representation').style.backgroundImage = 'url("img/Eliments/' + (index + 1) + '.webp")';//background representation
-            document.getElementById('background_representation_description').innerHTML = this.details[index].described_appearance;//description
-            document.getElementById('header').innerText = this.details[index].name;//Populate name feild
-            document.getElementById('detil_elem_color_container').style.backgroundColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
-            //eliment aquare
-            document.getElementById('detail_acr_main').innerHTML = this.details[index].acronym;
-            document.getElementById('detail_atomic_num_main').innerHTML = this.details[index].atomic_num;
-            document.getElementById('detail_mass_num_main').innerHTML = this.details[index].Standard_atomic_weight;
-            //Tabled details
-            document.getElementById('Standard_atomic_weight').innerHTML = this.details[index].Standard_atomic_weight;
-            document.getElementById('atomic_num').innerHTML = this.details[index].atomic_num;
-            document.getElementById('Appearance').innerHTML = this.details[index].Appearance;
-            document.getElementById('group').innerHTML = this.details[index].group;
-            document.getElementById('period').innerHTML = this.details[index].period;
-            document.getElementById('block').innerHTML = this.details[index].block;
-            document.getElementById('category').innerHTML = this.details[index].category;
-            document.getElementById('Electron_configuration').innerHTML = this.details[index].Electron_configuration;
-            document.getElementById('Electrons_per_shell').innerHTML = this.details[index].Electrons_per_shell;
-            document.getElementById('Phase_STP').innerHTML = this.details[index].Phase_STP;
-
-            if (typeof (atom_info.details[index].Melting_Point) != 'undefined') {//check if melting point
-                if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
-                    document.getElementById('meltpt_molicule').innerHTML = this.details[index].stated_alotrope;
-                } else { document.getElementById('meltpt_molicule').innerHTML = "" }
-                document.getElementById('Melting_Point_Kelvin').innerHTML = this.details[index].Melting_Point.Kelvin + '°K';
-                document.getElementById('Melting_Point_Celcious').innerHTML = this.details[index].Melting_Point.Celcious + '°C';
-                document.getElementById('Melting_Point_Ferinheight').innerHTML = this.details[index].Melting_Point.Ferinheight + '°F';
-                document.getElementById('melt_table').style.display = "";//clear table style (so it can be seen)
-                document.getElementById('melt_pt_noex').style.display = "none";//remove the not extister
-                document.getElementById('meltpt_row').classList = "enabled"
-            } else {
-                document.getElementById('meltpt_molicule').innerHTML = '';
-                document.getElementById('melt_table').style.display = "none";//clear table style (so it can be seen)
-                document.getElementById('melt_pt_noex').style.display = "block";//remove the not extister
-                document.getElementById('melt_pt_noex').innerHTML = this.details[index].name + ' Does not "melt"';//does not melt
-                document.getElementById('meltpt_row').classList = "dissabled"
-            }
-
-            if (typeof (atom_info.details[index].Boiling_Point) != 'undefined') {//check if boiling point
-                if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
-                    document.getElementById('boilpt_molicule').innerHTML = this.details[index].stated_alotrope;
-                } else { document.getElementById('boilpt_molicule').innerHTML = "" }
-                document.getElementById('Boiling_Point_Kelvin').innerHTML = this.details[index].Boiling_Point.Kelvin + '°K';
-                document.getElementById('Boiling_Point_Celcious').innerHTML = this.details[index].Boiling_Point.Celcious + '°C';
-                document.getElementById('Boiling_Point_Ferinheight').innerHTML = this.details[index].Boiling_Point.Ferinheight + '°F';
-                document.getElementById('boil_table').style.display = "";//clear table style (so it can be seen)
-                document.getElementById('boil_pt_noex').style.display = "none";//remove the not extister
-                document.getElementById('boilpt_row').classList = "enabled"
-            } else {
-                document.getElementById('meltpt_molicule').innerHTML = '';
-                document.getElementById('boil_table').style.display = "none";//clear table style (so it can be seen)
-                document.getElementById('boil_pt_noex').style.display = "block";//remove the not extister
-                document.getElementById('boil_pt_noex').innerHTML = this.details[index].name + ' Does not "Boil"';//does not melt
-                document.getElementById('boilpt_row').classList = "dissabled"
-            }
-
-            if (typeof (atom_info.details[index].Sublimation_point) != 'undefined') {//check if sublimation point
-                if (typeof (atom_info.details[index].stated_alotrope) != 'undefined') {//check if alotrope condition
-                    document.getElementById('Sublimation_point_molicule').innerHTML = this.details[index].stated_alotrope;
-                } else { document.getElementById('Sublimation_point_molicule').innerHTML = "" }
-                document.getElementById('Sublimation_point_Kelvin').innerHTML = this.details[index].Sublimation_point.Kelvin + '°K';
-                document.getElementById('Sublimation_point_Celcious').innerHTML = this.details[index].Sublimation_point.Celcious + '°C';
-                document.getElementById('Sublimation_point_Ferinheight').innerHTML = this.details[index].Sublimation_point.Ferinheight + '°F';
-                document.getElementById('sublime_table').style.display = "";//clear table style (so it can be seen)
-                document.getElementById('sub_pt_noex').style.display = "none";//remove the not extister
-                document.getElementById('sublimation_row').classList = "enabled"
-            } else {
-                document.getElementById('Sublimation_point_molicule').innerHTML = '';
-                document.getElementById('sublime_table').style.display = "none";//clear table style (so it can be seen)
-                document.getElementById('sub_pt_noex').style.display = "block";//remove the not extister
-                document.getElementById('sub_pt_noex').innerHTML = this.details[index].name + ' Does not "sublimate"';//does not melt
-                document.getElementById('sublimation_row').classList = "dissabled"
-            }
-
-            document.getElementById('Density').innerHTML = this.details[index].Density;
-            document.getElementById('Triple_point').innerHTML = this.details[index].Triple_point;
-            document.getElementById('Critical_point').innerHTML = this.details[index].Critical_point;
-            document.getElementById('Heat_of_fusion').innerHTML = this.details[index].Heat_of_fusion;
-            document.getElementById('Heat_of_vaporization').innerHTML = this.details[index].Heat_of_vaporization;
-            document.getElementById('Molar_heat_capacity').innerHTML = this.details[index].Molar_heat_capacity;
-            document.getElementById('t_1').innerHTML = this.details[index].Vapor_pressure.t_1;
-            document.getElementById('t_10').innerHTML = this.details[index].Vapor_pressure.t_10;
-            document.getElementById('t_100').innerHTML = this.details[index].Vapor_pressure.t_100;
-            document.getElementById('t_1k').innerHTML = this.details[index].Vapor_pressure.t_1k;
-            document.getElementById('t_10k').innerHTML = this.details[index].Vapor_pressure.t_10k;
-            document.getElementById('t_100k').innerHTML = this.details[index].Vapor_pressure.t_100k;
-            document.getElementById('Oxydation').innerHTML = this.details[index].Oxydation;
-            document.getElementById('Electronegativity').innerHTML = this.details[index].Electronegativity;
-            //? Band_gap
-            document.getElementById('Ionization_energies').innerHTML = this.details[index].Ionization_energies;
-            if (typeof (this.details[index].Atomic_radius) != 'undefined') {//check if atomic radius
-                document.getElementById('Atomic_radius').innerHTML = this.details[index].Atomic_radius;
-                document.getElementById('Atomic_radius_row').classList = "enabled";
-            } else {
-                document.getElementById('Atomic_radius').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Atomic_radius_row').classList = "dissabled";
-            }
-
-            document.getElementById('Covalent_radius').innerHTML = this.details[index].Covalent_radius;
-            document.getElementById('Van_der_Waals_radius').innerHTML = this.details[index].Van_der_Waals_radius;
-            document.getElementById('Natural_occurrence').innerHTML = this.details[index].Natural_occurrence;
-            document.getElementById('Crystal_structure').innerHTML = this.details[index].Crystal_structure;
-            document.getElementById('Speed_of_sound').innerHTML = this.details[index].Speed_of_sound;
-
-            if (typeof (this.details[index].Thermal_expansion) != 'undefined') {//check if Thermal_expansion
-                document.getElementById('Thermal_expansion').innerHTML = this.details[index].Thermal_expansion;
-                document.getElementById('Thermal_expansion_row').classList = "enabled"
-            } else {
-                document.getElementById('Thermal_expansion').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Thermal_expansion_row').classList = "dissabled"
-            }
-
-            document.getElementById('Thermal_Conductivity').innerHTML = this.details[index].Thermal_Conductivity;
-
-            if (typeof (this.details[index].Electrical_resistivity) != 'undefined') {//check if Electrical_resistivity
-                document.getElementById('Electrical_resistivity').innerHTML = this.details[index].Electrical_resistivity;
-                document.getElementById('Electrical_resistivity_row').classList = "enabled"
-            } else {
-                document.getElementById('Electrical_resistivity').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Electrical_resistivity_row').classList = "dissabled"
-            }
-            //? Curie_point
-
-            if (typeof (this.details[index].Magnetic_ordering) != 'undefined') {//check if Magnetic_ordering
-                document.getElementById('Magnetic_ordering').innerHTML = this.details[index].Magnetic_ordering;
-                document.getElementById('Magnetic_ordering_row').classList = "enabled"
-            } else {
-                document.getElementById('Magnetic_ordering').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Magnetic_ordering_row').classList = "dissabled"
-            }
-
-            document.getElementById('Magnetic_susceptibility').innerHTML = this.details[index].Magnetic_susceptibility;
-
-            if (typeof (this.details[index].Youngs_modulus) != 'undefined') {//check if Youngs_modulus
-                document.getElementById('Youngs_modulus').innerHTML = this.details[index].Youngs_modulus;
-                document.getElementById('Youngs_modulus_row').classList = "enabled"
-            } else {
-                document.getElementById('Youngs_modulus').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Youngs_modulus_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Shear_modulus) != 'undefined') {//check if Shear_modulus
-                document.getElementById('Shear_modulus').innerHTML = this.details[index].Shear_modulus;
-                document.getElementById('Shear_modulus_row').classList = "enabled"
-            } else {
-                document.getElementById('Shear_modulus').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Shear_modulus_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Bulk_modulus) != 'undefined') {//check if Bulk_modulus
-                document.getElementById('Bulk_modulus').innerHTML = this.details[index].Bulk_modulus;
-                document.getElementById('Bulk_modulus_row').classList = "enabled"
-            } else {
-                document.getElementById('Bulk_modulus').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Bulk_modulus_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Poisson_ratio) != 'undefined') {//check if Poisson_ratio
-                document.getElementById('Poisson_ratio').innerHTML = this.details[index].Poisson_ratio;
-                document.getElementById('Poisson_ratio_row').classList = "enabled"
-            } else {
-                document.getElementById('Poisson_ratio').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Poisson_ratio_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Mohs_hardness) != 'undefined') {//check if Mohs_hardness
-                document.getElementById('Mohs_hardness').innerHTML = this.details[index].Mohs_hardness;
-                document.getElementById('Mohs_hardness_row').classList = "enabled"
-            } else {
-                document.getElementById('Mohs_hardness').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Mohs_hardness_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Vickers_hardness) != 'undefined') {//check if Vickers_hardness
-                document.getElementById('Vickers_hardness').innerHTML = this.details[index].Vickers_hardness;
-                document.getElementById('Vickers_hardness_row').classList = "enabled"
-            } else {
-                document.getElementById('Vickers_hardness').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Vickers_hardness_row').classList = "dissabled"
-            }
-
-            if (typeof (this.details[index].Brinell_hardness) != 'undefined') {//check if Brinell_hardness
-                document.getElementById('Brinell_hardness').innerHTML = this.details[index].Brinell_hardness;
-                document.getElementById('Brinell_hardness_row').classList = "enabled"
-            } else {
-                document.getElementById('Brinell_hardness').innerHTML = "Not applicable to " + this.details[index].name;
-                document.getElementById('Brinell_hardness_row').classList = "dissabled"
-            }
-
-            document.getElementById('CAS_Number').innerHTML = this.details[index].CAS_Number;
-
-            var i;
-            for (i = 0; i < this.details[index].Spectrum.length; i++) {
-                render_spectrum(this.details[index].Spectrum[i]);
-            }
-            for (i = 0; i < this.details[index].isotopes.length; i++) {
-                render_model(this.details[index].isotopes[i]);
-            }
-        } else { console.warn('Already populated', index + 1) }
+        
 
         function render_spectrum(represent) {
             var needle = document.createElement('div');
@@ -6589,6 +6596,7 @@ let atom_info = {// information dispensing utility
             needle.style.left = represent + '%';
             document.getElementById("spectrum_bar").appendChild(needle);
         }
+
         function render_model(isotope) {// Render Eliment models (will be called just over 1000 times)
             console.table('Render model for :', isotope);
             //main container
@@ -6651,7 +6659,6 @@ let atom_info = {// information dispensing utility
             table.appendChild(rad_row);
             document.getElementById("isotope_pane").appendChild(isotopic_container);
         }
-        atom_info.show();
     },
     next: function () {
         console.warn('Next atom clled')
@@ -6801,6 +6808,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Reactive nonmetal"
             }
 
         },
@@ -6827,6 +6835,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Noble gas"
             }
         },
         Alkali_metal: function () {
@@ -6852,6 +6861,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Alkali metal"
             }
         },
         Alkaline_earth_metal: function () {
@@ -6877,6 +6887,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Alkaline earth metal"
             }
         },
         Metalloid: function () {
@@ -6902,6 +6913,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Metalloid"
             }
         },
         Post_transition_metal: function () {
@@ -6927,6 +6939,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Post-transition metal"
             }
         },
         Transition_metal: function () {
@@ -6952,6 +6965,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "Transition metal"
             }
         },
         Actinoid: function () {
@@ -6977,6 +6991,7 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "actinoid"
             }
         },
         Lanthanoid: function () {
@@ -7002,6 +7017,7 @@ let table = {
                 document.getElementById('Alkali_metal').style.opacity = "0.5";
                 document.getElementById('unknown').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "lanthanoid"
             }
         },
         unknown: function () {
@@ -7027,10 +7043,12 @@ let table = {
                 document.getElementById('Lanthanoid').style.opacity = "0.5";
                 document.getElementById('Alkali_metal').style.opacity = "0.5";
                 config.properties.focused_table = true
+                config.properties.focus_on = "unknown"
             }
         },
         reset: function () {
             config.properties.focused_table = false
+            config.properties.focus_on = "nothing"
             var i;
             for (i = 1; i < 119; i++) {
                 document.getElementById('eliment_' + i).style.opacity = "";
