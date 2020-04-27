@@ -15,6 +15,7 @@
 
     <!--Style sheets-->
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" id="stylesheet" type="text/css" href="css/phone.css">
     <link rel="stylesheet" type="text/css" id="anim" href="">
     <script defer type="text/javascript" src="cordova.js"></script>
     <script defer type="text/javascript" src="js/index.js"></script>
@@ -24,7 +25,7 @@
 <body id="body" class="Neon">
 
     <!-- Independent view containing information about eliments (will overlay other views) -->
-    <mainview id="Detail_view" class="Detail_view" style="display: none;">
+    <div id="Detail_view" class="Detail_view" style="display: none;">
         <div id="header">placeholder</div>
         <div class="sub_pane" id="detail_pane">
             <!-- Detail pane (minor rework later)-->
@@ -325,16 +326,16 @@
             <button class="Detail_btn_active" id="detail_btn">Details</button>
             <button class="Detail_btn" id="isotope_btn">Isotope</button>
         </div>
-    </mainview>
+    </div>
 
     <!--  list view  -->
-    <mainview id="list_view">
+    <div class="mainview" id="list_view">
         <!-- Rendered via script, dont change -->
 
-    </mainview>
+    </div>
 
     <!--  Table view  -->
-    <mainview id="table_view">
+    <div class="mainview" id="table_view">
 
         <table class="periodic_table">
             <tr id="row_1">
@@ -512,10 +513,10 @@
             </tr>
         </table>
 
-    </mainview>
+    </div>
 
     <!--  Setting view  -->
-    <mainview id="setting_view">
+    <div class="mainview" id="setting_view">
 
         <div class="setting_toggle" id="Animations_btn" title="toggle Animations">
             <div class="text">Animations</div>
@@ -535,10 +536,10 @@
         </div>
 
         <div class="setting_toggle" id="about_btn" title="Copies contact info to clipboard">About</div>
-    </mainview>
+    </div>
 
-    <!--  Footer nav  -->
-    <div class="footnav">
+    <!--  nav  -->
+    <div class="nav">
         <div class="navbtn" id="list_btn">
             <div id="list_icon" class="navcon"></div>
         </div>

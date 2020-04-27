@@ -18,6 +18,9 @@
     },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "com.ANTHONYM.periodictable"
+    },
+    "cordova-plugin-screensize": {
+      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     }
   },
   "dependent_plugins": {}
