@@ -58,7 +58,7 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
-    setTimeout(() => { navigator.splashscreen.hide(); }, 500);
+    setTimeout(() => { navigator.splashscreen.hide(); }, 1000);
 });
 
 var config = {//Configuration handler
@@ -7197,7 +7197,7 @@ let UI = {//for general UI thingys
             console.log('List navigation started');
             atom_info.hide();
             document.getElementById('table_view').style.display = "none";
-            document.getElementById('list_view').style.display = "block";
+            document.getElementById('list_view').style.display = "flex";
             document.getElementById('setting_view').style.display = "none";
             document.getElementById('list_btn').className = "navbtn_ative"
             document.getElementById('table_btn').className = "navbtn"

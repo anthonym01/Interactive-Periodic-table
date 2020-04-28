@@ -1,0 +1,6 @@
+        <splash src="res/splashscreen/base_landscape.png" density="land"/>
+        <splash src="res/splashscreen/base_partrait.png" density="port"/>
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="SplashScreenDelay" value="5000" />
+        
+        <preference name="SplashScreenSpinnerColor" value="white" />
