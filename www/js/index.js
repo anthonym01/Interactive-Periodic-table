@@ -7162,7 +7162,7 @@ let UI = {//for general UI thingys
             } else if (document.getElementById('Detail_view').classList == "Detail_view_active") {// Detail pannel on screen (controled by atomic info)
                 console.log('Back button triggers Atomic info hide');
                 atom_info.hide();
-            } else if (document.getElementById('list_view').style.display == "block") {
+            } else if (document.getElementById('list_view').style.display == "flex") {
                 console.log('Back button triggers exit strategy');
                 this.exit_strategy();
             } else {
