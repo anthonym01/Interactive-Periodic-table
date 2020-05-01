@@ -58,7 +58,8 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
-    setTimeout(() => { navigator.splashscreen.hide(); }, 1000);
+    setTimeout(() => { navigator.splashscreen.hide();document.getElementById('stylesheet').href = "css/phone.css" }, 1000);
+    
 });
 
 var config = {//Configuration handler
@@ -7088,27 +7089,33 @@ let UI = {//for general UI thingys
     initialize: function () {
         console.warn('UI initalize');
 
-        window.plugins.screensize.get(function (result) {//Check device screen size
-            console.log(result);
-            if (result.diameter < 3) {
-                //watch size screen
-                document.getElementById('stylesheet').href = "css/watch.css"
-                console.warn('Set watch screen scale with size: ', result.diameter);
-            } else if (result.diameter > 5.9) {
-                //tablet size screen
-                document.getElementById('stylesheet').href = "css/tablet.css"
-                console.warn('Set tablet screen scale with size: ', result.diameter);
-            } else {
-                //phone size screen
+        if(typeof(window.plugins)!='undefined'){
+            window.plugins.screensize.get(function (result) {//Check device screen size
+                console.log(result);
+                if (result.diameter < 3) {
+                    //watch size screen
+                    document.getElementById('stylesheet').href = "css/watch.css"
+                    console.warn('Set watch screen scale with size: ', result.diameter);
+                } else if (result.diameter > 5.9) {
+                    //tablet size screen
+                    document.getElementById('stylesheet').href = "css/tablet.css"
+                    console.warn('Set tablet screen scale with size: ', result.diameter);
+                } else {
+                    //phone size screen
+                    document.getElementById('stylesheet').href = "css/phone.css"
+                    console.warn('Set phone screen scale with size: ', result.diameter);
+                }
+            }, function (err) {
+                console.log(err)
+                //error default to phone size
                 document.getElementById('stylesheet').href = "css/phone.css"
-                console.warn('Set phone screen scale with size: ', result.diameter);
-            }
-        }, function (err) {
-            console.log(err)
+                console.error('defaulted to phone screen scale');
+            });
+        }else{
             //error default to phone size
             document.getElementById('stylesheet').href = "css/phone.css"
             console.error('defaulted to phone screen scale');
-        });
+        }
 
         this.animation.setpostition();
         this.low_performance.setpostition();

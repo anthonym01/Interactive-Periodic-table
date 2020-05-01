@@ -1,1 +1,2064 @@
-/* Phone specific scaling 3" - 5.9" */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    src: url(../fonts/LexendDeca-Regular.ttf);
+    font-family: Lexend_Deca;
+}
+
+/*   <--  Portrait layout -->   */
+
+@media screen {
+    body {
+        -webkit-touch-callout: none;
+        /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;
+        /* prevent webkit from resizing text to fit */
+        -webkit-user-select: none;
+        /* prevent copy paste, to allow, change 'none' to 'text' */
+        font-family: Lexend_Deca, system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+        margin: 0px;
+        padding: 0px;
+        /* Padding to avoid the "unsafe" areas behind notches in the screen */
+        padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    /*  Footer navigtion  */
+    .nav {
+        /* Footer meat */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 13vw;
+        width: 100vw;
+        z-index: 100;
+
+    }
+
+    .Neon .nav {
+        background-color: rgb(0, 0, 0)
+    }
+
+    .material .nav {
+        background-color: rgb(46, 46, 46)
+    }
+
+    /* Navigation buttons */
+    .navbtn,
+    .navbtn_ative {
+        /*  Buttons containing icons  */
+        position: relative;
+        height: 13vw;
+        width: 33.33vw;
+        border-radius: 4vw;
+        float: left;
+        transition: background-color 500ms;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .material .navbtn_ative {
+        background-color: rgb(0, 173, 9);
+    }
+
+    .material .neonblurser {
+        display: none;
+    }
+
+    @keyframes neon {
+        0% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(0, 100%, 40%) inset;
+        }
+
+        10% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(36, 100%, 40%) inset;
+        }
+
+        20% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(72, 100%, 40%) inset;
+        }
+
+        30% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(108, 100%, 40%) inset;
+        }
+
+        40% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(144, 100%, 40%) inset;
+        }
+
+        50% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(180, 100%, 40%) inset;
+        }
+
+        60% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(216, 100%, 40%) inset;
+        }
+
+        70% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(252, 100%, 40%) inset;
+        }
+
+        80% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(288, 100%, 40%) inset;
+        }
+
+        90% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(324, 100%, 40%) inset;
+        }
+
+        100% {
+            box-shadow: 0vw 0vw 7vw 1vw hsl(360, 100%, 40%) inset;
+        }
+    }
+
+    .Neon .navbtn_ative {
+        /*background-color: rgb(0, 173, 9);*/
+        box-shadow: 0vw 0vw 7vw 1vw #fff inset;
+        animation: neon 15s linear infinite;
+    }
+
+    .navbtn .navcon,
+    .navbtn_ative .navcon {
+        /*  Relitiveistic icon positioning(shifting based on device type)  */
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 13vw;
+        width: 13vw;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        transition: transform 300ms;
+        overflow: visible;
+    }
+
+    .navbtn #setting_icon {
+        background-image: url('../img/setting.webp');
+        transform: rotate(0deg);
+    }
+
+    /*  Setting Icon  */
+    .navbtn_ative #setting_icon {
+        background-image: url('../img/setting.webp');
+        transform: rotate(90deg);
+    }
+
+    .navbtn #table_icon {
+        background-image: url('../img/icon.png')
+    }
+
+    /*  Table Icon  */
+    .navbtn_ative #table_icon {
+        background-image: url('../img/icon.png')
+    }
+
+    .navbtn #list_icon {
+        background-image: url('../img/Clip-dark-closes.webp')
+    }
+
+    /*  List Icon  */
+    .navbtn_ative #list_icon {
+        background-image: url('../img/Clip-dark.webp')
+    }
+
+
+    .mainview {
+        /* main view screens */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 13vw);
+        width: 100%;
+        display: none;
+        background-color: rgb(0, 0, 0)
+    }
+
+    /*  List view  */
+    #list_view {
+        overflow-y: scroll;
+        flex-wrap: wrap;
+    }
+
+    .eleiment_blob {
+        /*  The scrollable rectabgular bars */
+        position: relative;
+        height: 25vw;
+        width: 95vw;
+        margin-top: 4vw;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
+    }
+
+    .Neon .Reactive-nonmetal {
+        border: 1vw solid hsl(123, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(123, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(123, 100%, 50%);
+        background-color: #000000;
+        color: hsl(123, 100%, 80%);
+    }
+
+    /*.Neon .Reactive-nonmetal:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(123, 100%, 50%);
+    }*/
+
+    .Neon .Reactive-nonmetal:active {
+        text-shadow: 0vw 0vw 0vw hsl(123, 100%, 50%);
+        background-color: hsl(123, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Noble-gas {
+        border: 1vw solid hsl(204, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(204, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(204, 100%, 50%);
+        color: hsl(204, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Noble-gas:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(204, 100%, 50%)
+    }
+
+    .Neon .Noble-gas:active {
+        text-shadow: 0vw 0vw 0vw hsl(204, 100%, 50%);
+        background-color: hsl(204, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Alkali-metal {
+        border: 1vw solid hsl(40, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(40, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(40, 100%, 50%);
+        color: hsl(40, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Alkali-metal:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(40, 100%, 50%)
+    }
+
+    .Neon .Alkali-metal:active {
+        text-shadow: 0vw 0vw 0vw hsl(40, 100%, 50%);
+        background-color: hsl(40, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Alkaline-earth-metal {
+        border: 1vw solid hsl(60, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(60, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(60, 100%, 50%);
+        color: hsl(60, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Alkaline-earth-metal:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(60, 100%, 50%)
+    }
+
+    .Neon .Alkaline-earth-metal:active {
+        text-shadow: 0vw 0vw 0vw hsl(60, 100%, 50%);
+        background-color: hsl(60, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Metalloid {
+        border: 1vw solid hsl(160, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(161, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(161, 100%, 50%);
+        color: hsl(161, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Metalloid:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(160, 100%, 50%)
+    }
+
+    .Neon .Metalloid:active {
+        text-shadow: 0vw 0vw 0vw hsl(160, 100%, 50%);
+        background-color: hsl(160, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Post-transition-metal {
+        border: 1vw solid hsl(188, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(188, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(188, 100%, 50%);
+        color: hsl(188, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Post-transition-metal:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(188, 100%, 50%)
+    }
+
+    .Neon .Post-transition-metal:active {
+        text-shadow: 0vw 0vw 0vw hsl(188, 100%, 50%);
+        background-color: hsl(188, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Transition-metal {
+        border: 1vw solid hsl(0, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(0, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(0, 100%, 50%);
+        color: hsl(0, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Transition-metal:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 100%, 50%)
+    }
+
+    .Neon .Transition-metal:active {
+        text-shadow: 0vw 0vw 0vw hsl(0, 100%, 50%);
+        background-color: hsl(0, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .actinoid {
+        border: 1vw solid hsl(295, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(295, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(295, 100%, 50%);
+        color: hsl(295, 100%, 50%);
+        background-color: #000;
+    }
+
+    .Neon .actinoid:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(295, 100%, 50%)
+    }
+
+    .Neon .actinoid:active {
+        text-shadow: 0vw 0vw 0vw hsl(295, 100%, 50%);
+        background-color: hsl(295, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .lanthanoid {
+        border: 1vw solid hsl(276, 100%, 50%);
+        box-shadow: 0vw 0vw 5vw 0vw hsl(276, 100%, 50%);
+        text-shadow: 0vw 0vw 1vw hsl(276, 100%, 50%);
+        color: hsl(276, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .lanthanoid:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(276, 100%, 50%)
+    }
+
+    .Neon .lanthanoid:active {
+        text-shadow: 0vw 0vw 0vw hsl(276, 100%, 50%);
+        background-color: hsl(276, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .unknown {
+        border: 1vw solid rgb(255, 255, 255);
+        box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
+        text-shadow: 0vw 0vw 1vw #fff;
+        color: white;
+        background-color: #000;
+    }
+
+    .Neon .unknown:hover {
+        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 0%, 100%)
+    }
+
+    .Neon .unknown:active {
+        text-shadow: 0vw 0vw 0vw hsl(0, 0%, 100%);
+        background-color: hsl(0, 0%, 100%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .material .eleiment_blob {
+        /*  The scrollable rectabgular bars */
+        border-radius: 4vw;
+        background-color: rgb(128, 128, 128);
+        text-shadow: 0vw 0vw 0.5vw #000;
+        color: #fff;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .material .Reactive-nonmetal {
+        background-color: hsl(123, 100%, 60%);
+    }
+
+    .material .Noble-gas {
+        background-color: hsl(204, 100%, 60%);
+    }
+
+    .material .Alkali-metal {
+        background-color: hsl(40, 100%, 60%);
+    }
+
+    .material .Alkaline-earth-metal {
+        background-color: hsl(60, 100%, 60%);
+    }
+
+    .material .Metalloid {
+        background-color: hsl(160, 100%, 60%);
+    }
+
+    .material .Post-transition-metal {
+        background-color: hsl(188, 100%, 60%);
+    }
+
+    .material .Transition-metal {
+        background-color: hsl(0, 100%, 60%);
+    }
+
+    .material .actinoid {
+        background-color: hsl(295, 100%, 60%);
+    }
+
+    .material .lanthanoid {
+        background-color: hsl(276, 100%, 60%);
+    }
+
+    .material .unknown {
+        background-color: hsl(0, 0%, 100%);
+    }
+
+    .material .inverse {
+        color: black !important;
+        text-shadow: 0vw 0vw 0.5vw #fff !important;
+    }
+
+    /*  The semi-square with the eliment details  */
+    .eliment_container {
+        position: relative;
+        height: 25vw;
+        width: 25vw;
+    }
+
+    .Neon .eliment_container {
+        border-right: 1vw solid;
+        border-color: inherit;
+    }
+
+    .material .eliment_container {
+        background-color: cornflowerblue;
+    }
+
+    .eliment_container .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 3vw;
+        height: 17vw;
+        font-size: 15vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_container .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 0.5vw;
+        right: 2vw;
+        font-size: 6vw;
+        width: 12vw;
+        text-align: right;
+    }
+
+    .eliment_container .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 0vw;
+        right: 0vw;
+        font-size: 4.5vw;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Details to the right of the bar */
+    .eliment_details {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 70vw;
+    }
+
+    .eliment_details .name {
+        /* Name at top */
+        position: absolute;
+        top: 1vw;
+        right: 0;
+        height: auto;
+        width: 100%;
+        font-size: 8vw;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_details .electron_config,
+    .eliment_details .Oxidation {
+        /* Electron shell numbers */
+        position: absolute;
+        bottom: 5.5vw;
+        right: 31%;
+        width: 67%;
+        font-family: Lexend_Deca;
+        font-size: 3.5vw;
+        text-align: center;
+        overflow: visible;
+        white-space: pre-wrap;
+    }
+
+    .eliment_details .electron_config {
+        bottom: 0.5vw
+    }
+
+    .eliment_details .group {
+        /*  Class grouping  */
+        position: absolute;
+        bottom: 0.5vw;
+        right: 3%;
+        width: 30%;
+        font-family: Lexend_Deca;
+        font-size: 3.5vw;
+        text-align: center;
+    }
+
+
+
+    /*  Table view  */
+    #table_view {
+        overflow: scroll;
+        /*touch-action:pinch-zoom;*/
+    }
+
+    .periodic_table {
+        position: relative;
+        background: none;
+        border-collapse: separate;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .periodic_table td {
+        position: relative;
+        /*display: flex;*/
+        justify-content: center;
+        align-content: center;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .classtoggle {
+        height: fit-content;
+        width: fit-content;
+        text-align: center;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        text-overflow: clip;
+        white-space: pre-wrap;
+        font-size: 3vw;
+        background-color: black !important;
+    }
+
+    .eliment_spacer {
+        width: 100%;
+        height: 7vw;
+    }
+
+    .ap-spec {
+        /* Eliment acronym */
+        position: absolute;
+        top: 9vw;
+        height: 8vw;
+        font-size: 5vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .Neon .eliment_block {
+        height: 18vw;
+        width: 18vw;
+        margin: 1vw;
+        cursor: pointer;
+        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms, opacity 300ms;
+    }
+
+    .material .eliment_block {
+        height: 18vw;
+        width: 18vw;
+        border: 1vw solid #000;
+        /*background-color: gray;*/
+        border-radius: none !important;
+        margin: none;
+        cursor: pointer;
+        transition: color 300ms, background-color 300ms;
+        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .eliment_block .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 3vw;
+        height: 10vw;
+        font-size: 9.5vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_block .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 1.5vw;
+        right: 3vw;
+        font-size: 4vw;
+        width: 12vw;
+        text-align: right;
+    }
+
+    .eliment_block .name {
+        /* Bottom number */
+        position: absolute;
+        bottom: 5.7vw;
+        right: 0vw;
+        font-size: 2.7vw;
+        width: 100%;
+        text-align: center;
+    }
+
+    .eliment_block .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 2vw;
+        right: 0vw;
+        font-size: 3.5vw;
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Detail View */
+    .Detail_view,
+    .Detail_view_active {
+        /* View repurposed to serve as an information pannel */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 13vw);
+        width: 100%;
+        display: none;
+        background-color: rgb(0, 0, 0);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: block;
+        z-index: 50;
+        opacity: 1;
+        transition: transform 300ms, opacity 300ms;
+        transform: translate(0, 100%);
+    }
+
+    .Detail_view_active {
+        display: block;
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    #detil_elem_color_container {
+        /*  Remove border from populate*/
+        border: none;
+    }
+
+    .Neon .sub_nav {
+        /* Sub navigation (pannel to pannel) */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 9vw;
+        background-color: rgb(46, 46, 46);
+        box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
+        display: flex;
+        flex-wrap: nowrap;
+
+    }
+
+    .material .sub_nav {
+        /* Sub navigation (pannel to pannel) */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 9vw;
+        background-color: rgb(46, 46, 46);
+        box-shadow: none !important;
+        display: flex;
+        flex-wrap: nowrap;
+
+    }
+
+    .Detail_btn,
+    .Detail_btn_active {
+        height: 100%;
+        width: 50%;
+        font-size: 6vw;
+        background-color: rgb(46, 46, 46);
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .Detail_btn_active {
+        border-bottom: 1vw solid;
+    }
+
+    #Detail_view #header {
+        /* Header == Name of elimement at top */
+        position: absolute;
+        top: 10vw;
+        width: 100vw;
+        font-size: 10vw;
+        font-family: Lexend_Deca;
+        text-align: center;
+        margin: none !important;
+    }
+
+    .sub_pane {
+        /* basically scrollable sub views */
+        overflow-y: scroll;
+        position: absolute;
+        top: 25vw;
+        width: 100vw;
+        height: auto;
+        min-height: 75vh;
+        padding-bottom: 3vw;
+        transition: transform 300ms;
+    }
+
+    /*  Detail pannel  */
+    #detail_pane {
+        transform: translate(0, 0);
+    }
+
+    .background_representation_passive,
+    .background_representation_active {
+        /* Eliment background image */
+        top: -12vw;
+        left: 0;
+        position: absolute;
+        width: 100vw;
+        height: 60vw;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../img/Eliments/1.webp');
+        transition: all 300ms;
+    }
+
+    .background_representation_active {
+        /*  Active image brought to front  */
+        top: 0;
+        height: 100vw;
+        z-index: 100;
+        background-size: contain;
+    }
+
+    .background_representation_passive #background_representation_description {
+        display: none;
+    }
+
+    /* Background image with picture */
+    .background_representation_active #background_representation_description {
+        display: block;
+        font-family: Lexend_Deca;
+        position: absolute;
+        left: 5vw;
+        width: 90vw;
+        white-space: pre-line;
+        bottom: 0;
+        text-align: center;
+        font-size: 6vw;
+        text-shadow: 0vw 0vw 2vw #000000, 0vw 0vw 4vw hsl(0, 0%, 0%);
+    }
+
+    #represent_shader {
+        /* darken the detail table */
+        z-index: 90;
+        position: absolute;
+        display: none;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #detail_pane .eliment_container {
+        /* Eliment square in the detail view */
+        margin-left: 2vw;
+        margin-top: 22vw;
+        text-shadow: 0vw 0vw 0.5vw #000;
+    }
+
+    #detail_pane .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 2vw;
+        height: 17vw;
+        font-size: 16vw;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+        color: inherit;
+    }
+
+    #detail_pane .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 0.5vw;
+        right: 2vw;
+        font-size: 6vw;
+        width: 12vw;
+        text-align: right;
+        color: inherit;
+    }
+
+    #detail_pane .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 0vw;
+        right: 0vw;
+        font-size: 4.5vw;
+        width: 100%;
+        text-align: center;
+        color: inherit;
+    }
+
+    .Neon .detail_table {
+        /* Table with variety of eliment details */
+        position: relative;
+        margin-top: 4vw;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 96%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5vw;
+        box-shadow: 0vw 0vw 3vw #0055ff;
+        overflow: hidden;
+    }
+
+    .material .detail_table {
+        /* Table with variety of eliment details */
+        position: relative;
+        margin-top: 4vw;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 1vw;
+        box-shadow: none !important;
+        overflow: hidden;
+    }
+
+    .detail_table tr:nth-child(even) {
+        background-color: rgb(36, 36, 36);
+    }
+
+    .detail_table tr:active {
+        color: black;
+        background-color: white;
+        transition: background-color 0ms;
+    }
+
+    .detail_table td,
+    .detail_table th {
+        font-family: Lexend_Deca;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        font-size: 4.5vw;
+        text-align: center;
+        align-content: center;
+        transition: background-color 300ms;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .detail_table th {
+        font-size: 7vw;
+        text-shadow: 0vw 0vw 3vw #000000;
+    }
+
+    .sub_table {
+        font-size: 4vw;
+        position: relative;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 100%;
+    }
+
+    .sub_table tr {
+        background: none !important;
+    }
+
+    .enabled {}
+
+    .dissabled {
+        color: grey !important;
+
+    }
+
+    #spectrum_bar {
+        position: relative;
+        width: 100%;
+        background-image: linear-gradient(90deg, hsl(0, 0%, 0%), hsl(235, 100%, 50%), hsl(172, 100%, 50%), hsl(125, 100%, 50%), hsl(59, 100%, 50%), hsl(0, 100%, 50%), hsl(0, 0%, 0%));
+        height: 8vw;
+    }
+
+    #spectrum_bar .spectrum_neddle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 80%;
+        width: 0;
+        border-left: 0.5vw solid rgb(255, 255, 255);
+        box-shadow: 0vw 0vw 0.5vw 0vw #000;
+    }
+
+    /*  Isotope pannel  */
+    #isotope_pane {
+        transform: translate(100%, 0);
+    }
+
+    .isotopic_container {
+        /* Bars in disguise */
+        position: relative;
+        height: 35vw;
+        width: 100vw;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+    }
+
+    .model_container {
+        /*Container for isotopic models (canvas will be placed inside)*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 35vw;
+        width: 35vw;
+        background-size: cover;
+        background-image: url('../img/electrons/atom-prototype.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .isotope_detail {
+        /* Details to the right of the isotope model */
+        position: absolute;
+        top: 0;
+        left: 35vw;
+        height: 35vw;
+        width: 65vw;
+        overflow-x: scroll;
+    }
+
+    .isotope_detail table {
+        /* Table with variety of eliment details */
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: 100%;
+        width: 100%;
+    }
+
+    .isotope_detail td,
+    th {
+        font-family: Lexend_Deca;
+        padding-top: 0.7vw;
+        padding-bottom: 0.7vw;
+        font-size: 4vw;
+        text-align: center;
+        align-content: center;
+        transition: background-color 300ms;
+    }
+
+    .isotope_detail th {
+        font-size: 5.5vw;
+    }
+
+
+    /*  Setting view  */
+    #setting_view {
+        overflow-y: scroll;
+    }
+
+    .setting_toggle {
+        /* trigger for switch (may also be a tap button) */
+        position: relative;
+        width: 100%;
+        height: 7vh;
+        margin-top: 1vh;
+        cursor: pointer;
+        font-size: 7vw;
+        text-align: center;
+    }
+
+    .setting_toggle .text {
+        /* Text in teh setting toggle ofset by the width of the switch */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 86vw;
+    }
+
+    /* Switches in the .setting_toggle */
+    .switch_container_active,
+    .switch_container_dissabled {
+        /*Switch containment*/
+        position: absolute;
+        transform: translate(12vh, 0);
+        top: 0vh;
+        right: 13vh;
+        width: 12vh;
+        height: 5vh;
+        border: 0.5vh solid;
+        border-radius: 5vh;
+        cursor: pointer;
+    }
+
+    .switchbdy {
+        /*Body of the switch*/
+        position: absolute;
+        width: 12vh;
+        height: 5vh;
+        border-radius: 5vh;
+        cursor: pointer;
+        transition: background-color;
+        transition-duration: 300ms;
+    }
+
+    .switch_knob {
+        /* Switch knob */
+        top: 0.2vh;
+        right: 0.2vh;
+        position: absolute;
+        height: 4.6vh;
+        width: 4.6vh;
+        border-radius: 50%;
+        z-index: 1;
+        transform: translate(0px
+                /*-39px*/
+                , 0);
+        transition: transform, background-color;
+        transition-duration: 300ms;
+    }
+
+    .switch_container_dissabled .switch_knob {
+        /* dissabled switch, switch knob moved relitive to width of  */
+        transform: translate(-7vh, 0);
+    }
+
+    .switch_container_active {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_active .switchbdy {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_active .switch_knob {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .switch_container_dissabled {
+        background-color: rgb(0, 0, 0);
+        border: 0.5vh solid rgb(122, 122, 122);
+    }
+
+    .switch_container_dissabled .switchbdy {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_dissabled .switch_knob {
+        background-color: rgb(122, 122, 122);
+    }
+}
+
+/*    <--  Landscape layout (with min-width) -->     */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+
+    body {
+        padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+        height: 100vh;
+        width: 100vw;
+    }
+
+    /*  Footer navigtion  */
+    .nav {
+        /* Footer meat */
+        position: absolute;
+        bottom: 0;
+        left: unset;
+        right: 0;
+        height: 100vh;
+        width: 10vh;
+        z-index: 100;
+
+    }
+
+    /* Navigation buttons */
+    .navbtn,
+    .navbtn_ative {
+        /*  Buttons containing icons  */
+        position: relative;
+        height: 33vh;
+        width: 10vh;
+        border-radius: 4vh;
+        float: none;
+        transition: background-color 500ms;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .Neon .navbtn_ative {
+        /*background-color: rgb(0, 173, 9);*/
+        box-shadow: 0vw 0vw 7vh 1vh #fff inset;
+    }
+
+    .navbtn .navcon,
+    .navbtn_ative .navcon {
+        /*  Relitiveistic icon positioning(shifting based on device type)  */
+        height: 10vh;
+        width: 10vh;
+        margin: auto;
+        margin-top: 11vh;
+    }
+
+    .mainview {
+        /* main view screens */
+        height: 100vh;
+        width: calc(100% - 10vh);
+    }
+
+
+    /*  List view  */
+    #list_view {
+        overflow-y: scroll;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .eleiment_blob {
+        /*  The scrollable rectabgular bars */
+        position: relative;
+        height: 25vh;
+        width: 75vh;
+        margin: none !important;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
+    }
+
+    .Neon .Reactive-nonmetal {
+        border: 1vh solid hsl(123, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(123, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(123, 100%, 50%);
+        background-color: #000000;
+        color: hsl(123, 100%, 80%);
+    }
+
+    .Neon .Reactive-nonmetal:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(123, 100%, 50%);
+    }
+
+    .Neon .Reactive-nonmetal:active {
+        text-shadow: 0vh 0vh 0vh hsl(123, 100%, 50%);
+        background-color: hsl(123, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Noble-gas {
+        border: 1vh solid hsl(204, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(204, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(204, 100%, 50%);
+        color: hsl(204, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Noble-gas:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(204, 100%, 50%)
+    }
+
+    .Neon .Noble-gas:active {
+        text-shadow: 0vh 0vh 0vh hsl(204, 100%, 50%);
+        background-color: hsl(204, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Alkali-metal {
+        border: 1vh solid hsl(40, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(40, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(40, 100%, 50%);
+        color: hsl(40, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Alkali-metal:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(40, 100%, 50%)
+    }
+
+    .Neon .Alkali-metal:active {
+        text-shadow: 0vh 0vh 0vh hsl(40, 100%, 50%);
+        background-color: hsl(40, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Alkaline-earth-metal {
+        border: 1vh solid hsl(60, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(60, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(60, 100%, 50%);
+        color: hsl(60, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Alkaline-earth-metal:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(60, 100%, 50%)
+    }
+
+    .Neon .Alkaline-earth-metal:active {
+        text-shadow: 0vh 0vh 0vh hsl(60, 100%, 50%);
+        background-color: hsl(60, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Metalloid {
+        border: 1vh solid hsl(160, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(161, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(161, 100%, 50%);
+        color: hsl(161, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Metalloid:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(160, 100%, 50%)
+    }
+
+    .Neon .Metalloid:active {
+        text-shadow: 0vh 0vh 0vh hsl(160, 100%, 50%);
+        background-color: hsl(160, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Post-transition-metal {
+        border: 1vh solid hsl(188, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(188, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(188, 100%, 50%);
+        color: hsl(188, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Post-transition-metal:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(188, 100%, 50%)
+    }
+
+    .Neon .Post-transition-metal:active {
+        text-shadow: 0vh 0vh 0vh hsl(188, 100%, 50%);
+        background-color: hsl(188, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .Transition-metal {
+        border: 1vh solid hsl(0, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(0, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(0, 100%, 50%);
+        color: hsl(0, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .Transition-metal:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 100%, 50%)
+    }
+
+    .Neon .Transition-metal:active {
+        text-shadow: 0vh 0vh 0vh hsl(0, 100%, 50%);
+        background-color: hsl(0, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .actinoid {
+        border: 1vh solid hsl(295, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(295, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(295, 100%, 50%);
+        color: hsl(295, 100%, 50%);
+        background-color: #000;
+    }
+
+    .Neon .actinoid:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(295, 100%, 50%)
+    }
+
+    .Neon .actinoid:active {
+        text-shadow: 0vh 0vh 0vh hsl(295, 100%, 50%);
+        background-color: hsl(295, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .lanthanoid {
+        border: 1vh solid hsl(276, 100%, 50%);
+        box-shadow: 0vh 0vh 5vh 0vh hsl(276, 100%, 50%);
+        text-shadow: 0vh 0vh 1vh hsl(276, 100%, 50%);
+        color: hsl(276, 100%, 70%);
+        background-color: #000;
+    }
+
+    .Neon .lanthanoid:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(276, 100%, 50%)
+    }
+
+    .Neon .lanthanoid:active {
+        text-shadow: 0vh 0vh 0vh hsl(276, 100%, 50%);
+        background-color: hsl(276, 100%, 50%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .Neon .unknown {
+        border: 1vh solid rgb(255, 255, 255);
+        box-shadow: 0vh 0vh 5vh 0vh rgb(255, 255, 255);
+        text-shadow: 0vh 0vh 1vh #fff;
+        color: white;
+        background-color: #000;
+    }
+
+    /*.Neon .unknown:hover {
+        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 0%, 100%)
+    }*/
+
+    .Neon .unknown:active {
+        text-shadow: 0vh 0vh 0vh hsl(0, 0%, 100%);
+        background-color: hsl(0, 0%, 100%);
+        color: hsl(0, 0%, 0%);
+        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+    }
+
+    .material .eleiment_blob {
+        /*  The scrollable rectabgular bars */
+        border-radius: 4vh;
+        background-color: rgb(128, 128, 128);
+        text-shadow: 0vh 0vh 0.5vh #000;
+        color: #fff;
+        text-shadow: 0vh 0vh 0.5vh rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    /*  The semi-square with the eliment details  */
+    .eliment_container {
+        position: relative;
+        height: 25vh;
+        width: 25vh;
+    }
+
+    .Neon .eliment_container {
+        border-right: 1vh solid;
+        border-color: inherit;
+    }
+
+    .material .eliment_container {
+        background-color: cornflowerblue;
+    }
+
+    .eliment_container .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 3vh;
+        height: 17vh;
+        font-size: 15vh;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_container .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 0.5vh;
+        right: 2vh;
+        font-size: 6vh;
+        width: 12vh;
+        text-align: right;
+    }
+
+    .eliment_container .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 0vh;
+        right: 0vh;
+        font-size: 4.5vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Details to the right of the bar */
+    .eliment_details {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 50vh;
+    }
+
+    .eliment_details .name {
+        /* Name at top */
+        position: absolute;
+        top: 1vh;
+        right: 0;
+        height: auto;
+        width: 100%;
+        font-size: 8vh;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_details .electron_config,
+    .eliment_details .Oxidation {
+        /* Electron shell numbers */
+        position: absolute;
+        bottom: 5.5vh;
+        right: 31%;
+        width: 67%;
+        font-family: Lexend_Deca;
+        font-size: 3vh;
+        text-align: center;
+        overflow: visible;
+        white-space: pre-wrap;
+    }
+
+    .eliment_details .electron_config {
+        bottom: 0.5vh
+    }
+
+    .eliment_details .group {
+        /*  Class grouping  */
+        position: absolute;
+        bottom: 0.5vh;
+        right: 4%;
+        width: 30%;
+        font-family: Lexend_Deca;
+        font-size: 3.5vh;
+        text-align: center;
+    }
+
+
+
+    /*  Table view  */
+    #table_view {
+        overflow: scroll;
+        /*touch-action:pinch-zoom;*/
+    }
+
+    .periodic_table {
+        position: relative;
+        background: none;
+        border-collapse: separate;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .periodic_table td {
+        position: relative;
+        /*display: flex;*/
+        justify-content: center;
+        align-content: center;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .classtoggle {
+        height: fit-content;
+        width: fit-content;
+        text-align: center;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        text-overflow: clip;
+        white-space: pre-wrap;
+        font-size: 3vh;
+    }
+
+    .eliment_spacer {
+        width: 100%;
+        height: 7vh;
+    }
+
+    .ap-spec {
+        /* Eliment acronym */
+        position: absolute;
+        top: 9vh;
+        height: 8vh;
+        font-size: 5vh;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .Neon .eliment_block {
+        height: 18vh;
+        width: 18vh;
+        margin: 1vh;
+        cursor: pointer;
+        transition: color 300ms, background-color 300ms, opacity 300ms;
+    }
+
+    .material .eliment_block {
+        height: 18vh;
+        width: 18vh;
+        border: 1vh solid #000;
+        /*background-color: gray;*/
+        border-radius: none !important;
+        margin: none;
+        cursor: pointer;
+        transition: color 300ms, background-color 300ms;
+        text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .eliment_block:active {
+        color: black !important;
+        background-color: rgb(255, 255, 255) !important;
+        transition: color 0ms, background-color 0ms;
+    }
+
+    .eliment_block .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 3vh;
+        height: 10vh;
+        font-size: 9.5vh;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+    }
+
+    .eliment_block .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 1.5vh;
+        right: 3vh;
+        font-size: 4vh;
+        width: 12vh;
+        text-align: right;
+    }
+
+    .eliment_block .name {
+        /* Bottom number */
+        position: absolute;
+        bottom: 5.7vh;
+        right: 0vh;
+        font-size: 2.7vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .eliment_block .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 2vh;
+        right: 0vh;
+        font-size: 3.5vh;
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+    /* Detail View */
+    .Detail_view,
+    .Detail_view_active {
+        /* View repurposed to serve as an information pannel */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:
+            /*calc(100vw - 10vh)*/
+            100vw;
+        width: 100vh;
+        background-color: rgb(0, 0, 0);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: block;
+        z-index: 50;
+        opacity: 1;
+        transition: transform 300ms, opacity 300ms;
+        transform: translate(0, 100%);
+    }
+
+    .Detail_view_active {
+        transition: none;
+        transform: translate(40%, -24.7%) rotate(-90deg);
+    }
+
+    #detil_elem_color_container {
+        /*  Remove border from populate*/
+        border: none;
+    }
+
+    .Neon .sub_nav {
+        /* Sub navigation (pannel to pannel) */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100vh;
+        height: 9vh;
+        background-color: rgb(46, 46, 46);
+        box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
+        display: flex;
+        flex-wrap: nowrap;
+
+    }
+
+    .material .sub_nav {
+        /* Sub navigation (pannel to pannel) */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100vh;
+        height: 9vh;
+        background-color: rgb(46, 46, 46);
+        box-shadow: none !important;
+        display: flex;
+        flex-wrap: nowrap;
+
+    }
+
+    .Detail_btn,
+    .Detail_btn_active {
+        height: 100%;
+        width: 50%;
+        font-size: 6vh;
+        background-color: rgb(46, 46, 46);
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .Detail_btn_active {
+        border-bottom: 1vh solid;
+    }
+
+    #Detail_view #header {
+        /* Header == Name of elimement at top */
+        position: absolute;
+        top: 10vh;
+        width: 100vh;
+        font-size: 10vh;
+        font-family: Lexend_Deca;
+        text-align: center;
+        margin: none !important;
+    }
+
+    .sub_pane {
+        /* basically scrollable sub views */
+        overflow-y: scroll;
+        position: absolute;
+        top: 25vh;
+        width: 100vh;
+        height: auto;
+        min-height: 75vh;
+        padding-bottom: 3vh;
+        transition: transform 300ms;
+    }
+
+    /*  Detail pannel  */
+    #detail_pane {
+        transform: translate(0, 0);
+    }
+
+    .background_representation_passive,
+    .background_representation_active {
+        /* Eliment background image */
+        top: -12vh;
+        left: 0;
+        position: absolute;
+        width: 100vh;
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../img/Eliments/1.webp');
+        transition: all 300ms;
+    }
+
+    .background_representation_active {
+        /*  Active image brought to front  */
+        top: 0;
+        height: 100vh;
+        z-index: 100;
+        background-size: contain;
+    }
+
+    .background_representation_passive #background_representation_description {
+        display: none;
+    }
+
+    /* Background image with picture */
+    .background_representation_active #background_representation_description {
+        display: block;
+        font-family: Lexend_Deca;
+        position: absolute;
+        left: 5vh;
+        width: 90vh;
+        white-space: pre-line;
+        bottom: 0;
+        text-align: center;
+        font-size: 6vh;
+        text-shadow: 0vh 0vh 2vh #000000, 0vh 0vh 4vh hsl(0, 0%, 0%);
+    }
+
+    #represent_shader {
+        /* darken the detail table */
+        z-index: 90;
+        position: absolute;
+        display: none;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #detail_pane .eliment_container {
+        /* Eliment square in the detail view */
+        margin-left: 2vh;
+        margin-top: 22vh;
+        text-shadow: 0vh 0vh 0.5vh #000;
+    }
+
+    #detail_pane .acr {
+        /* Eliment acronym */
+        position: absolute;
+        top: 2vh;
+        height: 17vh;
+        font-size: 16vh;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        font-family: Lexend_Deca;
+        color: inherit;
+    }
+
+    #detail_pane .standard_atomic {
+        /* Top number */
+        position: absolute;
+        top: 0.5vh;
+        right: 2vh;
+        font-size: 6vh;
+        width: 12vh;
+        text-align: right;
+        color: inherit;
+    }
+
+    #detail_pane .mass_number {
+        /* Bottom number */
+        position: absolute;
+        bottom: 0vh;
+        right: 0vh;
+        font-size: 4.5vh;
+        width: 100%;
+        text-align: center;
+        color: inherit;
+    }
+
+    .Neon .detail_table {
+        /* Table with variety of eliment details */
+        position: relative;
+        margin-top: 4vh;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 96%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5vh;
+        box-shadow: 0vh 0vh 3vh #0055ff;
+        overflow: hidden;
+    }
+
+    .material .detail_table {
+        /* Table with variety of eliment details */
+        position: relative;
+        margin-top: 4vh;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 1vh;
+        box-shadow: none !important;
+        overflow: hidden;
+    }
+
+    .detail_table tr:nth-child(even) {
+        background-color: rgb(36, 36, 36);
+    }
+
+    .detail_table tr:active {
+        color: black;
+        background-color: white;
+        transition: background-color 0ms;
+    }
+
+    .detail_table td,
+    .detail_table th {
+        font-family: Lexend_Deca;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        font-size: 4.5vh;
+        text-align: center;
+        align-content: center;
+        transition: background-color 300ms;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .detail_table th {
+        font-size: 7vh;
+        text-shadow: 0vh 0vh 3vh #000000;
+    }
+
+    .sub_table {
+        font-size: 4vh;
+        position: relative;
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: auto;
+        width: 100%;
+    }
+
+    .sub_table tr {
+        background: none !important;
+    }
+
+    .enabled {}
+
+    .dissabled {
+        color: grey !important;
+
+    }
+
+    #spectrum_bar {
+        position: relative;
+        width: 100%;
+        background-image: linear-gradient(90deg, hsl(0, 0%, 0%), hsl(235, 100%, 50%), hsl(172, 100%, 50%), hsl(125, 100%, 50%), hsl(59, 100%, 50%), hsl(0, 100%, 50%), hsl(0, 0%, 0%));
+        height: 8vh;
+    }
+
+    #spectrum_bar .spectrum_neddle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 80%;
+        width: 0;
+        border-left: 0.5vh solid rgb(255, 255, 255);
+        box-shadow: 0vh 0vh 0.5vh 0vh #000;
+    }
+
+    /*  Isotope pannel  */
+    #isotope_pane {
+        transform: translate(100%, 0);
+    }
+
+    .isotopic_container {
+        /* Bars in disguise */
+        position: relative;
+        height: 35vh;
+        width: 100vh;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    .model_container {
+        /*Container for isotopic models (canvas will be placed inside)*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 35vh;
+        width: 35vh;
+        background-size: cover;
+        background-image: url('../img/electrons/atom-prototype.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .isotope_detail {
+        /* Details to the right of the isotope model */
+        position: absolute;
+        top: 0;
+        left: 35vh;
+        height: 35vh;
+        width: 65vh;
+        overflow-x: scroll;
+    }
+
+    .isotope_detail table {
+        /* Table with variety of eliment details */
+        table-layout: fixed;
+        border-collapse: collapse;
+        height: 100%;
+        width: 100%;
+    }
+
+    .isotope_detail td,
+    th {
+        font-family: Lexend_Deca;
+        padding-top: 0.7vh;
+        padding-bottom: 0.7vh;
+        font-size: 4vh;
+        text-align: center;
+        align-content: center;
+        transition: background-color 300ms;
+    }
+
+    .isotope_detail th {
+        font-size: 5.5vh;
+    }
+
+
+    /*  Setting view  */
+    #setting_view {
+        overflow-y: scroll;
+    }
+
+    .setting_toggle {
+        /* trigger for switch (may also be a tap button) */
+        position: relative;
+        width: 100%;
+        height: 7vh;
+        margin-top: 1vh;
+        cursor: pointer;
+        font-size: 7vw;
+        text-align: center;
+    }
+
+    .setting_toggle .text {
+        /* Text in teh setting toggle ofset by the width of the switch */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 86vw;
+    }
+
+    /* Switches in the .setting_toggle */
+    .switch_container_active,
+    .switch_container_dissabled {
+        /*Switch containment*/
+        position: absolute;
+        transform: translate(12vh, 0);
+        top: 0vh;
+        right: 13vh;
+        width: 12vh;
+        height: 5vh;
+        border: 0.5vh solid;
+        border-radius: 5vh;
+        cursor: pointer;
+    }
+
+    .switchbdy {
+        /*Body of the switch*/
+        position: absolute;
+        width: 12vh;
+        height: 5vh;
+        border-radius: 5vh;
+        cursor: pointer;
+        transition: background-color;
+        transition-duration: 300ms;
+    }
+
+    .switch_knob {
+        /* Switch knob */
+        top: 0.2vh;
+        right: 0.2vh;
+        position: absolute;
+        height: 4.6vh;
+        width: 4.6vh;
+        border-radius: 50%;
+        z-index: 1;
+        transform: translate(0px
+                /*-39px*/
+                , 0);
+        transition: transform, background-color;
+        transition-duration: 300ms;
+    }
+
+    .switch_container_dissabled .switch_knob {
+        /* dissabled switch, switch knob moved relitive to width of  */
+        transform: translate(-7vh, 0);
+    }
+
+    .switch_container_active {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_active .switchbdy {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_active .switch_knob {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .switch_container_dissabled {
+        background-color: rgb(0, 0, 0);
+        border: 0.5vh solid rgb(122, 122, 122);
+    }
+
+    .switch_container_dissabled .switchbdy {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .switch_container_dissabled .switch_knob {
+        background-color: rgb(122, 122, 122);
+    }
+}
