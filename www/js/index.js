@@ -7,6 +7,7 @@ var app = {// Application Constructor
         document.addEventListener("menubutton", this.onMenu, false);
     },// deviceready Event Handler
     onDeviceReady: function () {//device ready event
+        startup()
         this.receivedEvent('deviceready');
         console.log('Device is Ready...');
     },
@@ -37,7 +38,7 @@ var app = {// Application Constructor
     },
 }; app.initialize();
 
-window.addEventListener('load', function () {//applictaion needs to be constructed first
+function startup() {//applictaion needs to be constructed first
     if (localStorage.getItem("Periodic_table_cfg")) {
         config.load();
     } else {
@@ -58,9 +59,13 @@ window.addEventListener('load', function () {//applictaion needs to be construct
     table.initialize();
     UI.initialize();
     UI.Navigate.list_view();//temp debug
-    setTimeout(() => { navigator.splashscreen.hide();document.getElementById('stylesheet').href = "css/phone.css" }, 1000);
-    
-});
+
+    setTimeout(() => {
+        if (typeof (navigator.splashscreen) != 'undefined') { navigator.splashscreen.hide() }
+        window.addEventListener('resize', function () { utility.size_check() })
+    }, 300);
+
+}
 
 var config = {//Configuration handler
     data: {
@@ -123,16 +128,16 @@ var config = {//Configuration handler
 let atom_info = {// information dispensing utility
     initialize: function () {
         console.warn('Atomic info initalized');
-        if (typeof (device) != 'undefined') {//check device mode
+        /*if (typeof (device) != 'undefined') {//check device mode
             if (device.platform == 'Android' || 'iOS') { touchstartup() }
             else { clickstartup() }
-        } else { clickstartup() }
-
+        } else { clickstartup() }*/
+        touchstartup()
         function touchstartup() {
             console.warn('Atomic info uses touch actions');
             document.getElementById('detail_btn').addEventListener('touchstart', atom_info.navDETAIL)
             document.getElementById('isotope_btn').addEventListener('touchstart', atom_info.navISOTOPE)
-            document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
+            document.getElementById('background_representation').addEventListener('touchstart', atom_info.BKG_img_action)
             document.getElementById('represent_shader').addEventListener('touchstart', atom_info.BKG_img_action)
         }
         function clickstartup() {
@@ -6356,13 +6361,20 @@ let atom_info = {// information dispensing utility
             eliment_details.appendChild(Oxidation);
             eleiment_blob.appendChild(eliment_details);
             document.getElementById('list_view').appendChild(eleiment_blob);
-            eleiment_blob.addEventListener('click', () => {//anonymus population call
-                atom_info.populate(index);
-            });
+            eleiment_blob.addEventListener('click', (event) => {//anonymus population call
+                atom_info.populate(index, event);
+            }, false);
         }
     },
     /* Detail pannel actions */
-    populate: function (index) {// Populate atomic details pannel based on data in array
+    populate: function (index, event) {// Populate atomic details pannel based on data in array
+        /*var x = event.clientX;
+        var y = event.clientY;
+        console.log('X position : ',x,' Y position: ',y);*/
+        /*document.getElementById('Detail_view').style.top = y+'px';
+        document.getElementById('Detail_view').style.left = x+'px';*/
+        /*document.getElementById('Detail_view').style.transform = "translate("+x/3+"px,"+y/2+"px)";*/
+
         if (config.properties.focused_table == true && config.properties.focus_on != this.details[index].category) {
             table.focus.reset()
         } else {
@@ -6739,16 +6751,16 @@ let table = {
         console.warn('table list initalize');
         this.render_list()
 
-        document.getElementById('Reactive_nonmetal').addEventListener('click', table.focus.Reactive_nonmetal)
-        document.getElementById('Noble_gas').addEventListener('click', table.focus.Noble_gas)
-        document.getElementById('Alkali_metal').addEventListener('click', table.focus.Alkali_metal)
-        document.getElementById('Alkaline_earth_metal').addEventListener('click', table.focus.Alkaline_earth_metal)
-        document.getElementById('Metalloid').addEventListener('click', table.focus.Metalloid)
-        document.getElementById('Post_transition_metal').addEventListener('click', table.focus.Post_transition_metal)
-        document.getElementById('Transition_metal').addEventListener('click', table.focus.Transition_metal)
-        document.getElementById('Actinoid').addEventListener('click', table.focus.Actinoid)
-        document.getElementById('Lanthanoid').addEventListener('click', table.focus.Lanthanoid)
-        document.getElementById('unknown').addEventListener('click', table.focus.unknown)
+        document.getElementById('Reactive_nonmetal').addEventListener('touchstart', table.focus.Reactive_nonmetal)
+        document.getElementById('Noble_gas').addEventListener('touchstart', table.focus.Noble_gas)
+        document.getElementById('Alkali_metal').addEventListener('touchstart', table.focus.Alkali_metal)
+        document.getElementById('Alkaline_earth_metal').addEventListener('touchstart', table.focus.Alkaline_earth_metal)
+        document.getElementById('Metalloid').addEventListener('touchstart', table.focus.Metalloid)
+        document.getElementById('Post_transition_metal').addEventListener('touchstart', table.focus.Post_transition_metal)
+        document.getElementById('Transition_metal').addEventListener('touchstart', table.focus.Transition_metal)
+        document.getElementById('Actinoid').addEventListener('touchstart', table.focus.Actinoid)
+        document.getElementById('Lanthanoid').addEventListener('touchstart', table.focus.Lanthanoid)
+        document.getElementById('unknown').addEventListener('touchstart', table.focus.unknown)
     },
     render_list: function () {// Render and build function seperate to faccilitate anonymus action calls
         var index;
@@ -6793,8 +6805,8 @@ let table = {
             eliment_block.setAttribute('id', 'eliment_' + Number(index + 1))
             document.getElementById('cell_' + Number(index + 1)).appendChild(eliment_block);
 
-            eliment_block.addEventListener('click', () => {//anonymus population call
-                atom_info.populate(index);
+            eliment_block.addEventListener('click', (event) => {//anonymus population call
+                atom_info.populate(index, event);
             });
         }
     },
@@ -7088,62 +7100,22 @@ let table = {
 let UI = {//for general UI thingys
     initialize: function () {
         console.warn('UI initalize');
+        document.getElementById('screensbtn').addEventListener('click', function () {
+            window.plugins.screensize.get(function (result) {
+                console.log(result.diameter)
+            })
+        })
 
-        if(typeof(window.plugins)!='undefined'){
-            window.plugins.screensize.get(function (result) {//Check device screen size
-                console.log(result);
-                if (result.diameter < 3) {
-                    //watch size screen
-                    document.getElementById('stylesheet').href = "css/watch.css"
-                    console.warn('Set watch screen scale with size: ', result.diameter);
-                } else if (result.diameter > 5.9) {
-                    //tablet size screen
-                    document.getElementById('stylesheet').href = "css/tablet.css"
-                    console.warn('Set tablet screen scale with size: ', result.diameter);
-                } else {
-                    //phone size screen
-                    document.getElementById('stylesheet').href = "css/phone.css"
-                    console.warn('Set phone screen scale with size: ', result.diameter);
-                }
-            }, function (err) {
-                console.log(err)
-                //error default to phone size
-                document.getElementById('stylesheet').href = "css/phone.css"
-                console.error('defaulted to phone screen scale');
-            });
-        }else{
-            //error default to phone size
-            document.getElementById('stylesheet').href = "css/phone.css"
-            console.error('defaulted to phone screen scale');
-        }
+        utility.size_check();
 
         this.animation.setpostition();
         this.low_performance.setpostition();
         this.set_theme();
-        if (typeof (device) != 'undefined') {//check device mode
-            if (device.platform == 'Android' || 'iOS') {//mobile
-                touchstartup();
-            } else {
-                touchstartup();
-            }
-        } else {
-            clickstartup();
-        }
-
-        function touchstartup() {
-            document.getElementById('list_btn').addEventListener('touchstart', UI.Navigate.list_view);
-            document.getElementById('table_btn').addEventListener('touchstart', UI.Navigate.table_view);
-            document.getElementById('setting_btn').addEventListener('touchstart', UI.Navigate.setting_view);
-            document.getElementById('Animations_btn').addEventListener('touchstart', UI.animation.flip);
-            document.getElementById('low_performance_btn').addEventListener('touchstart', UI.low_performance.flip);
-        }
-        function clickstartup() {
-            document.getElementById('list_btn').addEventListener('click', UI.Navigate.list_view);
-            document.getElementById('table_btn').addEventListener('click', UI.Navigate.table_view);
-            document.getElementById('setting_btn').addEventListener('click', UI.Navigate.setting_view);
-            document.getElementById('Animations_btn').addEventListener('click', UI.animation.flip);
-            document.getElementById('low_performance_btn').addEventListener('click', UI.low_performance.flip);
-        }
+        document.getElementById('list_btn').addEventListener('touchstart', UI.Navigate.list_view);
+        document.getElementById('table_btn').addEventListener('touchstart', UI.Navigate.table_view);
+        document.getElementById('setting_btn').addEventListener('touchstart', UI.Navigate.setting_view);
+        document.getElementById('Animations_btn').addEventListener('touchstart', UI.animation.flip);
+        document.getElementById('low_performance_btn').addEventListener('touchstart', UI.low_performance.flip);
     },
     set_theme: function () {
         if (config.data.theme == "Neon") {
@@ -7280,6 +7252,29 @@ let utility = {//Some usefull things
             navigator.device.exitApp();
         } else {
             window.close();
+        }
+    },/* Check screen size (physical/app size) */
+    size_check: async function () {
+        console.log('Sizecheck fired');
+        if (typeof (window.plugins) != 'undefined') {
+            window.plugins.screensize.get(function (result) {//Check device screen size
+                console.log(result);
+                if (result.diameter < 3) {
+                    //watch size screen
+                    document.getElementById('stylesheet').href = "css/watch.css"
+                    console.warn('Set watch screen scale with size: ', result.diameter);
+                } else if (result.diameter > 6) {
+                    //tablet size screen
+                    document.getElementById('stylesheet').href = "css/tablet.css"
+                    console.warn('Set tablet screen scale with size: ', result.diameter);
+                } else {
+                    //phone size screen
+                    document.getElementById('stylesheet').href = "css/phone.css"
+                    console.warn('Set phone screen scale with size: ', result.diameter);
+                }
+            }, function (err) { console.log('Screen data error: ', err) });
+        } else {
+            console.error('Screensize plugin failed completely, device may not be ready');
         }
     },
     /*  Produce toast messages    */

@@ -27,6 +27,7 @@
         width: 100vw;
         background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
+        overflow: hidden;
     }
 
     /*  Footer navigtion  */
@@ -58,7 +59,6 @@
         cursor: pointer;
         overflow: hidden;
     }
-
 
     @keyframes neon {
         0% {
@@ -183,7 +183,7 @@
         margin-right: auto;
         overflow: hidden;
         cursor: pointer;
-        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
+        transition: text-shadow 300ms, background-color 300ms, color 300ms;
     }
 
     .Reactive-nonmetal {
@@ -194,15 +194,11 @@
         color: hsl(123, 100%, 80%);
     }
 
-    /*.Reactive-nonmetal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(123, 100%, 50%);
-    }*/
-
     .Reactive-nonmetal:active {
         text-shadow: 0vw 0vw 0vw hsl(123, 100%, 50%);
         background-color: hsl(123, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Noble-gas {
@@ -213,15 +209,11 @@
         background-color: #000;
     }
 
-    /*.Noble-gas:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(204, 100%, 50%)
-    }*/
-
     .Noble-gas:active {
         text-shadow: 0vw 0vw 0vw hsl(204, 100%, 50%);
         background-color: hsl(204, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Alkali-metal {
@@ -232,15 +224,11 @@
         background-color: #000;
     }
 
-    /*.Alkali-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(40, 100%, 50%)
-    }*/
-
     .Alkali-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(40, 100%, 50%);
         background-color: hsl(40, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Alkaline-earth-metal {
@@ -251,15 +239,11 @@
         background-color: #000;
     }
 
-    /*.Alkaline-earth-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(60, 100%, 50%)
-    }*/
-
     .Alkaline-earth-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(60, 100%, 50%);
         background-color: hsl(60, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Metalloid {
@@ -270,15 +254,11 @@
         background-color: #000;
     }
 
-    /*.Metalloid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(160, 100%, 50%)
-    }*/
-
     .Metalloid:active {
         text-shadow: 0vw 0vw 0vw hsl(160, 100%, 50%);
         background-color: hsl(160, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Post-transition-metal {
@@ -289,15 +269,11 @@
         background-color: #000;
     }
 
-    /*.Post-transition-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(188, 100%, 50%)
-    }*/
-
     .Post-transition-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(188, 100%, 50%);
         background-color: hsl(188, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Transition-metal {
@@ -308,15 +284,11 @@
         background-color: #000;
     }
 
-    /*.Transition-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 100%, 50%)
-    }*/
-
     .Transition-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(0, 100%, 50%);
         background-color: hsl(0, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .actinoid {
@@ -327,15 +299,11 @@
         background-color: #000;
     }
 
-    /*.actinoid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(295, 100%, 50%)
-    }*/
-
     .actinoid:active {
         text-shadow: 0vw 0vw 0vw hsl(295, 100%, 50%);
         background-color: hsl(295, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .lanthanoid {
@@ -346,15 +314,11 @@
         background-color: #000;
     }
 
-    /*.lanthanoid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(276, 100%, 50%)
-    }*/
-
     .lanthanoid:active {
         text-shadow: 0vw 0vw 0vw hsl(276, 100%, 50%);
         background-color: hsl(276, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .unknown {
@@ -365,15 +329,11 @@
         background-color: #000;
     }
 
-    /*.unknown:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 0%, 100%)
-    }*/
-
     .unknown:active {
         text-shadow: 0vw 0vw 0vw hsl(0, 0%, 100%);
         background-color: hsl(0, 0%, 100%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     /*  The semi-square with the eliment details  */
@@ -501,8 +461,8 @@
         text-align: center;
         border: none !important;
         box-shadow: none !important;
-        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        /*text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);*/
+        /*color: rgb(0, 0, 0);*/
         text-overflow: clip;
         white-space: pre-wrap;
         font-size: 3vw;
@@ -592,15 +552,17 @@
         overflow-x: hidden;
         display: block;
         z-index: 50;
-        opacity: 1;
-        transition: transform 300ms, opacity 300ms;
-        transform: translate(0, 100%);
+        transition: transform 300ms;
+        transform: scale(0, 0);
+        /*transform: translate(0, 100%);*/
     }
 
     .Detail_view_active {
+        top: 0;
+        left: 0;
         display: block;
-        opacity: 1;
-        transform: translate(0, 0);
+        transform: scale(1, 1);
+        /*transform: translate(0, 0);*/
     }
 
     #detil_elem_color_container {
@@ -774,6 +736,10 @@
         border-radius: 5vw;
         box-shadow: 0vw 0vw 3vw #0055ff;
         overflow: hidden;
+    }
+
+    .detail_table tr {
+        transition: background-color 300ms;
     }
 
     .detail_table tr:nth-child(even) {
@@ -1003,12 +969,6 @@
 /*    <--  Landscape layout (with min-width) -->     */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
 
-    body {
-        padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-        height: 100vh;
-        width: 100vw;
-    }
-
     /*  Footer navigtion  */
     .nav {
         /* Footer meat */
@@ -1018,27 +978,21 @@
         right: 0;
         height: 100vh;
         width: 10vh;
-        z-index: 100;
-
     }
 
     /* Navigation buttons */
     .navbtn,
     .navbtn_ative {
-        /*  Buttons containing icons  */
-        position: relative;
         height: 33vh;
         width: 10vh;
         border-radius: 4vh;
         float: none;
-        transition: background-color 500ms;
-        cursor: pointer;
-        overflow: hidden;
     }
 
     .navbtn_ative {
         /*background-color: rgb(0, 173, 9);*/
-        box-shadow: 0vw 0vw 7vh 1vh #fff inset;
+        box-shadow: 0vh 0vh 7vh 1vh #fff inset;
+        animation: neon 15s linear infinite;
     }
 
     .navbtn .navcon,
@@ -1059,215 +1013,78 @@
 
     /*  List view  */
     #list_view {
-        overflow-y: scroll;
-        flex-wrap: wrap;
+        /*Uses flex, assigned by navigate in js*/
         justify-content: space-evenly;
     }
 
     .eleiment_blob {
-        /*  The scrollable rectabgular bars */
-        position: relative;
         height: 25vh;
         width: 75vh;
         margin: none !important;
-        overflow: hidden;
-        cursor: pointer;
-        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
     }
 
     .Reactive-nonmetal {
         border: 1vh solid hsl(123, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(123, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(123, 100%, 50%);
-        background-color: #000000;
-        color: hsl(123, 100%, 80%);
-    }
-
-    /*.Reactive-nonmetal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(123, 100%, 50%);
-    }*/
-
-    .Reactive-nonmetal:active {
-        text-shadow: 0vh 0vh 0vh hsl(123, 100%, 50%);
-        background-color: hsl(123, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Noble-gas {
         border: 1vh solid hsl(204, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(204, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(204, 100%, 50%);
-        color: hsl(204, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Noble-gas:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(204, 100%, 50%)
-    }*/
-
-    .Noble-gas:active {
-        text-shadow: 0vh 0vh 0vh hsl(204, 100%, 50%);
-        background-color: hsl(204, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Alkali-metal {
         border: 1vh solid hsl(40, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(40, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(40, 100%, 50%);
-        color: hsl(40, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Alkali-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(40, 100%, 50%)
-    }*/
-
-    .Alkali-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(40, 100%, 50%);
-        background-color: hsl(40, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Alkaline-earth-metal {
         border: 1vh solid hsl(60, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(60, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(60, 100%, 50%);
-        color: hsl(60, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Alkaline-earth-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(60, 100%, 50%)
-    }*/
-
-    .Alkaline-earth-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(60, 100%, 50%);
-        background-color: hsl(60, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Metalloid {
         border: 1vh solid hsl(160, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(161, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(161, 100%, 50%);
-        color: hsl(161, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Metalloid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(160, 100%, 50%)
-    }*/
-
-    .Metalloid:active {
-        text-shadow: 0vh 0vh 0vh hsl(160, 100%, 50%);
-        background-color: hsl(160, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Post-transition-metal {
         border: 1vh solid hsl(188, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(188, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(188, 100%, 50%);
-        color: hsl(188, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Post-transition-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(188, 100%, 50%)
-    }*/
-
-    .Post-transition-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(188, 100%, 50%);
-        background-color: hsl(188, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .Transition-metal {
         border: 1vh solid hsl(0, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(0, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(0, 100%, 50%);
-        color: hsl(0, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.Transition-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 100%, 50%)
-    }*/
-
-    .Transition-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(0, 100%, 50%);
-        background-color: hsl(0, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .actinoid {
         border: 1vh solid hsl(295, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(295, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(295, 100%, 50%);
-        color: hsl(295, 100%, 50%);
-        background-color: #000;
-    }
-
-    /*.actinoid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(295, 100%, 50%)
-    }*/
-
-    .actinoid:active {
-        text-shadow: 0vh 0vh 0vh hsl(295, 100%, 50%);
-        background-color: hsl(295, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .lanthanoid {
         border: 1vh solid hsl(276, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(276, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(276, 100%, 50%);
-        color: hsl(276, 100%, 70%);
-        background-color: #000;
-    }
-
-    /*.lanthanoid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(276, 100%, 50%)
-    }*/
-
-    .lanthanoid:active {
-        text-shadow: 0vh 0vh 0vh hsl(276, 100%, 50%);
-        background-color: hsl(276, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     .unknown {
         border: 1vh solid rgb(255, 255, 255);
         box-shadow: 0vh 0vh 5vh 0vh rgb(255, 255, 255);
         text-shadow: 0vh 0vh 1vh #fff;
-        color: white;
-        background-color: #000;
-    }
-
-    /*.unknown:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 0%, 100%)
-    }*/
-
-    .unknown:active {
-        text-shadow: 0vh 0vh 0vh hsl(0, 0%, 100%);
-        background-color: hsl(0, 0%, 100%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     /*  The semi-square with the eliment details  */
     .eliment_container {
-        position: relative;
         height: 25vh;
         width: 25vh;
     }
@@ -1279,35 +1096,21 @@
 
 
     .eliment_container .acr {
-        /* Eliment acronym */
-        position: absolute;
         top: 3vh;
         height: 17vh;
         font-size: 15vh;
         right: 0;
-        width: 100%;
-        text-align: center;
-        font-family: Lexend_Deca;
     }
 
     .eliment_container .standard_atomic {
-        /* Top number */
-        position: absolute;
         top: 0.5vh;
         right: 2vh;
         font-size: 6vh;
         width: 12vh;
-        text-align: right;
     }
 
     .eliment_container .mass_number {
-        /* Bottom number */
-        position: absolute;
-        bottom: 0vh;
-        right: 0vh;
         font-size: 4.5vh;
-        width: 100%;
-        text-align: center;
     }
 
     /* Details to the right of the bar */
@@ -1360,8 +1163,6 @@
         text-align: center;
     }
 
-
-
     /*  Table view  */
     #table_view {
         overflow: scroll;
@@ -1391,8 +1192,8 @@
         text-align: center;
         border: none !important;
         box-shadow: none !important;
-        text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        /*text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
+        color: rgb(0, 0, 0);*/
         text-overflow: clip;
         white-space: pre-wrap;
         font-size: 3vh;
@@ -1421,13 +1222,6 @@
         margin: 1vh;
         cursor: pointer;
         transition: color 300ms, background-color 300ms, opacity 300ms;
-    }
-
-
-    .eliment_block:active {
-        color: black !important;
-        background-color: rgb(255, 255, 255) !important;
-        transition: color 0ms, background-color 0ms;
     }
 
     .eliment_block .acr {
@@ -1477,27 +1271,12 @@
     /* Detail View */
     .Detail_view,
     .Detail_view_active {
-        /* View repurposed to serve as an information pannel */
-        position: absolute;
-        top: 0;
-        left: 0;
         height:
             /*calc(100vw - 10vh)*/
-            100vw;
-        width: 100vh;
+            100vh;
+        width: calc(100vw - 10vh);
         background-color: rgb(0, 0, 0);
-        overflow-y: scroll;
-        overflow-x: hidden;
-        display: block;
-        z-index: 50;
-        opacity: 1;
-        transition: transform 300ms, opacity 300ms;
-        transform: translate(0, 100%);
-    }
-
-    .Detail_view_active {
-        transition: none;
-        transform: translate(40%, -24.7%) rotate(-90deg);
+        overflow: auto;
     }
 
     #detil_elem_color_container {
@@ -1510,10 +1289,10 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 100vh;
+        width: 100%;
         height: 9vh;
         background-color: rgb(46, 46, 46);
-        box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
+        box-shadow: 0vh 0vh 6vh 0vh rgb(126, 126, 126);
         display: flex;
         flex-wrap: nowrap;
 
@@ -1530,9 +1309,6 @@
         border: none;
         outline: none;
         cursor: pointer;
-    }
-
-    .Detail_btn_active {
         border-bottom: 1vh solid;
     }
 
@@ -1540,7 +1316,7 @@
         /* Header == Name of elimement at top */
         position: absolute;
         top: 10vh;
-        width: 100vh;
+        width: 100%;
         font-size: 10vh;
         font-family: Lexend_Deca;
         text-align: center;
@@ -1549,19 +1325,22 @@
 
     .sub_pane {
         /* basically scrollable sub views */
-        overflow-y: scroll;
+        overflow: scroll;
         position: absolute;
-        top: 25vh;
-        width: 100vh;
+        top: 23vh;
+        width: 50%;
         height: auto;
         min-height: 75vh;
         padding-bottom: 3vh;
         transition: transform 300ms;
     }
 
-    /*  Detail pannel  */
     #detail_pane {
-        transform: translate(0, 0);
+        transform: translate(0, 0) !important;
+    }
+
+    #isotope_pane {
+        transform: translate(100%, 0) !important;
     }
 
     .background_representation_passive,
@@ -1570,7 +1349,7 @@
         top: -12vh;
         left: 0;
         position: absolute;
-        width: 100vh;
+        width: 100%;
         height: 60vh;
         background-position: center;
         background-size: cover;
@@ -1583,7 +1362,8 @@
         /*  Active image brought to front  */
         top: 0;
         height: 100vh;
-        z-index: 100;
+        width: 100%;
+        z-index: 1000;
         background-size: contain;
     }
 
@@ -1596,8 +1376,8 @@
         display: block;
         font-family: Lexend_Deca;
         position: absolute;
-        left: 5vh;
-        width: 90vh;
+        left: 0;
+        width: 100%;
         white-space: pre-line;
         bottom: 0;
         text-align: center;
@@ -1674,16 +1454,6 @@
         overflow: hidden;
     }
 
-    .detail_table tr:nth-child(even) {
-        background-color: rgb(36, 36, 36);
-    }
-
-    .detail_table tr:active {
-        color: black;
-        background-color: white;
-        transition: background-color 0ms;
-    }
-
     .detail_table td,
     .detail_table th {
         font-family: Lexend_Deca;
@@ -1711,21 +1481,7 @@
         width: 100%;
     }
 
-    .sub_table tr {
-        background: none !important;
-    }
-
-    .enabled {}
-
-    .dissabled {
-        color: grey !important;
-
-    }
-
     #spectrum_bar {
-        position: relative;
-        width: 100%;
-        background-image: linear-gradient(90deg, hsl(0, 0%, 0%), hsl(235, 100%, 50%), hsl(172, 100%, 50%), hsl(125, 100%, 50%), hsl(59, 100%, 50%), hsl(0, 100%, 50%), hsl(0, 0%, 0%));
         height: 8vh;
     }
 
@@ -1747,10 +1503,10 @@
     .isotopic_container {
         /* Bars in disguise */
         position: relative;
-        height: 35vh;
-        width: 100vh;
-        margin-top: 3vh;
-        margin-bottom: 3vh;
+        height: 28vh;
+        width: 100%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
 
     .model_container {
@@ -1758,8 +1514,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 35vh;
-        width: 35vh;
+        height: 28vh;
+        width: 28vh;
         background-size: cover;
         background-image: url('../img/electrons/atom-prototype.webp');
         background-repeat: no-repeat;
@@ -1770,9 +1526,9 @@
         /* Details to the right of the isotope model */
         position: absolute;
         top: 0;
-        left: 35vh;
-        height: 35vh;
-        width: 65vh;
+        left: 28vh;
+        height: 28vh;
+        width: calc(100% - 28vh);
         overflow-x: scroll;
     }
 
@@ -1789,14 +1545,14 @@
         font-family: Lexend_Deca;
         padding-top: 0.7vh;
         padding-bottom: 0.7vh;
-        font-size: 4vh;
+        font-size: 3vh;
         text-align: center;
         align-content: center;
         transition: background-color 300ms;
     }
 
     .isotope_detail th {
-        font-size: 5.5vh;
+        font-size: 4vh;
     }
 
 

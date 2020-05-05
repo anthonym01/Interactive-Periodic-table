@@ -13,9 +13,6 @@
     "cordova-plugin-screensize": {
       "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.ANTHONYM.periodictable"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.ANTHONYM.periodictable"
     },

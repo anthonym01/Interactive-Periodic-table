@@ -27,6 +27,7 @@
         width: 100vw;
         background-color: rgb(0, 0, 0);
         color: rgb(255, 255, 255);
+        overflow: hidden;
     }
 
     /*  Footer navigtion  */
@@ -41,12 +42,8 @@
 
     }
 
-    .Neon .nav {
+    .nav {
         background-color: rgb(0, 0, 0)
-    }
-
-    .material .nav {
-        background-color: rgb(46, 46, 46)
     }
 
     /* Navigation buttons */
@@ -61,14 +58,6 @@
         transition: background-color 500ms;
         cursor: pointer;
         overflow: hidden;
-    }
-
-    .material .navbtn_ative {
-        background-color: rgb(0, 173, 9);
-    }
-
-    .material .neonblurser {
-        display: none;
     }
 
     @keyframes neon {
@@ -117,7 +106,7 @@
         }
     }
 
-    .Neon .navbtn_ative {
+    .navbtn_ative {
         /*background-color: rgb(0, 173, 9);*/
         box-shadow: 0vw 0vw 7vw 1vw #fff inset;
         animation: neon 15s linear infinite;
@@ -194,10 +183,10 @@
         margin-right: auto;
         overflow: hidden;
         cursor: pointer;
-        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
+        transition: text-shadow 300ms, background-color 300ms, color 300ms;
     }
 
-    .Neon .Reactive-nonmetal {
+    .Reactive-nonmetal {
         border: 1vw solid hsl(123, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(123, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(123, 100%, 50%);
@@ -205,18 +194,14 @@
         color: hsl(123, 100%, 80%);
     }
 
-    /*.Neon .Reactive-nonmetal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(123, 100%, 50%);
-    }*/
-
-    .Neon .Reactive-nonmetal:active {
+    .Reactive-nonmetal:active {
         text-shadow: 0vw 0vw 0vw hsl(123, 100%, 50%);
         background-color: hsl(123, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Noble-gas {
+    .Noble-gas {
         border: 1vw solid hsl(204, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(204, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(204, 100%, 50%);
@@ -224,18 +209,14 @@
         background-color: #000;
     }
 
-    .Neon .Noble-gas:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(204, 100%, 50%)
-    }
-
-    .Neon .Noble-gas:active {
+    .Noble-gas:active {
         text-shadow: 0vw 0vw 0vw hsl(204, 100%, 50%);
         background-color: hsl(204, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Alkali-metal {
+    .Alkali-metal {
         border: 1vw solid hsl(40, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(40, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(40, 100%, 50%);
@@ -243,18 +224,14 @@
         background-color: #000;
     }
 
-    .Neon .Alkali-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(40, 100%, 50%)
-    }
-
-    .Neon .Alkali-metal:active {
+    .Alkali-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(40, 100%, 50%);
         background-color: hsl(40, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Alkaline-earth-metal {
+    .Alkaline-earth-metal {
         border: 1vw solid hsl(60, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(60, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(60, 100%, 50%);
@@ -262,18 +239,14 @@
         background-color: #000;
     }
 
-    .Neon .Alkaline-earth-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(60, 100%, 50%)
-    }
-
-    .Neon .Alkaline-earth-metal:active {
+    .Alkaline-earth-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(60, 100%, 50%);
         background-color: hsl(60, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Metalloid {
+    .Metalloid {
         border: 1vw solid hsl(160, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(161, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(161, 100%, 50%);
@@ -281,18 +254,14 @@
         background-color: #000;
     }
 
-    .Neon .Metalloid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(160, 100%, 50%)
-    }
-
-    .Neon .Metalloid:active {
+    .Metalloid:active {
         text-shadow: 0vw 0vw 0vw hsl(160, 100%, 50%);
         background-color: hsl(160, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Post-transition-metal {
+    .Post-transition-metal {
         border: 1vw solid hsl(188, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(188, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(188, 100%, 50%);
@@ -300,18 +269,14 @@
         background-color: #000;
     }
 
-    .Neon .Post-transition-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(188, 100%, 50%)
-    }
-
-    .Neon .Post-transition-metal:active {
+    .Post-transition-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(188, 100%, 50%);
         background-color: hsl(188, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .Transition-metal {
+    .Transition-metal {
         border: 1vw solid hsl(0, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(0, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(0, 100%, 50%);
@@ -319,18 +284,14 @@
         background-color: #000;
     }
 
-    .Neon .Transition-metal:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 100%, 50%)
-    }
-
-    .Neon .Transition-metal:active {
+    .Transition-metal:active {
         text-shadow: 0vw 0vw 0vw hsl(0, 100%, 50%);
         background-color: hsl(0, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .actinoid {
+    .actinoid {
         border: 1vw solid hsl(295, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(295, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(295, 100%, 50%);
@@ -338,18 +299,14 @@
         background-color: #000;
     }
 
-    .Neon .actinoid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(295, 100%, 50%)
-    }
-
-    .Neon .actinoid:active {
+    .actinoid:active {
         text-shadow: 0vw 0vw 0vw hsl(295, 100%, 50%);
         background-color: hsl(295, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .lanthanoid {
+    .lanthanoid {
         border: 1vw solid hsl(276, 100%, 50%);
         box-shadow: 0vw 0vw 5vw 0vw hsl(276, 100%, 50%);
         text-shadow: 0vw 0vw 1vw hsl(276, 100%, 50%);
@@ -357,18 +314,14 @@
         background-color: #000;
     }
 
-    .Neon .lanthanoid:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(276, 100%, 50%)
-    }
-
-    .Neon .lanthanoid:active {
+    .lanthanoid:active {
         text-shadow: 0vw 0vw 0vw hsl(276, 100%, 50%);
         background-color: hsl(276, 100%, 50%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
-    .Neon .unknown {
+    .unknown {
         border: 1vw solid rgb(255, 255, 255);
         box-shadow: 0vw 0vw 5vw 0vw rgb(255, 255, 255);
         text-shadow: 0vw 0vw 1vw #fff;
@@ -376,70 +329,11 @@
         background-color: #000;
     }
 
-    .Neon .unknown:hover {
-        box-shadow: 0vw 0vw 7vw 1vw hsl(0, 0%, 100%)
-    }
-
-    .Neon .unknown:active {
+    .unknown:active {
         text-shadow: 0vw 0vw 0vw hsl(0, 0%, 100%);
         background-color: hsl(0, 0%, 100%);
         color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .material .eleiment_blob {
-        /*  The scrollable rectabgular bars */
-        border-radius: 4vw;
-        background-color: rgb(128, 128, 128);
-        text-shadow: 0vw 0vw 0.5vw #000;
-        color: #fff;
-        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-    }
-
-    .material .Reactive-nonmetal {
-        background-color: hsl(123, 100%, 60%);
-    }
-
-    .material .Noble-gas {
-        background-color: hsl(204, 100%, 60%);
-    }
-
-    .material .Alkali-metal {
-        background-color: hsl(40, 100%, 60%);
-    }
-
-    .material .Alkaline-earth-metal {
-        background-color: hsl(60, 100%, 60%);
-    }
-
-    .material .Metalloid {
-        background-color: hsl(160, 100%, 60%);
-    }
-
-    .material .Post-transition-metal {
-        background-color: hsl(188, 100%, 60%);
-    }
-
-    .material .Transition-metal {
-        background-color: hsl(0, 100%, 60%);
-    }
-
-    .material .actinoid {
-        background-color: hsl(295, 100%, 60%);
-    }
-
-    .material .lanthanoid {
-        background-color: hsl(276, 100%, 60%);
-    }
-
-    .material .unknown {
-        background-color: hsl(0, 0%, 100%);
-    }
-
-    .material .inverse {
-        color: black !important;
-        text-shadow: 0vw 0vw 0.5vw #fff !important;
+        transition: text-shadow 0ms, background-color 0ms, color 0ms;
     }
 
     /*  The semi-square with the eliment details  */
@@ -449,13 +343,9 @@
         width: 25vw;
     }
 
-    .Neon .eliment_container {
+    .eliment_container {
         border-right: 1vw solid;
         border-color: inherit;
-    }
-
-    .material .eliment_container {
-        background-color: cornflowerblue;
     }
 
     .eliment_container .acr {
@@ -571,8 +461,8 @@
         text-align: center;
         border: none !important;
         box-shadow: none !important;
-        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        /*text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);*/
+        /*color: rgb(0, 0, 0);*/
         text-overflow: clip;
         white-space: pre-wrap;
         font-size: 3vw;
@@ -596,25 +486,12 @@
         font-family: Lexend_Deca;
     }
 
-    .Neon .eliment_block {
+    .eliment_block {
         height: 18vw;
         width: 18vw;
         margin: 1vw;
         cursor: pointer;
         transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms, opacity 300ms;
-    }
-
-    .material .eliment_block {
-        height: 18vw;
-        width: 18vw;
-        border: 1vw solid #000;
-        /*background-color: gray;*/
-        border-radius: none !important;
-        margin: none;
-        cursor: pointer;
-        transition: color 300ms, background-color 300ms;
-        text-shadow: 0vw 0vw 0.5vw rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
     }
 
     .eliment_block .acr {
@@ -675,15 +552,17 @@
         overflow-x: hidden;
         display: block;
         z-index: 50;
-        opacity: 1;
-        transition: transform 300ms, opacity 300ms;
-        transform: translate(0, 100%);
+        transition: transform 300ms;
+        transform: scale(0, 0);
+        /*transform: translate(0, 100%);*/
     }
 
     .Detail_view_active {
+        top: 0;
+        left: 0;
         display: block;
-        opacity: 1;
-        transform: translate(0, 0);
+        transform: scale(1, 1);
+        /*transform: translate(0, 0);*/
     }
 
     #detil_elem_color_container {
@@ -691,7 +570,7 @@
         border: none;
     }
 
-    .Neon .sub_nav {
+    .sub_nav {
         /* Sub navigation (pannel to pannel) */
         position: absolute;
         top: 0;
@@ -700,20 +579,6 @@
         height: 9vw;
         background-color: rgb(46, 46, 46);
         box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
-        display: flex;
-        flex-wrap: nowrap;
-
-    }
-
-    .material .sub_nav {
-        /* Sub navigation (pannel to pannel) */
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100vw;
-        height: 9vw;
-        background-color: rgb(46, 46, 46);
-        box-shadow: none !important;
         display: flex;
         flex-wrap: nowrap;
 
@@ -858,7 +723,7 @@
         color: inherit;
     }
 
-    .Neon .detail_table {
+    .detail_table {
         /* Table with variety of eliment details */
         position: relative;
         margin-top: 4vw;
@@ -873,19 +738,8 @@
         overflow: hidden;
     }
 
-    .material .detail_table {
-        /* Table with variety of eliment details */
-        position: relative;
-        margin-top: 4vw;
-        table-layout: fixed;
-        border-collapse: collapse;
-        height: auto;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 1vw;
-        box-shadow: none !important;
-        overflow: hidden;
+    .detail_table tr {
+        transition: background-color 300ms;
     }
 
     .detail_table tr:nth-child(even) {
@@ -1115,12 +969,6 @@
 /*    <--  Landscape layout (with min-width) -->     */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
 
-    body {
-        padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
-        height: 100vh;
-        width: 100vw;
-    }
-
     /*  Footer navigtion  */
     .nav {
         /* Footer meat */
@@ -1130,27 +978,21 @@
         right: 0;
         height: 100vh;
         width: 10vh;
-        z-index: 100;
-
     }
 
     /* Navigation buttons */
     .navbtn,
     .navbtn_ative {
-        /*  Buttons containing icons  */
-        position: relative;
         height: 33vh;
         width: 10vh;
         border-radius: 4vh;
         float: none;
-        transition: background-color 500ms;
-        cursor: pointer;
-        overflow: hidden;
     }
 
-    .Neon .navbtn_ative {
+    .navbtn_ative {
         /*background-color: rgb(0, 173, 9);*/
-        box-shadow: 0vw 0vw 7vh 1vh #fff inset;
+        box-shadow: 0vh 0vh 7vh 1vh #fff inset;
+        animation: neon 15s linear infinite;
     }
 
     .navbtn .navcon,
@@ -1171,268 +1013,104 @@
 
     /*  List view  */
     #list_view {
-        overflow-y: scroll;
-        flex-wrap: wrap;
+        /*Uses flex, assigned by navigate in js*/
         justify-content: space-evenly;
     }
 
     .eleiment_blob {
-        /*  The scrollable rectabgular bars */
-        position: relative;
         height: 25vh;
         width: 75vh;
         margin: none !important;
-        overflow: hidden;
-        cursor: pointer;
-        transition: box-shadow 300ms, text-shadow 300ms, background-color 300ms, color 300ms;
     }
 
-    .Neon .Reactive-nonmetal {
+    .Reactive-nonmetal {
         border: 1vh solid hsl(123, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(123, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(123, 100%, 50%);
-        background-color: #000000;
-        color: hsl(123, 100%, 80%);
     }
 
-    .Neon .Reactive-nonmetal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(123, 100%, 50%);
-    }
-
-    .Neon .Reactive-nonmetal:active {
-        text-shadow: 0vh 0vh 0vh hsl(123, 100%, 50%);
-        background-color: hsl(123, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Noble-gas {
+    .Noble-gas {
         border: 1vh solid hsl(204, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(204, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(204, 100%, 50%);
-        color: hsl(204, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Noble-gas:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(204, 100%, 50%)
-    }
-
-    .Neon .Noble-gas:active {
-        text-shadow: 0vh 0vh 0vh hsl(204, 100%, 50%);
-        background-color: hsl(204, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Alkali-metal {
+    .Alkali-metal {
         border: 1vh solid hsl(40, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(40, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(40, 100%, 50%);
-        color: hsl(40, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Alkali-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(40, 100%, 50%)
-    }
-
-    .Neon .Alkali-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(40, 100%, 50%);
-        background-color: hsl(40, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Alkaline-earth-metal {
+    .Alkaline-earth-metal {
         border: 1vh solid hsl(60, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(60, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(60, 100%, 50%);
-        color: hsl(60, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Alkaline-earth-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(60, 100%, 50%)
-    }
-
-    .Neon .Alkaline-earth-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(60, 100%, 50%);
-        background-color: hsl(60, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Metalloid {
+    .Metalloid {
         border: 1vh solid hsl(160, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(161, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(161, 100%, 50%);
-        color: hsl(161, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Metalloid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(160, 100%, 50%)
-    }
-
-    .Neon .Metalloid:active {
-        text-shadow: 0vh 0vh 0vh hsl(160, 100%, 50%);
-        background-color: hsl(160, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Post-transition-metal {
+    .Post-transition-metal {
         border: 1vh solid hsl(188, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(188, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(188, 100%, 50%);
-        color: hsl(188, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Post-transition-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(188, 100%, 50%)
-    }
-
-    .Neon .Post-transition-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(188, 100%, 50%);
-        background-color: hsl(188, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .Transition-metal {
+    .Transition-metal {
         border: 1vh solid hsl(0, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(0, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(0, 100%, 50%);
-        color: hsl(0, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .Transition-metal:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 100%, 50%)
-    }
-
-    .Neon .Transition-metal:active {
-        text-shadow: 0vh 0vh 0vh hsl(0, 100%, 50%);
-        background-color: hsl(0, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .actinoid {
+    .actinoid {
         border: 1vh solid hsl(295, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(295, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(295, 100%, 50%);
-        color: hsl(295, 100%, 50%);
-        background-color: #000;
     }
 
-    .Neon .actinoid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(295, 100%, 50%)
-    }
-
-    .Neon .actinoid:active {
-        text-shadow: 0vh 0vh 0vh hsl(295, 100%, 50%);
-        background-color: hsl(295, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .lanthanoid {
+    .lanthanoid {
         border: 1vh solid hsl(276, 100%, 50%);
         box-shadow: 0vh 0vh 5vh 0vh hsl(276, 100%, 50%);
         text-shadow: 0vh 0vh 1vh hsl(276, 100%, 50%);
-        color: hsl(276, 100%, 70%);
-        background-color: #000;
     }
 
-    .Neon .lanthanoid:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(276, 100%, 50%)
-    }
-
-    .Neon .lanthanoid:active {
-        text-shadow: 0vh 0vh 0vh hsl(276, 100%, 50%);
-        background-color: hsl(276, 100%, 50%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .Neon .unknown {
+    .unknown {
         border: 1vh solid rgb(255, 255, 255);
         box-shadow: 0vh 0vh 5vh 0vh rgb(255, 255, 255);
         text-shadow: 0vh 0vh 1vh #fff;
-        color: white;
-        background-color: #000;
-    }
-
-    /*.Neon .unknown:hover {
-        box-shadow: 0vh 0vh 7vh 1vh hsl(0, 0%, 100%)
-    }*/
-
-    .Neon .unknown:active {
-        text-shadow: 0vh 0vh 0vh hsl(0, 0%, 100%);
-        background-color: hsl(0, 0%, 100%);
-        color: hsl(0, 0%, 0%);
-        transition: box-shadow 0ms, text-shadow 0ms, background-color 0ms, color 0ms;
-    }
-
-    .material .eleiment_blob {
-        /*  The scrollable rectabgular bars */
-        border-radius: 4vh;
-        background-color: rgb(128, 128, 128);
-        text-shadow: 0vh 0vh 0.5vh #000;
-        color: #fff;
-        text-shadow: 0vh 0vh 0.5vh rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
     }
 
     /*  The semi-square with the eliment details  */
     .eliment_container {
-        position: relative;
         height: 25vh;
         width: 25vh;
     }
 
-    .Neon .eliment_container {
+    .eliment_container {
         border-right: 1vh solid;
         border-color: inherit;
     }
 
-    .material .eliment_container {
-        background-color: cornflowerblue;
-    }
 
     .eliment_container .acr {
-        /* Eliment acronym */
-        position: absolute;
         top: 3vh;
         height: 17vh;
         font-size: 15vh;
         right: 0;
-        width: 100%;
-        text-align: center;
-        font-family: Lexend_Deca;
     }
 
     .eliment_container .standard_atomic {
-        /* Top number */
-        position: absolute;
         top: 0.5vh;
         right: 2vh;
         font-size: 6vh;
         width: 12vh;
-        text-align: right;
     }
 
     .eliment_container .mass_number {
-        /* Bottom number */
-        position: absolute;
-        bottom: 0vh;
-        right: 0vh;
         font-size: 4.5vh;
-        width: 100%;
-        text-align: center;
     }
 
     /* Details to the right of the bar */
@@ -1485,8 +1163,6 @@
         text-align: center;
     }
 
-
-
     /*  Table view  */
     #table_view {
         overflow: scroll;
@@ -1516,8 +1192,8 @@
         text-align: center;
         border: none !important;
         box-shadow: none !important;
-        text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        /*text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
+        color: rgb(0, 0, 0);*/
         text-overflow: clip;
         white-space: pre-wrap;
         font-size: 3vh;
@@ -1540,31 +1216,12 @@
         font-family: Lexend_Deca;
     }
 
-    .Neon .eliment_block {
+    .eliment_block {
         height: 18vh;
         width: 18vh;
         margin: 1vh;
         cursor: pointer;
         transition: color 300ms, background-color 300ms, opacity 300ms;
-    }
-
-    .material .eliment_block {
-        height: 18vh;
-        width: 18vh;
-        border: 1vh solid #000;
-        /*background-color: gray;*/
-        border-radius: none !important;
-        margin: none;
-        cursor: pointer;
-        transition: color 300ms, background-color 300ms;
-        text-shadow: 0vw 0vw 0.5vh rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-    }
-
-    .eliment_block:active {
-        color: black !important;
-        background-color: rgb(255, 255, 255) !important;
-        transition: color 0ms, background-color 0ms;
     }
 
     .eliment_block .acr {
@@ -1614,27 +1271,12 @@
     /* Detail View */
     .Detail_view,
     .Detail_view_active {
-        /* View repurposed to serve as an information pannel */
-        position: absolute;
-        top: 0;
-        left: 0;
         height:
             /*calc(100vw - 10vh)*/
-            100vw;
-        width: 100vh;
+            100vh;
+        width: calc(100vw - 10vh);
         background-color: rgb(0, 0, 0);
-        overflow-y: scroll;
-        overflow-x: hidden;
-        display: block;
-        z-index: 50;
-        opacity: 1;
-        transition: transform 300ms, opacity 300ms;
-        transform: translate(0, 100%);
-    }
-
-    .Detail_view_active {
-        transition: none;
-        transform: translate(40%, -24.7%) rotate(-90deg);
+        overflow: auto;
     }
 
     #detil_elem_color_container {
@@ -1642,33 +1284,20 @@
         border: none;
     }
 
-    .Neon .sub_nav {
+    .sub_nav {
         /* Sub navigation (pannel to pannel) */
         position: absolute;
         top: 0;
         right: 0;
-        width: 100vh;
+        width: 100%;
         height: 9vh;
         background-color: rgb(46, 46, 46);
-        box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
+        box-shadow: 0vh 0vh 6vh 0vh rgb(126, 126, 126);
         display: flex;
         flex-wrap: nowrap;
 
     }
 
-    .material .sub_nav {
-        /* Sub navigation (pannel to pannel) */
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100vh;
-        height: 9vh;
-        background-color: rgb(46, 46, 46);
-        box-shadow: none !important;
-        display: flex;
-        flex-wrap: nowrap;
-
-    }
 
     .Detail_btn,
     .Detail_btn_active {
@@ -1680,9 +1309,6 @@
         border: none;
         outline: none;
         cursor: pointer;
-    }
-
-    .Detail_btn_active {
         border-bottom: 1vh solid;
     }
 
@@ -1690,7 +1316,7 @@
         /* Header == Name of elimement at top */
         position: absolute;
         top: 10vh;
-        width: 100vh;
+        width: 100%;
         font-size: 10vh;
         font-family: Lexend_Deca;
         text-align: center;
@@ -1699,19 +1325,22 @@
 
     .sub_pane {
         /* basically scrollable sub views */
-        overflow-y: scroll;
+        overflow: scroll;
         position: absolute;
-        top: 25vh;
-        width: 100vh;
+        top: 23vh;
+        width: 50%;
         height: auto;
         min-height: 75vh;
         padding-bottom: 3vh;
         transition: transform 300ms;
     }
 
-    /*  Detail pannel  */
     #detail_pane {
-        transform: translate(0, 0);
+        transform: translate(0, 0) !important;
+    }
+
+    #isotope_pane {
+        transform: translate(100%, 0) !important;
     }
 
     .background_representation_passive,
@@ -1720,7 +1349,7 @@
         top: -12vh;
         left: 0;
         position: absolute;
-        width: 100vh;
+        width: 100%;
         height: 60vh;
         background-position: center;
         background-size: cover;
@@ -1733,7 +1362,8 @@
         /*  Active image brought to front  */
         top: 0;
         height: 100vh;
-        z-index: 100;
+        width: 100%;
+        z-index: 1000;
         background-size: contain;
     }
 
@@ -1746,8 +1376,8 @@
         display: block;
         font-family: Lexend_Deca;
         position: absolute;
-        left: 5vh;
-        width: 90vh;
+        left: 0;
+        width: 100%;
         white-space: pre-line;
         bottom: 0;
         text-align: center;
@@ -1809,7 +1439,7 @@
         color: inherit;
     }
 
-    .Neon .detail_table {
+    .detail_table {
         /* Table with variety of eliment details */
         position: relative;
         margin-top: 4vh;
@@ -1822,31 +1452,6 @@
         border-radius: 5vh;
         box-shadow: 0vh 0vh 3vh #0055ff;
         overflow: hidden;
-    }
-
-    .material .detail_table {
-        /* Table with variety of eliment details */
-        position: relative;
-        margin-top: 4vh;
-        table-layout: fixed;
-        border-collapse: collapse;
-        height: auto;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 1vh;
-        box-shadow: none !important;
-        overflow: hidden;
-    }
-
-    .detail_table tr:nth-child(even) {
-        background-color: rgb(36, 36, 36);
-    }
-
-    .detail_table tr:active {
-        color: black;
-        background-color: white;
-        transition: background-color 0ms;
     }
 
     .detail_table td,
@@ -1876,21 +1481,7 @@
         width: 100%;
     }
 
-    .sub_table tr {
-        background: none !important;
-    }
-
-    .enabled {}
-
-    .dissabled {
-        color: grey !important;
-
-    }
-
     #spectrum_bar {
-        position: relative;
-        width: 100%;
-        background-image: linear-gradient(90deg, hsl(0, 0%, 0%), hsl(235, 100%, 50%), hsl(172, 100%, 50%), hsl(125, 100%, 50%), hsl(59, 100%, 50%), hsl(0, 100%, 50%), hsl(0, 0%, 0%));
         height: 8vh;
     }
 
@@ -1912,10 +1503,10 @@
     .isotopic_container {
         /* Bars in disguise */
         position: relative;
-        height: 35vh;
-        width: 100vh;
-        margin-top: 3vh;
-        margin-bottom: 3vh;
+        height: 28vh;
+        width: 100%;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
 
     .model_container {
@@ -1923,8 +1514,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 35vh;
-        width: 35vh;
+        height: 28vh;
+        width: 28vh;
         background-size: cover;
         background-image: url('../img/electrons/atom-prototype.webp');
         background-repeat: no-repeat;
@@ -1935,9 +1526,9 @@
         /* Details to the right of the isotope model */
         position: absolute;
         top: 0;
-        left: 35vh;
-        height: 35vh;
-        width: 65vh;
+        left: 28vh;
+        height: 28vh;
+        width: calc(100% - 28vh);
         overflow-x: scroll;
     }
 
@@ -1954,14 +1545,14 @@
         font-family: Lexend_Deca;
         padding-top: 0.7vh;
         padding-bottom: 0.7vh;
-        font-size: 4vh;
+        font-size: 3vh;
         text-align: center;
         align-content: center;
         transition: background-color 300ms;
     }
 
     .isotope_detail th {
-        font-size: 5.5vh;
+        font-size: 4vh;
     }
 
 
