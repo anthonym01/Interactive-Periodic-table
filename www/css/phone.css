@@ -156,7 +156,8 @@
     }
 
 
-    .mainview {
+    .mainview,
+    .mainview_shuved {
         /* main view screens */
         position: absolute;
         top: 0;
@@ -164,7 +165,8 @@
         height: calc(100% - 13vw);
         width: 100%;
         display: none;
-        background-color: rgb(0, 0, 0)
+        background-color: rgb(0, 0, 0);
+        transition: width 300ms;
     }
 
     /*  List view  */
@@ -539,11 +541,12 @@
 
     /* Detail View */
     .Detail_view,
-    .Detail_view_active {
+    .Detail_view_full,
+    .Detail_view_side {
         /* View repurposed to serve as an information pannel */
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0;
         height: calc(100% - 13vw);
         width: 100%;
         display: none;
@@ -552,15 +555,13 @@
         overflow-x: hidden;
         display: block;
         z-index: 50;
-        transition: transform 300ms;
+        transition: transform 300ms, width 300ms;
         transform: scale(0, 0);
         /*transform: translate(0, 100%);*/
     }
 
-    .Detail_view_active {
-        top: 0;
-        left: 0;
-        display: block;
+    .Detail_view_full,
+    .Detail_view_side {/*Full and side allow shuttering illusion in lanscape orienttion*/
         transform: scale(1, 1);
         /*transform: translate(0, 0);*/
     }
@@ -581,7 +582,6 @@
         box-shadow: 0vw 0vw 6vw 0vw rgb(126, 126, 126);
         display: flex;
         flex-wrap: nowrap;
-
     }
 
     .Detail_btn,
@@ -600,15 +600,28 @@
         border-bottom: 1vw solid;
     }
 
-    #Detail_view #header {
+    .Detail_view #header,
+    .Detail_view_full #header,
+    .Detail_view_side #header {
         /* Header == Name of elimement at top */
         position: absolute;
         top: 10vw;
         width: 100vw;
         font-size: 10vw;
+        height: 12vw;
         font-family: Lexend_Deca;
         text-align: center;
         margin: none !important;
+    }
+
+    .Detail_view #shuutter_btn,
+    .Detail_view_full #shuutter_btn,
+    .Detail_view_side #shuutter_btn {
+        position: absolute;
+        top: 10vw;
+        left: 0;
+        width: 12vw;
+        height: 12vw;
     }
 
     .sub_pane {
@@ -681,14 +694,18 @@
         background-color: rgba(0, 0, 0, 0.7);
     }
 
-    #detail_pane .eliment_container {
+    .Detail_view .eliment_container,
+    .Detail_view_full .eliment_container,
+    .Detail_view_side .eliment_container {
         /* Eliment square in the detail view */
         margin-left: 2vw;
         margin-top: 22vw;
         text-shadow: 0vw 0vw 0.5vw #000;
     }
 
-    #detail_pane .acr {
+    .Detail_view .acr,
+    .Detail_view_full .acr,
+    .Detail_view_side .acr {
         /* Eliment acronym */
         position: absolute;
         top: 2vw;
@@ -701,7 +718,9 @@
         color: inherit;
     }
 
-    #detail_pane .standard_atomic {
+    .Detail_view .standard_atomic,
+    .Detail_view_full .standard_atomic,
+    .Detail_view_side .standard_atomic {
         /* Top number */
         position: absolute;
         top: 0.5vw;
@@ -712,7 +731,9 @@
         color: inherit;
     }
 
-    #detail_pane .mass_number {
+    .Detail_view .mass_number,
+    .Detail_view_full .mass_number,
+    .Detail_view_side .mass_number {
         /* Bottom number */
         position: absolute;
         bottom: 0vw;
@@ -1010,6 +1031,10 @@
         width: calc(100% - 10vh);
     }
 
+    .mainview_shuved {
+        height: 100vh;
+        width: calc(60VW - 10vh);
+    }
 
     /*  List view  */
     #list_view {
@@ -1270,13 +1295,26 @@
 
     /* Detail View */
     .Detail_view,
-    .Detail_view_active {
+    .Detail_view_side,
+    .Detail_view_full {
+        right: 10vh;
         height:
             /*calc(100vw - 10vh)*/
             100vh;
         width: calc(100vw - 10vh);
         background-color: rgb(0, 0, 0);
-        overflow: auto;
+        overflow-y: auto;
+        transform: translate(100%, 0) scale(0, 0);
+    }
+
+    .Detail_view_side {
+        right: 10vh;
+        width: 40vw;
+        transform: translate(0, 0) scale(1, 1);
+    }
+
+    .Detail_view_full {
+        transform: translate(0, 0) scale(1, 1);
     }
 
     #detil_elem_color_container {
@@ -1309,21 +1347,35 @@
         border: none;
         outline: none;
         cursor: pointer;
+    }
+
+    .Detail_view_full .Detail_btn,
+    .Detail_view_full .Detail_btn_active {
         border-bottom: 1vh solid;
     }
 
-    #Detail_view #header {
+    .Detail_view_side .Detail_btn_active {
+        border-bottom: 1vh solid;
+    }
+
+    .Detail_view_full #header,
+    .Detail_view_side #header,
+    .Detail_view #header {
         /* Header == Name of elimement at top */
         position: absolute;
         top: 10vh;
         width: 100%;
+        height:12vh;
         font-size: 10vh;
         font-family: Lexend_Deca;
         text-align: center;
         margin: none !important;
     }
-
-    .sub_pane {
+    .Detail_view_side #header{
+        font-size:6vh;
+        height:8vh;
+    }
+    .Detail_view_full .sub_pane {
         /* basically scrollable sub views */
         overflow: scroll;
         position: absolute;
@@ -1335,14 +1387,36 @@
         transition: transform 300ms;
     }
 
-    #detail_pane {
+    .Detail_view_side .sub_pane {
+        /* basically scrollable sub views */
+        overflow: scroll;
+        position: absolute;
+        top: 23vh;
+        width: 100%;
+        height: auto;
+        min-height: 75vh;
+        padding-bottom: 3vh;
+        transition: transform 300ms;
+    }
+
+    .Detail_view_full #detail_pane {
         transform: translate(0, 0) !important;
     }
 
-    #isotope_pane {
+    .Detail_view_full #isotope_pane {
         transform: translate(100%, 0) !important;
     }
 
+    .Detail_view_side #detail_pane {
+        transform: translate(0, 0);
+    }
+
+    .Detail_view_side #isotope_pane {
+        transform: translate(100%, 0);
+    }
+
+    
+    
     .background_representation_passive,
     .background_representation_active {
         /* Eliment background image */
@@ -1360,9 +1434,11 @@
 
     .background_representation_active {
         /*  Active image brought to front  */
-        top: 0;
-        height: 100vh;
-        width: 100%;
+        top: -5vh;
+        height: 80vh;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
         z-index: 1000;
         background-size: contain;
     }
@@ -1382,7 +1458,7 @@
         bottom: 0;
         text-align: center;
         font-size: 6vh;
-        text-shadow: 0vh 0vh 2vh #000000, 0vh 0vh 4vh hsl(0, 0%, 0%);
+        text-shadow: 0vh 0vh 2vh #000000, 0vh 0vh 4vh #000000;
     }
 
     #represent_shader {
@@ -1397,27 +1473,33 @@
         background-color: rgba(0, 0, 0, 0.7);
     }
 
-    #detail_pane .eliment_container {
+    .Detail_view_side .eliment_container,
+    .Detail_view_full .eliment_container {
         /* Eliment square in the detail view */
         margin-left: 2vh;
-        margin-top: 22vh;
+        margin-top: 24vh;
+        height: 20vh;
+        width: 20vh;
         text-shadow: 0vh 0vh 0.5vh #000;
     }
 
-    #detail_pane .acr {
+    .Detail_view_side .acr,
+    .Detail_view_full .acr {
         /* Eliment acronym */
         position: absolute;
-        top: 2vh;
-        height: 17vh;
-        font-size: 16vh;
-        right: 0;
-        width: 100%;
+        top: 1vh;
+        height: 15vh;
+        font-size: 14vh;
+        right: unset;
+        left: 0;
+        width: 90%;
         text-align: center;
         font-family: Lexend_Deca;
         color: inherit;
     }
 
-    #detail_pane .standard_atomic {
+    .Detail_view_side .standard_atomic,
+    .Detail_view_full .standard_atomic {
         /* Top number */
         position: absolute;
         top: 0.5vh;
@@ -1428,12 +1510,13 @@
         color: inherit;
     }
 
-    #detail_pane .mass_number {
+    .Detail_view_side .mass_number,
+    .Detail_view_full .mass_number {
         /* Bottom number */
         position: absolute;
         bottom: 0vh;
         right: 0vh;
-        font-size: 4.5vh;
+        font-size: 4vh;
         width: 100%;
         text-align: center;
         color: inherit;
@@ -1467,9 +1550,17 @@
         box-shadow: none !important;
     }
 
+    .Detail_view_side .detail_table td {
+        font-size: 3.5vh;
+    }
+
     .detail_table th {
         font-size: 7vh;
         text-shadow: 0vh 0vh 3vh #000000;
+    }
+
+    .Detail_view_side .detail_table th {
+        font-size: 4.5vh;
     }
 
     .sub_table {
@@ -1481,8 +1572,16 @@
         width: 100%;
     }
 
+    .Detail_view_side .sub_table {
+        font-size: 3.5vh
+    }
+
     #spectrum_bar {
         height: 8vh;
+    }
+
+    .Detail_view_side #spectrum_bar {
+        height: 6vh
     }
 
     #spectrum_bar .spectrum_neddle {
@@ -1566,9 +1665,9 @@
         position: relative;
         width: 100%;
         height: 7vh;
-        margin-top: 1vh;
+        margin-top: 2vh;
         cursor: pointer;
-        font-size: 7vw;
+        font-size: 7vh;
         text-align: center;
     }
 

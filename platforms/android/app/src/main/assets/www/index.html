@@ -3,8 +3,7 @@
 
 <head>
     <!--Meta Eliments-->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -18,14 +17,16 @@
     <link rel="stylesheet" type="text/css" id="anim" href="">
     <script defer type="text/javascript" src="cordova.js"></script>
     <script defer type="text/javascript" src="js/index.js"></script>
+
     <title>Periodic Table</title>
 </head>
 
 <body id="body" class="Neon">
 
     <!-- Independent view containing information about eliments (will overlay other views) -->
-    <div id="Detail_view" class="Detail_view" style="display: none;">
+    <div id="Detail_view" class="Detail_view">
         <div id="header">placeholder</div>
+        <div id="shuutter_btn"></div>
         <div class="sub_pane" id="detail_pane">
             <!-- Detail pane (minor rework later)-->
             <div id="represent_shader"></div>
@@ -534,12 +535,16 @@
             </div>
         </div>
 
+        <div class="dualoption-title"></div>
+        <button id="force_phone_btn">force phone behaviour</button>
+        <button id="force_tablet_btn">force tablet behaviour</button>
+
         <div class="setting_toggle" id="about_btn" title="Copies contact info to clipboard">About</div>
-        <div class="setting_toggle" id="screensbtn">Screen size</div>
+        
     </div>
 
     <!--  nav  -->
-    <div class="nav">
+    <div id="nav" class="nav">
         <div class="navbtn" id="list_btn">
             <div id="list_icon" class="navcon"></div>
         </div>

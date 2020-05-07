@@ -72,6 +72,8 @@ var config = {//Configuration handler
         animation: true,
         theme: "Neon",
         low_performance: false,
+        pannel_mode: "side",
+        device: "device",
     },
     properties: {
         exit: false,
@@ -106,9 +108,21 @@ var config = {//Configuration handler
             configisvalid = false;
         }
 
+        if (typeof (this.data.pannel_mode) == 'undefined') {//validate theme
+            console.warn('"theming_group" did not exist and was defaulted');
+            this.data.pannel_mode = "side";
+            configisvalid = false;
+        }
+
         if (typeof (this.data.theme) == 'undefined') {//validate theme
             console.warn('"theme" did not exist and was defaulted');
             this.data.theme = "Neon";
+            configisvalid = false;
+        }
+
+        if (typeof (this.data.device) == 'undefined') {//validate theme
+            console.warn('"device" did not exist and was defaulted');
+            this.data.device = "device";
             configisvalid = false;
         }
 
@@ -128,25 +142,11 @@ var config = {//Configuration handler
 let atom_info = {// information dispensing utility
     initialize: function () {
         console.warn('Atomic info initalized');
-        /*if (typeof (device) != 'undefined') {//check device mode
-            if (device.platform == 'Android' || 'iOS') { touchstartup() }
-            else { clickstartup() }
-        } else { clickstartup() }*/
-        touchstartup()
-        function touchstartup() {
-            console.warn('Atomic info uses touch actions');
-            document.getElementById('detail_btn').addEventListener('touchstart', atom_info.navDETAIL)
-            document.getElementById('isotope_btn').addEventListener('touchstart', atom_info.navISOTOPE)
-            document.getElementById('background_representation').addEventListener('touchstart', atom_info.BKG_img_action)
-            document.getElementById('represent_shader').addEventListener('touchstart', atom_info.BKG_img_action)
-        }
-        function clickstartup() {
-            console.warn('Atomic info uses click actions');
-            document.getElementById('detail_btn').addEventListener('click', atom_info.navDETAIL);
-            document.getElementById('isotope_btn').addEventListener('click', atom_info.navISOTOPE);
-            document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
-            document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
-        }
+        document.getElementById('detail_btn').addEventListener('click', atom_info.navDETAIL);
+        document.getElementById('isotope_btn').addEventListener('click', atom_info.navISOTOPE);
+        document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
+        document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
+        document.getElementById('shuutter_btn').addEventListener('click', atom_info.switch_mode);
         this.render_list();//very important blyat
         //this.populate(0);
     },
@@ -6406,7 +6406,8 @@ let atom_info = {// information dispensing utility
                 }
                 document.getElementById("isotope_pane").innerHTML = "";//Clear the isotope models
                 document.getElementById('spectrum_bar').innerHTML = "";//Clear the spectrum
-                document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the top of the page
+                /*document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';*/
+                document.getElementById('sub_nav').style.boxShadow.color = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
                 document.getElementById('General_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
                 document.getElementById('Physical_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
                 document.getElementById('atomic_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
@@ -6706,17 +6707,28 @@ let atom_info = {// information dispensing utility
     },
     show: function () {
         console.log('Show atomic info show');
-        document.getElementById('Detail_view').style.display = "";
+        /*document.getElementById('table_view').scrollBy(document.getElementById('Detail_view').offsetWidth,0)*/
         setTimeout(() => {
-            document.getElementById('Detail_view').classList = "Detail_view_active"
+            if (config.data.pannel_mode == "full") {
+                document.getElementById('shuutter_btn').innerHTML = "full mode"
+                document.getElementById('Detail_view').classList = "Detail_view_full"
+            } else if (config.data.pannel_mode == "side") {
+                document.getElementById('shuutter_btn').innerHTML = "side mode"
+                document.getElementById('Detail_view').classList = "Detail_view_side"
+                document.getElementById('list_view').classList = "mainview_shuved"
+                document.getElementById('table_view').classList = "mainview_shuved"
+
+            } else {
+                //what did u do to break something so simple
+            }
         }, 50);
     },
     hide: function () {
         console.log('Hide atomic info hide');
         document.getElementById('Detail_view').classList = "Detail_view"
-        setTimeout(() => {
-            document.getElementById('Detail_view').style.display = "none";
-        }, 300);
+        document.getElementById('list_view').classList = "mainview"
+        document.getElementById('table_view').classList = "mainview"
+        /*document.getElementById('table_view').scrollBy(document.getElementById('Detail_view').offsetWidth*-1,0)*/
     },
     navDETAIL: function () {//"scroll" to detail sub pannel
         console.log('Detail nav');
@@ -6743,6 +6755,27 @@ let atom_info = {// information dispensing utility
             console.log('Bakcground-image passive');
         }
     },
+    switch_mode: function () {
+        console.log('Pannel mode switch from :', config.data.pannel_mode);
+        if (config.data.pannel_mode == "side") {
+            document.getElementById('shuutter_btn').innerHTML = "full mode"
+            config.data.pannel_mode = "full"
+            document.getElementById('Detail_view').classList = "Detail_view_full"
+            document.getElementById('list_view').classList = "mainview"
+            document.getElementById('table_view').classList = "mainview"
+
+        } else if (config.data.pannel_mode == "full") {
+            document.getElementById('shuutter_btn').innerHTML = "side mode"
+            config.data.pannel_mode = "side"
+            document.getElementById('Detail_view').classList = "Detail_view_side"
+            document.getElementById('list_view').classList = "mainview_shuved"
+            document.getElementById('table_view').classList = "mainview_shuved"
+
+        } else {
+            //what did u do to break something so simple
+        }
+        console.log('Pannel mode switch to :', config.data.pannel_mode);
+    }
 }
 
 /*  table list manager */
@@ -6751,16 +6784,16 @@ let table = {
         console.warn('table list initalize');
         this.render_list()
 
-        document.getElementById('Reactive_nonmetal').addEventListener('touchstart', table.focus.Reactive_nonmetal)
-        document.getElementById('Noble_gas').addEventListener('touchstart', table.focus.Noble_gas)
-        document.getElementById('Alkali_metal').addEventListener('touchstart', table.focus.Alkali_metal)
-        document.getElementById('Alkaline_earth_metal').addEventListener('touchstart', table.focus.Alkaline_earth_metal)
-        document.getElementById('Metalloid').addEventListener('touchstart', table.focus.Metalloid)
-        document.getElementById('Post_transition_metal').addEventListener('touchstart', table.focus.Post_transition_metal)
-        document.getElementById('Transition_metal').addEventListener('touchstart', table.focus.Transition_metal)
-        document.getElementById('Actinoid').addEventListener('touchstart', table.focus.Actinoid)
-        document.getElementById('Lanthanoid').addEventListener('touchstart', table.focus.Lanthanoid)
-        document.getElementById('unknown').addEventListener('touchstart', table.focus.unknown)
+        document.getElementById('Reactive_nonmetal').addEventListener('click', table.focus.Reactive_nonmetal)
+        document.getElementById('Noble_gas').addEventListener('click', table.focus.Noble_gas)
+        document.getElementById('Alkali_metal').addEventListener('click', table.focus.Alkali_metal)
+        document.getElementById('Alkaline_earth_metal').addEventListener('click', table.focus.Alkaline_earth_metal)
+        document.getElementById('Metalloid').addEventListener('click', table.focus.Metalloid)
+        document.getElementById('Post_transition_metal').addEventListener('click', table.focus.Post_transition_metal)
+        document.getElementById('Transition_metal').addEventListener('click', table.focus.Transition_metal)
+        document.getElementById('Actinoid').addEventListener('click', table.focus.Actinoid)
+        document.getElementById('Lanthanoid').addEventListener('click', table.focus.Lanthanoid)
+        document.getElementById('unknown').addEventListener('click', table.focus.unknown)
     },
     render_list: function () {// Render and build function seperate to faccilitate anonymus action calls
         var index;
@@ -7100,22 +7133,27 @@ let table = {
 let UI = {//for general UI thingys
     initialize: function () {
         console.warn('UI initalize');
-        document.getElementById('screensbtn').addEventListener('click', function () {
-            window.plugins.screensize.get(function (result) {
-                console.log(result.diameter)
-            })
-        })
 
         utility.size_check();
 
         this.animation.setpostition();
         this.low_performance.setpostition();
         this.set_theme();
-        document.getElementById('list_btn').addEventListener('touchstart', UI.Navigate.list_view);
-        document.getElementById('table_btn').addEventListener('touchstart', UI.Navigate.table_view);
-        document.getElementById('setting_btn').addEventListener('touchstart', UI.Navigate.setting_view);
-        document.getElementById('Animations_btn').addEventListener('touchstart', UI.animation.flip);
-        document.getElementById('low_performance_btn').addEventListener('touchstart', UI.low_performance.flip);
+        document.getElementById('list_btn').addEventListener('click', UI.Navigate.list_view);
+        document.getElementById('table_btn').addEventListener('click', UI.Navigate.table_view);
+        document.getElementById('setting_btn').addEventListener('click', UI.Navigate.setting_view);
+        document.getElementById('Animations_btn').addEventListener('click', UI.animation.flip);
+        document.getElementById('low_performance_btn').addEventListener('click', UI.low_performance.flip)
+
+        document.getElementById('force_tablet_btn').addEventListener('click', function () {
+            console.log('Force tablet bahavior')
+            document.getElementById('stylesheet').href = "css/tablet.css"
+        })
+
+        document.getElementById('force_phone_btn').addEventListener('click', function () {
+            console.log('Force phone bahavior')
+            document.getElementById('stylesheet').href = "css/phone.css"
+        })
     },
     set_theme: function () {
         if (config.data.theme == "Neon") {
@@ -7138,7 +7176,7 @@ let UI = {//for general UI thingys
                 console.log('Back button triggers Bakcground-image passive');
                 document.getElementById('background_representation').className = "background_representation_passive";
                 document.getElementById('represent_shader').style.display = "none";
-            } else if (document.getElementById('Detail_view').classList == "Detail_view_active") {// Detail pannel on screen (controled by atomic info)
+            } else if (document.getElementById('Detail_view').classList == "Detail_view_full" || document.getElementById('Detail_view').classList == "Detail_view_side") {// Detail pannel on screen (controled by atomic info)
                 console.log('Back button triggers Atomic info hide');
                 atom_info.hide();
             } else if (document.getElementById('list_view').style.display == "flex") {
