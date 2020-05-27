@@ -58,7 +58,7 @@ function startup() {//applictaion needs to be constructed first
     atom_info.initialize();
     table.initialize();
     UI.initialize();
-    UI.Navigate.list_view();//temp debug
+    UI.Navigate.table_view();//temp debug
 
     setTimeout(() => {
         if (typeof (navigator.splashscreen) != 'undefined') { navigator.splashscreen.hide() }
@@ -147,6 +147,11 @@ let atom_info = {// information dispensing utility
         document.getElementById('background_representation').addEventListener('click', atom_info.BKG_img_action)
         document.getElementById('represent_shader').addEventListener('click', atom_info.BKG_img_action)
         document.getElementById('shuutter_btn').addEventListener('click', atom_info.switch_mode);
+        document.getElementById('atomic_num_row').addEventListener('click', atom_info.detail_aviator.atomic_num)
+        document.getElementById('Standard_atomic_weight_row').addEventListener('click', atom_info.detail_aviator.Standard_atomic_weight)
+        document.getElementById('group_row').addEventListener('click', atom_info.detail_aviator.group)
+
+        document.getElementById('aviator_shader').addEventListener('click', atom_info.detail_aviator.hide)
         this.render_list();//very important blyat
         //this.populate(0);
     },
@@ -6375,12 +6380,19 @@ let atom_info = {// information dispensing utility
         document.getElementById('Detail_view').style.left = x+'px';*/
         /*document.getElementById('Detail_view').style.transform = "translate("+x/3+"px,"+y/2+"px)";*/
 
-        if (config.properties.focused_table == true && config.properties.focus_on != this.details[index].category) {
+        if (config.properties.focused_table == true && config.properties.focus_on != this.details[index].category) {//check focusing logic
             table.focus.reset()
         } else {
             console.log('Papulate with atom: ', index + 1);
+            
+            //Change navbtn color
+            document.querySelector(".navbtn_ative").style.backgroundColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+
             if (config.properties.current_atom != index) {//incase the user accidentaly hits the back button
                 config.properties.current_atom = index;//set current render (will be usefull later)
+                //preset detail aviator
+                document.getElementById('header_a').innerHTML = atom_info.details[config.properties.current_atom].name;
+                document.getElementById('description_aviator').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
 
                 //prep the page
                 document.getElementById('detail_btn').style.borderColor = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
@@ -6406,8 +6418,7 @@ let atom_info = {// information dispensing utility
                 }
                 document.getElementById("isotope_pane").innerHTML = "";//Clear the isotope models
                 document.getElementById('spectrum_bar').innerHTML = "";//Clear the spectrum
-                /*document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';*/
-                document.getElementById('sub_nav').style.boxShadow.color = 'hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
+                document.getElementById('sub_nav').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';
                 document.getElementById('General_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
                 document.getElementById('Physical_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
                 document.getElementById('atomic_properties_table').style.boxShadow = '0vw 0vw 6vw 0vw hsl(' + this.details[index].color.hue + ',' + this.details[index].color.sat + '%,' + this.details[index].color.light + '%)';//blurse the tables
@@ -6606,16 +6617,16 @@ let atom_info = {// information dispensing utility
                 document.getElementById('CAS_Number').innerHTML = this.details[index].CAS_Number;
 
                 var i;
-                for (i = 0; i < this.details[index].Spectrum.length; i++) {
+                for (i = 0; i < this.details[index].Spectrum.length; i++) {//spectrum
                     render_spectrum(this.details[index].Spectrum[i]);
                 }
-                for (i = 0; i < this.details[index].isotopes.length; i++) {
+                for (i = 0; i < this.details[index].isotopes.length; i++) {//isotope
                     render_model(this.details[index].isotopes[i]);
                 }
             } else { console.warn('Already populated', index + 1) }
-            atom_info.show();
+            
+            setTimeout(()=>{atom_info.show();},200);
         }
-
 
         function render_spectrum(represent) {
             var needle = document.createElement('div');
@@ -6629,7 +6640,7 @@ let atom_info = {// information dispensing utility
             //main container
             var isotopic_container = document.createElement("div");
             isotopic_container.setAttribute("class", "isotopic_container");
-            isotopic_container.style.boxShadow = '0vw 0vw 3vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';//blurse the top of the page
+            isotopic_container.style.boxShadow = '0vw 0vw 3vw 1vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';//blurse the top of the page
             //Model container
             var model_container = document.createElement('div');
             model_container.setAttribute("class", "model_container");
@@ -6644,15 +6655,18 @@ let atom_info = {// information dispensing utility
             var name_cell = document.createElement('th');
             name_cell.setAttribute("colspan", "12");
             name_cell.innerHTML = isotope.acronym + ' ' + isotope.name;
+            name_cell.style.boxShadow = '0vw 0vw 1vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             table.appendChild(name_row);
             name_row.appendChild(name_cell);
             var mass_row = document.createElement("tr");//Mass and neutron
             var neutron = document.createElement("td");
             neutron.innerText = 'neutrons: ' + isotope.neutron;
             neutron.setAttribute("colspan", "6");
+            neutron.style.boxShadow = '0vw 0vw 1vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             var mass = document.createElement("td");
             mass.innerText = 'Mass: ' + isotope.mass;
             mass.setAttribute("colspan", "6");
+            mass.style.boxShadow = '0vw 0vw 1vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             table.appendChild(mass_row);
             mass_row.appendChild(neutron);
             mass_row.appendChild(mass);
@@ -6660,10 +6674,12 @@ let atom_info = {// information dispensing utility
             var abundance_cell = document.createElement("td");
             abundance_cell.innerHTML = "abundance: " + isotope.abundance;
             abundance_cell.setAttribute("colspan", "12");
+            abundance_cell.style.boxShadow = '0vw 0vw 1vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             abundance_row.appendChild(abundance_cell);
             table.appendChild(abundance_row);
             var rad_row = document.createElement("tr");//Decay, Radiation neutron 
             var decay_mode = document.createElement("td");
+            decay_mode.style.boxShadow = '0vw 0vw 1vw 0vw hsl(' + atom_info.details[index].color.hue + ',' + atom_info.details[index].color.sat + '%,' + atom_info.details[index].color.light + '%)';
             if (isotope.decay_mode == "stable") {
                 //stable eliment
                 decay_mode.setAttribute("colspan", "12");
@@ -6710,10 +6726,8 @@ let atom_info = {// information dispensing utility
         /*document.getElementById('table_view').scrollBy(document.getElementById('Detail_view').offsetWidth,0)*/
         setTimeout(() => {
             if (config.data.pannel_mode == "full") {
-                document.getElementById('shuutter_btn').innerHTML = "full mode"
                 document.getElementById('Detail_view').classList = "Detail_view_full"
             } else if (config.data.pannel_mode == "side") {
-                document.getElementById('shuutter_btn').innerHTML = "side mode"
                 document.getElementById('Detail_view').classList = "Detail_view_side"
                 document.getElementById('list_view').classList = "mainview_shuved"
                 document.getElementById('table_view').classList = "mainview_shuved"
@@ -6728,7 +6742,8 @@ let atom_info = {// information dispensing utility
         document.getElementById('Detail_view').classList = "Detail_view"
         document.getElementById('list_view').classList = "mainview"
         document.getElementById('table_view').classList = "mainview"
-        /*document.getElementById('table_view').scrollBy(document.getElementById('Detail_view').offsetWidth*-1,0)*/
+        document.getElementById('table_btn').style.backgroundColor = ""
+        document.getElementById('list_btn').style.backgroundColor = ""
     },
     navDETAIL: function () {//"scroll" to detail sub pannel
         console.log('Detail nav');
@@ -6757,24 +6772,59 @@ let atom_info = {// information dispensing utility
     },
     switch_mode: function () {
         console.log('Pannel mode switch from :', config.data.pannel_mode);
-        if (config.data.pannel_mode == "side") {
-            document.getElementById('shuutter_btn').innerHTML = "full mode"
-            config.data.pannel_mode = "full"
-            document.getElementById('Detail_view').classList = "Detail_view_full"
-            document.getElementById('list_view').classList = "mainview"
-            document.getElementById('table_view').classList = "mainview"
-
-        } else if (config.data.pannel_mode == "full") {
-            document.getElementById('shuutter_btn').innerHTML = "side mode"
-            config.data.pannel_mode = "side"
-            document.getElementById('Detail_view').classList = "Detail_view_side"
-            document.getElementById('list_view').classList = "mainview_shuved"
-            document.getElementById('table_view').classList = "mainview_shuved"
-
+        if (window.innerHeight > window.innerWidth) {
+            console.log('switch pannel mode closes pannel in portrait')
+            UI.Navigate.back()
         } else {
-            //what did u do to break something so simple
+            if (config.data.pannel_mode == "side") {
+                //document.getElementById('shuutter_btn').innerHTML = "full mode"
+                config.data.pannel_mode = "full"
+                document.getElementById('Detail_view').classList = "Detail_view_full"
+                document.getElementById('list_view').classList = "mainview"
+                document.getElementById('table_view').classList = "mainview"
+
+            } else if (config.data.pannel_mode == "full") {
+                //document.getElementById('shuutter_btn').innerHTML = "side mode"
+                config.data.pannel_mode = "side"
+                document.getElementById('Detail_view').classList = "Detail_view_side"
+                document.getElementById('list_view').classList = "mainview_shuved"
+                document.getElementById('table_view').classList = "mainview_shuved"
+
+            } else {
+                //what did u do to break something so simple
+            }
+            console.log('Pannel mode switch to :', config.data.pannel_mode);
         }
-        console.log('Pannel mode switch to :', config.data.pannel_mode);
+    },
+    detail_aviator: {
+        show: function () {
+            document.getElementById('description_aviator').classList = "description_aviator_active"
+            document.getElementById('aviator_shader').style.display = "block"
+        },
+        hide: function () {
+            document.getElementById('description_aviator').classList = "description_aviator"
+            document.getElementById('aviator_shader').style.display = "none"
+            document.getElementById('atomic_num_subpannel').style.display="none";
+            document.getElementById('Standard_atomic_weight_subpannel').style.display="none";
+        },
+        atomic_num:function(){
+            atom_info.detail_aviator.show()
+            document.getElementById('detail_title').innerHTML="Atomic #:";
+            document.getElementById('detail_detail').innerHTML=atom_info.details[config.properties.current_atom].atomic_num;
+            document.getElementById('atomic_num_subpannel').style.display="block";
+        },
+        Standard_atomic_weight:function(){
+            atom_info.detail_aviator.show()
+            document.getElementById('detail_title').innerHTML="Atomic Weight:";
+            document.getElementById('detail_detail').innerHTML=atom_info.details[config.properties.current_atom].Standard_atomic_weight;
+            document.getElementById('Standard_atomic_weight_subpannel').style.display="block";
+        },
+        group:function(){
+            atom_info.detail_aviator.show()
+            document.getElementById('detail_title').innerHTML="Group:";
+            document.getElementById('detail_detail').innerHTML=atom_info.details[config.properties.current_atom].group;
+            document.getElementById('group_subpannel').style.display="block";
+        },
     }
 }
 
@@ -7172,19 +7222,20 @@ let UI = {//for general UI thingys
     },
     Navigate: {
         back: function () {//check whats on screen and take appropriate action
-            if (document.getElementById('background_representation').className == "background_representation_active") {
+            if (document.getElementById('description_aviator').classList == "description_aviator_active") {
+                atom_info.detail_aviator.hide();
+            } else if (document.getElementById('background_representation').className == "background_representation_active") {
                 console.log('Back button triggers Bakcground-image passive');
                 document.getElementById('background_representation').className = "background_representation_passive";
                 document.getElementById('represent_shader').style.display = "none";
             } else if (document.getElementById('Detail_view').classList == "Detail_view_full" || document.getElementById('Detail_view').classList == "Detail_view_side") {// Detail pannel on screen (controled by atomic info)
                 console.log('Back button triggers Atomic info hide');
                 atom_info.hide();
-            } else if (document.getElementById('list_view').style.display == "flex") {
+            } else if (document.getElementById('list_view').style.display == "flex" || document.getElementById('table_view').style.display == "block") {
                 console.log('Back button triggers exit strategy');
                 this.exit_strategy();
             } else {
-                console.log('Back button navigates to list view (default view)');
-                this.list_view();
+                this.table_view();
             }
         },
         exit_strategy: function () {// Call twice to close app and terminate process
@@ -7268,13 +7319,15 @@ let UI = {//for general UI thingys
             }
             config.save();
             UI.low_performance.setpostition();
-            setTimeout(() => { location.reload(); }, 500)
+            //setTimeout(() => { location.reload(); }, 500)
         },
         setpostition: function () {
             if (config.data.low_performance == true) {
                 document.getElementById('low_performance_switch_container').className = 'switch_container_active';
+                document.getElementById('shadow').href = "css/noshadow.css";//nomation sheet removes animations
             } else {
                 document.getElementById('low_performance_switch_container').className = 'switch_container_dissabled';
+                document.getElementById('shadow').href = "";
             }
         },
     },

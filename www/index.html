@@ -3,7 +3,8 @@
 
 <head>
     <!--Meta Eliments-->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -15,6 +16,7 @@
     <!--Style sheets-->
     <link rel="stylesheet" id="stylesheet" type="text/css" href="css/phone.css">
     <link rel="stylesheet" type="text/css" id="anim" href="">
+    <link rel="stylesheet" type="text/css" id="shadow" href="css/noshadow.css">
     <script defer type="text/javascript" src="cordova.js"></script>
     <script defer type="text/javascript" src="js/index.js"></script>
 
@@ -23,12 +25,151 @@
 
 <body id="body" class="Neon">
 
+    <div class="description_aviator" id="description_aviator"><!-- Description aviator -->
+        <div id="header_a"></div>
+        <div class="detail_hlfu_container">
+            <div class="detail_hlfu" id="detail_title"></div>
+            <div class="detail_hlfu" id="detail_detail"></div>
+        </div>
+        <div class="blursed_subpannel" id="atomic_num_subpannel">
+            atomic number definition 43 pannels
+        </div>
+        <div class="blursed_subpannel" id="Standard_atomic_weight_subpannel">
+            standard_atomic definition
+        </div>
+        <div class="blursed_subpannel" id="group_subpannel">
+            group definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+        <div class="blursed_subpannel" id="">
+            definition
+        </div>
+
+    </div><!--  Outside of ddetail view, because scrolling-->
+    <div id="aviator_shader"></div>
+
     <!-- Independent view containing information about eliments (will overlay other views) -->
     <div id="Detail_view" class="Detail_view">
         <div id="header">placeholder</div>
-        <div id="shuutter_btn"></div>
+        <div id="shuutter_btn" class="shuutter_btn"></div>
         <div class="sub_pane" id="detail_pane">
-            <!-- Detail pane (minor rework later)-->
+
             <div id="represent_shader"></div>
 
             <div id="background_representation" class="background_representation_passive" name="passive">
@@ -45,15 +186,15 @@
                 <tr>
                     <th colspan="2">General properties</th>
                 </tr>
-                <tr>
+                <tr id="atomic_num_row">
                     <td>Atomic #:</td>
                     <td id="atomic_num">Placeholder</td>
                 </tr>
-                <tr>
-                    <td>atomic Weight:</td>
+                <tr id="Standard_atomic_weight_row">
+                    <td>Atomic Weight:</td>
                     <td id="Standard_atomic_weight">Placeholder</td>
                 </tr>
-                <tr>
+                <tr id="group_row">
                     <td>Group:</td>
                     <td id="group">Placeholder</td>
                 </tr>
@@ -534,13 +675,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="dualoption-title"></div>
-        <button id="force_phone_btn">force phone behaviour</button>
-        <button id="force_tablet_btn">force tablet behaviour</button>
+    
+        <div class="dualoption-title" style="display: none;"></div>
+        <button id="force_phone_btn" style="display: none;">force phone behaviour</button>
+        <button id="force_tablet_btn" style="display: none;">force tablet behaviour</button>
 
         <div class="setting_toggle" id="about_btn" title="Copies contact info to clipboard">About</div>
-        
+
     </div>
 
     <!--  nav  -->
@@ -548,7 +689,7 @@
         <div class="navbtn" id="list_btn">
             <div id="list_icon" class="navcon"></div>
         </div>
-        <div class="navbtn" id="table_btn">
+        <div class="navbtn_ative" id="table_btn">
             <div id="table_icon" class="navcon"></div>
         </div>
         <div class="navbtn" id="setting_btn">
