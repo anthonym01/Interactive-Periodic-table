@@ -1,0 +1,9 @@
+​rhombohedral 1
+hexagonal close-packed 4
+body-centered cubic 4
+​hexagonal 2
+simple hexagonal 1
+cubic 2
+​face-centered cubic 3
+ace-centered diamond-cubic 1
+orthorhombic 2
