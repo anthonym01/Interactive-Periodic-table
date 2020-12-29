@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     document.getElementById('Standard_atomic_weight_row').addEventListener('click', atom_info.detail_aviator.Standard_atomic_weight)
     document.getElementById('group_row').addEventListener('click', atom_info.detail_aviator.group)
     document.getElementById('aviator_shader').addEventListener('click', atom_info.detail_aviator.hide)
-    
+
 
     document.getElementById('Reactive_nonmetal').addEventListener('click', table.focus.Reactive_nonmetal)
     document.getElementById('Noble_gas').addEventListener('click', table.focus.Noble_gas)
