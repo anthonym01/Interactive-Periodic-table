@@ -2,7 +2,6 @@
   "appId": "com.ANTHONYM.periodictablemk2",
   "appName": "periodictable-mk2",
   "bundledWebRuntime": false,
-  "npmClient": "yarn",
   "webDir": "www",
   "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
   "plugins": {
